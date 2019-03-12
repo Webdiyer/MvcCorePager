@@ -1,0 +1,1131 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Webdiyer.AspNetCore.MvcCorePager</name>
+    </assembly>
+    <members>
+        <member name="T:Webdiyer.AspNetCore.AjaxPager">
+            <summary>
+      Returns an HTML container element with Ajax data attributes that contains a list of hyperlinks and text for providing paging functionality to the giver data.
+    </summary>
+        </member>
+        <member name="M:Webdiyer.AspNetCore.AjaxPager.#ctor(Microsoft.AspNetCore.Mvc.Rendering.IHtmlHelper,System.Int32,System.Int32,System.Int32,Webdiyer.AspNetCore.PagerOptions,Webdiyer.AspNetCore.MvcAjaxOptions)">
+            <summary>
+        Initializes a new instance of AjaxPager class with the specified AjaxHelper instance, total item count, page size, current page index, PagerOptions and MvcAjaxOptions instances.
+      </summary><param name="ajax">The AJAX helper instance that this method extends.</param><param name="totalItemCount">Total number of data items.</param><param name="pageSize">Page size.</param><param name="pageIndex">Current page index.</param><param name="pagerOptions">A PagerOptions object that provides options for the pagination settings.</param><param name="ajaxOptions">A MvcAjaxOptions object that provides options for the asynchronous request.</param>
+        </member>
+        <member name="M:Webdiyer.AspNetCore.AjaxPager.#ctor(Microsoft.AspNetCore.Mvc.Rendering.IHtmlHelper,Webdiyer.AspNetCore.IPagedList,Webdiyer.AspNetCore.PagerOptions,Webdiyer.AspNetCore.MvcAjaxOptions)">
+            <summary>
+        Initializes a new instance of AjaxPager class with the specified AjaxHelper instance, data object that implements the IPagedList interface, PagerOptions and MvcAjaxOptions instances.
+      </summary><param name="ajax">The AJAX helper instance that this method extends.</param><param name="pagedList">Data object that implements the IPagedList interface.</param><param name="pagerOptions">A PagerOptions object that provides options for the pagination settings.</param><param name="ajaxOptions">A MvcAjaxOptions object that provides options for the asynchronous request.</param>
+        </member>
+        <member name="M:Webdiyer.AspNetCore.AjaxPager.Options(System.Action{Webdiyer.AspNetCore.PagerOptionsBuilder})">
+            <summary>
+        Method used to create PagerOptions object.
+      </summary><param name="builder">
+        <summary>
+          
+        </summary>
+      </param>
+        </member>
+        <member name="M:Webdiyer.AspNetCore.AjaxPager.AjaxOptions(System.Action{Webdiyer.AspNetCore.MvcAjaxOptionsBuilder})">
+            <summary>
+        Method used to create MvcAjaxOptions object.
+      </summary><param name="builder">
+        <summary>
+
+        </summary>
+      </param>
+        </member>
+        <member name="T:Webdiyer.AspNetCore.DisplayNameExtensions">
+            <summary>
+        Provides a mechanism to get display names for the generic IPagedList&lt;T&gt; and PagedList&lt;T&gt; models.
+      </summary>
+        </member>
+        <member name="M:Webdiyer.AspNetCore.DisplayNameExtensions.DisplayNameFor``2(Microsoft.AspNetCore.Mvc.Rendering.IHtmlHelper{Webdiyer.AspNetCore.PagedList{``0}},System.Linq.Expressions.Expression{System.Func{``0,``1}})">
+            <summary>
+        Gets the display name for the model of type PagedList&lt;T&gt;.
+      </summary>
+        </member>
+        <member name="T:Webdiyer.AspNetCore.HtmlPager">
+            <summary>
+      Returns an HTML container element with data attributes that contains a list of hyperlinks and text for providing paging functionality to the giver data.
+    </summary>
+        </member>
+        <member name="M:Webdiyer.AspNetCore.HtmlPager.#ctor(Microsoft.AspNetCore.Mvc.Rendering.IHtmlHelper,System.Int32,System.Int32,System.Int32,Webdiyer.AspNetCore.PagerOptions)">
+            <summary>
+        Initializes a new instance of HtmlPager class with the specified HtmlHelper instance, total item count, page size, current page index and the PagerOptions instance.
+      </summary><param name="helper">The HTML helper instance that this method extends.</param><param name="totalItemCount">Total number of data items.</param><param name="pageSize">Page size.</param><param name="pageIndex">Current page index.</param><param name="pagerOptions">A PagerOptions object that provides options for the pagination settings.</param>
+        </member>
+        <member name="M:Webdiyer.AspNetCore.HtmlPager.#ctor(Microsoft.AspNetCore.Mvc.Rendering.IHtmlHelper,System.Int32,System.Int32,System.Int32)">
+            <summary>
+        Initializes a new instance of HtmlPager class with the specified HtmlHelper instance, total item count, page size and current page index.
+      </summary><param name="helper">The HTML helper instance that this method extends.</param><param name="totalItemCount">Total number of data items.</param><param name="pageSize">Current page index.</param><param name="pageIndex">Current page index.</param>
+        </member>
+        <member name="M:Webdiyer.AspNetCore.HtmlPager.#ctor(Microsoft.AspNetCore.Mvc.Rendering.IHtmlHelper,Webdiyer.AspNetCore.IPagedList,Webdiyer.AspNetCore.PagerOptions)">
+            <summary>
+        Initializes a new instance of HtmlPager class with the specified HtmlHelper instance, data object that implements the IPagedList interface and the PagerOptions instance.
+      </summary><param name="helper">The HTML helper instance that this method extends.</param><param name="pagedList">Data object that implements the IPagedList interface.</param><param name="pagerOptions">A PagerOptions object that provides options for the pagination settings.</param>
+        </member>
+        <member name="M:Webdiyer.AspNetCore.HtmlPager.#ctor(Microsoft.AspNetCore.Mvc.Rendering.IHtmlHelper,Webdiyer.AspNetCore.IPagedList)">
+            <summary>
+        Initializes a new instance of HtmlPager class with the specified HtmlHelper instance and data object that implements the IPagedList interface.
+      </summary><param name="helper">The HTML helper instance that this method extends.</param><param name="pagedList">Data object that implements the IPagedList interface.</param>
+        </member>
+        <member name="M:Webdiyer.AspNetCore.HtmlPager.Options(System.Action{Webdiyer.AspNetCore.PagerOptionsBuilder})">
+            <summary>
+
+      </summary>
+        </member>
+        <member name="T:Webdiyer.AspNetCore.IPagedList">
+            <summary>
+        Defines members that an object must implement in order to have paging functionality provided by the MvcPager control.
+      </summary>
+        </member>
+        <member name="P:Webdiyer.AspNetCore.IPagedList.CurrentPageIndex">
+            <summary>Gets or sets the current page index.</summary>
+        </member>
+        <member name="P:Webdiyer.AspNetCore.IPagedList.PageSize">
+            <summary>Gets or sets the number of data items that are displayed for each page of data.</summary>
+        </member>
+        <member name="P:Webdiyer.AspNetCore.IPagedList.TotalItemCount">
+            <summary>Gets or sets the total number of data items that are available for paging.</summary>
+        </member>
+        <member name="T:Webdiyer.AspNetCore.IPagedList`1">
+            <summary>
+        Defines members that an object must implement in order to have paging functionality provided by the MvcPager control.
+      </summary>
+        </member>
+        <member name="T:Webdiyer.AspNetCore.MvcAjaxOptions">
+            <summary>
+      Represents option settings for running Ajax scripts for the MvcPager control, this class inherits from AjaxOptions.
+    </summary>
+        </member>
+        <member name="P:Webdiyer.AspNetCore.MvcAjaxOptions.EnablePartialLoading">
+            <summary>
+        Gets or sets a value indicating whether partial page loading is enabled.
+      </summary>
+        </member>
+        <member name="P:Webdiyer.AspNetCore.MvcAjaxOptions.DataFormId">
+            <summary>
+        Gets or sets the ID of the form element that values of fields should be passed to server by MvcPager every time page changed.
+      </summary>
+        </member>
+        <member name="P:Webdiyer.AspNetCore.MvcAjaxOptions.AllowCache">
+            <summary>
+        Gets or sets a value indicating whether client cache is allowed.
+      </summary>
+        </member>
+        <member name="P:Webdiyer.AspNetCore.MvcAjaxOptions.EnableHistorySupport">
+            <summary>
+        Gets or sets a value indicating browser history support is enabled by adding hash(#) to url.
+      </summary>
+        </member>
+        <member name="T:Webdiyer.AspNetCore.MvcAjaxOptionsBuilder">
+            <summary>
+        Represents a MvcAjaxOptions builder that is used to create the MvcAjaxOptions object.
+      </summary>
+        </member>
+        <member name="M:Webdiyer.AspNetCore.MvcAjaxOptionsBuilder.#ctor(Webdiyer.AspNetCore.MvcAjaxOptions)">
+            <summary>
+        Initializes a new instance of the MvcAjaxOptionsBuilder class with a MvcAjaxOptions instance.
+      </summary><param name="ajaxOptions">
+        A MvcAjaxOptions instance contains option settings for running Ajax scripts for the MvcPager control.
+      </param>
+        </member>
+        <member name="M:Webdiyer.AspNetCore.MvcAjaxOptionsBuilder.SetUpdateTargetId(System.String)">
+            <summary>
+        Sets sets the ID of the DOM element to update by using the response from the server, it's equivalent of setting MvcAjaxOptions.UpdateTargetId to the given value.
+      </summary><param name="targetId">
+      </param>
+        </member>
+        <member name="M:Webdiyer.AspNetCore.MvcAjaxOptionsBuilder.SetHttpMethod(System.String)">
+            <summary>
+        Sets the HTTP request method ("Get" or "Post"), it's equivalent of setting MvcAjaxOptions.HttpMethod to the given value.
+      </summary><param name="method">
+      </param>
+        </member>
+        <member name="M:Webdiyer.AspNetCore.MvcAjaxOptionsBuilder.SetOnBegin(System.String)">
+            <summary>
+        Sets the name of the JavaScript function to call immediately before the page is updated, it's equivalent of setting MvcAjaxOptions.OnBegin to the given value.
+      </summary><param name="name">
+      </param>
+        </member>
+        <member name="M:Webdiyer.AspNetCore.MvcAjaxOptionsBuilder.SetOnSuccess(System.String)">
+            <summary>
+        Sets the JavaScript function to call after the page is successfully updated, it's equivalent of setting MvcAjaxOptions.OnSuccess to the given value.
+      </summary><param name="name">
+      </param>
+        </member>
+        <member name="M:Webdiyer.AspNetCore.MvcAjaxOptionsBuilder.SetOnComplete(System.String)">
+            <summary>
+        Sets the JavaScript function to call when response data has been instantiated but before the page is updated, it's equivalent of setting MvcAjaxOptions.OnComplete to the given value.
+      </summary><param name="name">
+      </param>
+        </member>
+        <member name="M:Webdiyer.AspNetCore.MvcAjaxOptionsBuilder.SetOnFailure(System.String)">
+            <summary>
+        Sets the JavaScript function to call if the page update fails, it's equivalent of setting MvcAjaxOptions.OnFailure to the given value.
+      </summary><param name="name">
+      </param>
+        </member>
+        <member name="M:Webdiyer.AspNetCore.MvcAjaxOptionsBuilder.SetLoadingElementId(System.String)">
+            <summary>
+        Sets the id attribute of an HTML element that is displayed while the Ajax function is loading, it's equivalent of setting MvcAjaxOptions.LoadingElementId to the given value.
+      </summary><param name="id">
+      </param>
+        </member>
+        <member name="M:Webdiyer.AspNetCore.MvcAjaxOptionsBuilder.SetLoadingElementDuration(System.Int32)">
+            <summary>
+        Sets a value, in milliseconds, that controls the duration of the animation when showing or hiding the loading element, it's equivalent of setting MvcAjaxOptions.LoadingElementDuration to the given value.
+      </summary><param name="duration">
+      </param>
+        </member>
+        <member name="M:Webdiyer.AspNetCore.MvcAjaxOptionsBuilder.SetConfirm(System.String)">
+            <summary>
+        Sets the message to display in a confirmation window before a request is submitted, it's equivalent of setting MvcAjaxOptions.Confirm to the given value.
+      </summary><param name="confirm">
+      </param>
+        </member>
+        <member name="M:Webdiyer.AspNetCore.MvcAjaxOptionsBuilder.EnablePartialLoading">
+            <summary>
+        Sets a value indicating whether partial page loading is enabled, it's equivalent of setting MvcAjaxOptions.EnablePartialLoading to true.
+      </summary>
+        </member>
+        <member name="M:Webdiyer.AspNetCore.MvcAjaxOptionsBuilder.SetDataFormId(System.String)">
+            <summary>
+        Sets the ID of the form element that values of fields should be passed to server by MvcPager every time page changed, it's equivalent of setting MvcAjaxOptions.DataFormId to the given value.
+      </summary><param name="id">
+      </param>
+        </member>
+        <member name="M:Webdiyer.AspNetCore.MvcAjaxOptionsBuilder.DisallowCache">
+            <summary>
+        Disables the client cache, it's equivalent of setting MvcAjaxOptions.AllowCache to false.
+      </summary>
+        </member>
+        <member name="M:Webdiyer.AspNetCore.MvcAjaxOptionsBuilder.DisableHistorySupport">
+            <summary>
+        Disables the browser history support, it's equivalent of setting MvcAjaxOptions.EnableHistorySupport to false.
+      </summary>
+        </member>
+        <member name="T:Webdiyer.AspNetCore.MvcCorePagerResources">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:Webdiyer.AspNetCore.MvcCorePagerResources.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:Webdiyer.AspNetCore.MvcCorePagerResources.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:Webdiyer.AspNetCore.MvcCorePagerResources.CopyrightText">
+            <summary>
+              Looks up a localized string similar to &lt;!--MvcPagerCore v1.0 for ASP.NET Core MVC 1.1+ © 2017 Webdiyer (http://en.webdiyer.com)--&gt;.
+            </summary>
+        </member>
+        <member name="P:Webdiyer.AspNetCore.MvcCorePagerResources.FirstPageText">
+            <summary>
+              Looks up a localized string similar to First.
+            </summary>
+        </member>
+        <member name="P:Webdiyer.AspNetCore.MvcCorePagerResources.InvalidPageIndexErrorMessage">
+            <summary>
+              Looks up a localized string similar to Page index is invalid.
+            </summary>
+        </member>
+        <member name="P:Webdiyer.AspNetCore.MvcCorePagerResources.LastPageText">
+            <summary>
+              Looks up a localized string similar to Last.
+            </summary>
+        </member>
+        <member name="P:Webdiyer.AspNetCore.MvcCorePagerResources.NextPageText">
+            <summary>
+              Looks up a localized string similar to Next.
+            </summary>
+        </member>
+        <member name="P:Webdiyer.AspNetCore.MvcCorePagerResources.PageIndexOutOfRangeErrorMessage">
+            <summary>
+              Looks up a localized string similar to Page index is out of range.
+            </summary>
+        </member>
+        <member name="P:Webdiyer.AspNetCore.MvcCorePagerResources.PrevPageText">
+            <summary>
+              Looks up a localized string similar to Prev.
+            </summary>
+        </member>
+        <member name="P:Webdiyer.AspNetCore.MvcCorePagerResources.TagNameCannotBeNull">
+            <summary>
+              Looks up a localized string similar to Tag name cannot be null or empty.
+            </summary>
+        </member>
+        <member name="P:Webdiyer.AspNetCore.MvcCorePagerTagHelper.FirstPageRouteName">
+            <summary>
+        Gets or sets the route name for the generation of the first page url.
+      </summary>
+        </member>
+        <member name="P:Webdiyer.AspNetCore.MvcCorePagerTagHelper.AutoHide">
+            <summary>
+        Gets or sets a value indicating whether MvcPager should be hidden if there's only one page of data.
+      </summary>
+        </member>
+        <member name="P:Webdiyer.AspNetCore.MvcCorePagerTagHelper.PageIndexOutOfRangeErrorMessage">
+            <summary>
+        Gets or sets the error message to be displayed when page index is oute of range (less than 1 or larger than total pages count).
+      </summary>
+        </member>
+        <member name="P:Webdiyer.AspNetCore.MvcCorePagerTagHelper.InvalidPageIndexErrorMessage">
+            <summary>
+        Gets or sets the error message to be displayed when page index is invalid (not a valid integer).
+      </summary>
+        </member>
+        <member name="P:Webdiyer.AspNetCore.MvcCorePagerTagHelper.PageIndexParameterName">
+            <summary>
+        Gets or sets the page index parameter name in the current route.
+      </summary>
+        </member>
+        <member name="P:Webdiyer.AspNetCore.MvcCorePagerTagHelper.PageNumberFormatString">
+            <summary>
+Gets or sets the format string for all numeric pager items.
+      </summary>
+        </member>
+        <member name="P:Webdiyer.AspNetCore.MvcCorePagerTagHelper.CurrentPageNumberFormatString">
+            <summary>
+Gets or sets the format string for the current page number.
+      </summary>
+        </member>
+        <member name="P:Webdiyer.AspNetCore.MvcCorePagerTagHelper.TagName">
+            <summary>
+        Gets or sets the HTML tag name for the container element of the pager.
+      </summary>
+        </member>
+        <member name="P:Webdiyer.AspNetCore.MvcCorePagerTagHelper.PagerItemTemplate">
+            <summary>
+Gets or sets the html template to be applied to all pager items.
+      </summary>
+        </member>
+        <member name="P:Webdiyer.AspNetCore.MvcCorePagerTagHelper.NumericPagerItemTemplate">
+            <summary>
+Gets or sets the html template for the numeric pager items.
+      </summary>
+        </member>
+        <member name="P:Webdiyer.AspNetCore.MvcCorePagerTagHelper.CurrentPagerItemTemplate">
+            <summary>
+Gets or sets the html template to be applied to the current page pager item.
+      </summary>
+        </member>
+        <member name="P:Webdiyer.AspNetCore.MvcCorePagerTagHelper.NavigationPagerItemTemplate">
+            <summary>
+Gets or sets the html template to be applied to the first, previous, next and last page pager items.
+      </summary>
+        </member>
+        <member name="P:Webdiyer.AspNetCore.MvcCorePagerTagHelper.MorePagerItemTemplate">
+            <summary>
+Gets or sets the html template to be applied to the more pager items.
+      </summary>
+        </member>
+        <member name="P:Webdiyer.AspNetCore.MvcCorePagerTagHelper.DisabledPagerItemTemplate">
+            <summary>
+Gets or sets the html template to be applied to the disabled pager items.
+      </summary>
+        </member>
+        <member name="P:Webdiyer.AspNetCore.MvcCorePagerTagHelper.AlwaysShowFirstLastPageNumber">
+            <summary>
+        Gets or sets a value indicating whether the first and the last numeric pager items should be displayed.
+      </summary>
+        </member>
+        <member name="P:Webdiyer.AspNetCore.MvcCorePagerTagHelper.NumericPagerItemCount">
+            <summary>
+Gets or sets the maximum number of the numeric pager items to be displayed.
+      </summary>
+        </member>
+        <member name="P:Webdiyer.AspNetCore.MvcCorePagerTagHelper.ShowPrevNext">
+            <Property name="ShowPrevNext">
+      <summary>
+        Gets or sets a value indicating whether the previous page and the next page pager items should be displayed.
+      </summary>
+    </Property>
+        </member>
+        <member name="P:Webdiyer.AspNetCore.MvcCorePagerTagHelper.PrevPageText">
+            <summary>
+Gets or sets the text displayed for the previous page pager item.
+      </summary>
+        </member>
+        <member name="P:Webdiyer.AspNetCore.MvcCorePagerTagHelper.NextPageText">
+            <summary>
+Gets or sets the text displayed for the next page pager item.
+      </summary>
+        </member>
+        <member name="P:Webdiyer.AspNetCore.MvcCorePagerTagHelper.ShowNumericPagerItems">
+            <Property name="ShowNumericPagerItems">
+      <summary>
+Gets or sets a value indicating whether the numeric pager items should be displayed.
+      </summary>
+    </Property>
+        </member>
+        <member name="P:Webdiyer.AspNetCore.MvcCorePagerTagHelper.ShowFirstLast">
+            <Property name="ShowFirstLast">
+      <summary>
+        Gets or sets a value indicating whether the first and last paging buttons are displayed.
+      </summary>
+    </Property><Property name="ShowFirstLast">
+      <summary>
+        Gets or sets a value indicating whether the first page and the last page pager items should be displayed.
+      </summary>
+    </Property>
+        </member>
+        <member name="P:Webdiyer.AspNetCore.MvcCorePagerTagHelper.FirstPageText">
+            <summary>
+        Gets or sets the text displayed for the first page button.
+      </summary>
+        </member>
+        <member name="P:Webdiyer.AspNetCore.MvcCorePagerTagHelper.LastPageText">
+            <summary>
+Gets or sets the text displayed for the last page pager item.
+      </summary>
+        </member>
+        <member name="P:Webdiyer.AspNetCore.MvcCorePagerTagHelper.ShowMorePagerItems">
+            <summary>
+       Gets or sets a value indicating whether the more pager items should be displayed.
+      </summary>
+        </member>
+        <member name="P:Webdiyer.AspNetCore.MvcCorePagerTagHelper.MorePageText">
+            <summary>
+Gets or sets the text displayed for the more pager items.
+      </summary>
+        </member>
+        <member name="P:Webdiyer.AspNetCore.MvcCorePagerTagHelper.Id">
+            <summary>
+Gets or sets the ID of the top DOM element that is the container of all pager items.
+      </summary>
+        </member>
+        <member name="P:Webdiyer.AspNetCore.MvcCorePagerTagHelper.CssClass">
+            <summary>
+Gets or sets the css class to be applied to container element of the pager.
+      </summary>
+        </member>
+        <member name="P:Webdiyer.AspNetCore.MvcCorePagerTagHelper.ShowDisabledPagerItems">
+            <summary>
+Gets or sets a value indicating whether the disabled pager items should be displayed.
+      </summary>
+        </member>
+        <member name="P:Webdiyer.AspNetCore.MvcCorePagerTagHelper.MaximumPageNumber">
+            <summary>
+Gets or sets the maximum page number limitation, default value is 0, which means maximum page number is calculated from the data to be paged.
+      </summary>
+        </member>
+        <member name="P:Webdiyer.AspNetCore.MvcCorePagerTagHelper.HidePagerItems">
+            <summary>
+        Gets or sets a value indicating whether MvcPager should be hidden (in case you need to create your own pager UI).
+      </summary>
+        </member>
+        <member name="P:Webdiyer.AspNetCore.MvcCorePagerTagHelper.NavigationPagerItemsPosition">
+            <summary>
+        Gets or sets the position of the first, previous, next and last pager items.
+      </summary>
+        </member>
+        <member name="P:Webdiyer.AspNetCore.MvcCorePagerTagHelper.OnPageIndexError">
+            <summary>
+        Gets or sets the Javascript function to call when page index errors occured.
+      </summary>
+        </member>
+        <member name="P:Webdiyer.AspNetCore.MvcCorePagerTagHelper.Action">
+            <summary>
+            The name of the action method.
+            </summary>
+        </member>
+        <member name="P:Webdiyer.AspNetCore.MvcCorePagerTagHelper.Controller">
+            <summary>
+            The name of the controller.
+            </summary>
+        </member>
+        <member name="P:Webdiyer.AspNetCore.MvcCorePagerTagHelper.Area">
+            <summary>
+            The name of the area.
+            </summary>
+        </member>
+        <member name="P:Webdiyer.AspNetCore.MvcCorePagerTagHelper.Method">
+            <summary>
+            The HTTP method to use.
+            </summary>
+            <remarks>Passed through to the generated HTML in all cases.</remarks>
+        </member>
+        <member name="P:Webdiyer.AspNetCore.MvcCorePagerTagHelper.RouteValues">
+            <summary>
+          Gets or sets the object that contains the parameters for the route used by MvcPager.
+        </summary>
+            <summary>
+            Additional parameters for the route.
+            </summary>
+        </member>
+        <member name="P:Webdiyer.AspNetCore.MvcCorePagerTagHelper.AjaxPartialLoading">
+            <summary>
+        Gets or sets a value indicating whether partial page loading is enabled.
+      </summary>
+        </member>
+        <member name="P:Webdiyer.AspNetCore.MvcCorePagerTagHelper.AjaxDataFormId">
+            <summary>
+        Gets or sets the ID of the form element that values of fields should be passed to server by MvcPager every time page changed.
+      </summary>
+        </member>
+        <member name="P:Webdiyer.AspNetCore.MvcCorePagerTagHelper.AjaxHistorySupport">
+            <summary>
+        Gets or sets a value indicating browser history support is enabled by adding hash(#) to url.
+      </summary>
+        </member>
+        <member name="T:Webdiyer.AspNetCore.PagedList`1">
+            <summary>
+      Represents a strongly typed list of objects that can be accessed by index and contains metadata for paging.
+    </summary>
+        </member>
+        <member name="M:Webdiyer.AspNetCore.PagedList`1.#ctor(System.Collections.Generic.IEnumerable{`0},System.Int32,System.Int32)">
+            <summary>
+      Initializes a new instance of the PagedList class using the data to be paged, current page index and page size.
+    </summary><param name="allItems">All items to be paged</param><param name="pageIndex">Current page index</param><param name="pageSize">Page size</param>
+        </member>
+        <member name="M:Webdiyer.AspNetCore.PagedList`1.#ctor(System.Collections.Generic.IEnumerable{`0},System.Int32,System.Int32,System.Int32)">
+            <summary>
+     Initializes a new instance of the PagedList class using current page items, current page index, page size and the total item count.
+    </summary><param name="currentPageItems">Object that contains data to be displayed on page, should implements IEnumerable&lt;T&gt; interface;</param><param name="pageIndex">Current page index</param><param name="pageSize">Page size</param><param name="totalItemCount">The total number of records that are available for paging</param>
+        </member>
+        <member name="M:Webdiyer.AspNetCore.PagedList`1.#ctor(System.Linq.IQueryable{`0},System.Int32,System.Int32)">
+            <summary>
+      Initializes a new instance of the PagedList class using the data to be paged, current page index and page size.
+    </summary><param name="allItems">All items to be paged</param><param name="pageIndex">Current page index</param><param name="pageSize">Page size</param>
+        </member>
+        <member name="M:Webdiyer.AspNetCore.PagedList`1.#ctor(System.Linq.IQueryable{`0},System.Int32,System.Int32,System.Int32)">
+            <summary>
+      Initializes a new instance of the PagedList class using current page items, current page index, page size and the total item count.
+    </summary><param name="currentPageItems">Object that contains data to be displayed on page, should implements IQueryable&lt;T&gt; interface</param><param name="pageIndex">Current page index</param><param name="pageSize">Page size</param><param name="totalItemCount">The total number of records that are available for paging</param>
+        </member>
+        <member name="P:Webdiyer.AspNetCore.PagedList`1.CurrentPageIndex">
+            <summary>Gets or sets the current page index.</summary>
+        </member>
+        <member name="P:Webdiyer.AspNetCore.PagedList`1.PageSize">
+            <summary>Gets or sets the number of data items that are displayed for each page of data.</summary>
+        </member>
+        <member name="P:Webdiyer.AspNetCore.PagedList`1.TotalItemCount">
+            <summary>Gets or sets the total number of records that are available for paging.</summary>
+        </member>
+        <member name="P:Webdiyer.AspNetCore.PagedList`1.TotalPageCount">
+            <summary>Gets or sets the total number of data items that are available for paging.</summary>
+        </member>
+        <member name="P:Webdiyer.AspNetCore.PagedList`1.StartItemIndex">
+            <summary>Gets the index of the first data item that is displayed on a page of data.</summary>
+        </member>
+        <member name="P:Webdiyer.AspNetCore.PagedList`1.EndItemIndex">
+            <summary>Gets the index of the last data item that is displayed on a page of data.</summary>
+        </member>
+        <member name="T:Webdiyer.AspNetCore.PageLinqExtensions">
+            <summary>
+      This class contains two ToPagedList extension methods which return a strongly typed PagedList&lt;T&gt; object, one for IQueryable&lt;T&gt; and one for IEnumerable&lt;T&gt;
+    </summary>
+        </member>
+        <member name="M:Webdiyer.AspNetCore.PageLinqExtensions.ToPagedList``1(System.Linq.IQueryable{``0},System.Int32,System.Int32)">
+            <summary>
+        Create a strongly typed PagedList object using all items, current page index and page size.
+      </summary><param name="allItems">A sequence of data items that implemented IQueryable interface.</param><param name="pageIndex">Current page index.</param><param name="pageSize">The number of data items that are displayed for each page of data.</param>
+        </member>
+        <member name="M:Webdiyer.AspNetCore.PageLinqExtensions.ToPagedList``1(System.Collections.Generic.IEnumerable{``0},System.Int32,System.Int32)">
+            <summary>
+        Create a strongly typed PagedList object using all items, current page index and page size.
+      </summary><param name="allItems">A sequence of data items that implemented IEnumerable interface.</param><param name="pageIndex">Current page index.</param><param name="pageSize">The number of data items that are displayed for each page of data.</param>
+        </member>
+        <member name="M:Webdiyer.AspNetCore.PageLinqExtensions.ToPagedListAsync``1(System.Linq.IQueryable{``0},System.Int32,System.Int32)">
+            <summary>
+        Async method for creating a strongly typed PagedList object using all items, current page index and page size.
+      </summary><param name="allItems">A sequence of data items that implemented IQueryable interface.</param><param name="pageIndex">Current page index.</param><param name="pageSize">The number of data items that are displayed for each page of data.</param>
+        </member>
+        <member name="M:Webdiyer.AspNetCore.PageLinqExtensions.ToPagedListAsync``1(System.Collections.Generic.IEnumerable{``0},System.Int32,System.Int32)">
+            <summary>
+        Async method for creating a strongly typed PagedList object using all items, current page index and page size.
+      </summary><param name="allItems">A sequence of data items that implemented IEnumerable interface.</param><param name="pageIndex">Current page index.</param><param name="pageSize">The number of data items that are displayed for each page of data.</param>
+        </member>
+        <member name="M:Webdiyer.AspNetCore.PagerBuilder.GenerateUrl(System.Int32)">
+            <summary>
+            Generate pagination url using page index
+            </summary>
+            <param name="pageIndex">Page index</param>
+            <returns>Pagination url</returns>
+        </member>
+        <member name="M:Webdiyer.AspNetCore.PagerBuilder.GenerateHtml">
+            <summary>
+            Generate final html code
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Webdiyer.AspNetCore.PagerExtensions">
+            <summary>
+      Represents support for HtmlPager and AjaxPager in an application.
+    </summary>
+        </member>
+        <member name="M:Webdiyer.AspNetCore.PagerExtensions.Pager(Microsoft.AspNetCore.Mvc.Rendering.IHtmlHelper,System.Int32,System.Int32,System.Int32,Webdiyer.AspNetCore.PagerOptions)">
+            <summary>Returns an HtmlPager object with total item count, page size, current page index and the PagerOptions instance.</summary><param name="helper">The HTML helper instance that this method extends.</param><param name="totalItemCount">Total number of data items.</param><param name="pageSize">Page size.</param><param name="pageIndex">Current page index.</param><param name="pagerOptions">A PagerOptions object that provides options for the pagination settings.</param><returns>HtmlPager</returns>
+        </member>
+        <member name="M:Webdiyer.AspNetCore.PagerExtensions.Pager(Microsoft.AspNetCore.Mvc.Rendering.IHtmlHelper,System.Int32,System.Int32,System.Int32)">
+            <summary>Returns an HtmlPager object with total item count, page size and current page index.</summary><param name="helper">The HTML helper instance that this method extends.</param><param name="totalItemCount">Total number of data items.</param><param name="pageSize">Page size.</param><param name="pageIndex">Current page index.</param><returns>HtmlPager</returns>
+        </member>
+        <member name="M:Webdiyer.AspNetCore.PagerExtensions.Pager(Microsoft.AspNetCore.Mvc.Rendering.IHtmlHelper,Webdiyer.AspNetCore.IPagedList)">
+            <summary>Returns an HtmlPager object with the data object that implements the IPagedList interface.</summary><param name="helper">The HTML helper instance that this method extends.</param><param name="pagedList">Data object that implements the IPagedList interface.</param><returns>HtmlPager</returns>
+        </member>
+        <member name="M:Webdiyer.AspNetCore.PagerExtensions.Pager(Microsoft.AspNetCore.Mvc.Rendering.IHtmlHelper,Webdiyer.AspNetCore.IPagedList,Webdiyer.AspNetCore.PagerOptions)">
+            <summary>
+      Returns an HtmlPager object with the data object that implements the IPagedList interface and the PagerOptions instance.
+    </summary><param name="helper">The HTML helper instance that this method extends.</param><param name="pagedList">Data object that implements the IPagedList interface.</param><param name="pagerOptions">A PagerOptions object that provides options for the pagination settings.</param><returns>HtmlPager</returns>
+        </member>
+        <member name="M:Webdiyer.AspNetCore.PagerExtensions.AjaxPager(Microsoft.AspNetCore.Mvc.Rendering.IHtmlHelper,System.Int32,System.Int32,System.Int32,Webdiyer.AspNetCore.PagerOptions,Webdiyer.AspNetCore.MvcAjaxOptions)">
+            <summary>
+      Returns an AjaxPager object with total item count, page size, current page index, PagerOptions and MvcAjaxOptions instances.
+    </summary><param name="ajax">The AJAX helper instance that this method extends.</param><param name="totalItemCount">Total number of data items.</param><param name="pageSize">Page size.</param><param name="pageIndex">Current page index.</param><param name="pagerOptions">A PagerOptions object that provides options for the pagination settings.</param><param name="ajaxOptions">A MvcAjaxOptions object that provides options for the asynchronous request.</param><returns>AjaxPager</returns>
+        </member>
+        <member name="M:Webdiyer.AspNetCore.PagerExtensions.AjaxPager(Microsoft.AspNetCore.Mvc.Rendering.IHtmlHelper,Webdiyer.AspNetCore.IPagedList)">
+            <summary>
+      Returns an AjaxPager object with the data object that implements the IPagedList interface.
+    </summary><param name="ajax">The AJAX helper instance that this method extends.</param><param name="pagedList">Data object that implements the IPagedList interface.</param><returns>AjaxPager</returns>
+        </member>
+        <member name="M:Webdiyer.AspNetCore.PagerExtensions.AjaxPager(Microsoft.AspNetCore.Mvc.Rendering.IHtmlHelper,Webdiyer.AspNetCore.IPagedList,Webdiyer.AspNetCore.PagerOptions)">
+            <summary>
+      Returns an AjaxPager object with the data object that implements the IPagedList interface and the PagerOptions instance.
+    </summary><param name="ajax">The AJAX helper instance that this method extends.</param><param name="pagedList">Data object that implements the IPagedList interface.</param><param name="pagerOptions">A PagerOptions object that provides options for the pagination settings.</param><returns>AjaxPager</returns>
+        </member>
+        <member name="M:Webdiyer.AspNetCore.PagerExtensions.AjaxPager(Microsoft.AspNetCore.Mvc.Rendering.IHtmlHelper,Webdiyer.AspNetCore.IPagedList,Webdiyer.AspNetCore.PagerOptions,Webdiyer.AspNetCore.MvcAjaxOptions)">
+            <summary>
+      Returns an AjaxPager object with the data object that implements the IPagedList interface, PagerOptions and MvcAjaxOptions instances.
+    </summary><param name="ajax">The AJAX helper instance that this method extends.</param><param name="pagedList">Data object that implements the IPagedList interface.</param><param name="pagerOptions">A PagerOptions object that provides options for the pagination settings.</param><param name="ajaxOptions">A MvcAjaxOptions object that provides options for the asynchronous request.</param><returns>AjaxPager</returns>
+        </member>
+        <member name="T:Webdiyer.AspNetCore.PagerItemsPosition">
+            <summary>
+      Specifies the position of the first, previous, next and last navigation buttons within MvcPager.
+    </summary>
+        </member>
+        <member name="F:Webdiyer.AspNetCore.PagerItemsPosition.BothSide">
+            <summary>Both side</summary>
+        </member>
+        <member name="F:Webdiyer.AspNetCore.PagerItemsPosition.Left">
+            <summary>Left side</summary>
+        </member>
+        <member name="F:Webdiyer.AspNetCore.PagerItemsPosition.Right">
+            <summary>Right side</summary>
+        </member>
+        <member name="T:Webdiyer.AspNetCore.PagerOptions">
+            <summary>
+      Represents option settings for MvcPager.
+    </summary>
+        </member>
+        <member name="M:Webdiyer.AspNetCore.PagerOptions.#ctor">
+            <summary>
+        Initializes a new instance of the PagerOptions class with default property values.
+      </summary>
+        </member>
+        <member name="P:Webdiyer.AspNetCore.PagerOptions.Action">
+            <summary>
+          Gets or sets the name of the action method.
+        </summary>
+        </member>
+        <member name="P:Webdiyer.AspNetCore.PagerOptions.Controller">
+            <summary>
+          The name of the controller class.
+        </summary>
+        </member>
+        <member name="P:Webdiyer.AspNetCore.PagerOptions.Area">
+            <summary>
+        The name of the area.
+      </summary>
+        </member>
+        <member name="P:Webdiyer.AspNetCore.PagerOptions.Route">
+            <summary>
+          Gets or sets the name of the route that is used to generate paging urls.
+        </summary>
+        </member>
+        <member name="P:Webdiyer.AspNetCore.PagerOptions.OverwriteUrlFormat">
+            <!-- No matching elements were found for the following include tag --><include file="MvcCorePagerDocs.xml" path="MvcCorePagerDocs/PagerOptions/Property[@name=&quot;OverwriteUrlFormat&quot;]/*" />
+        </member>
+        <member name="P:Webdiyer.AspNetCore.PagerOptions.RouteValues">
+            <summary>
+          Gets or sets the object that contains the parameters for the route used by MvcPager.
+        </summary>
+        </member>
+        <member name="P:Webdiyer.AspNetCore.PagerOptions.HtmlAttributes">
+            <summary>
+          Gets or sets the object that contains the HTML attributes to set for the MvcPager.
+        </summary>
+        </member>
+        <member name="P:Webdiyer.AspNetCore.PagerOptions.FirstPageRoute">
+            <summary>
+        Gets or sets the route name for the generation of the first page url.
+      </summary>
+        </member>
+        <member name="P:Webdiyer.AspNetCore.PagerOptions.AutoHide">
+            <summary>
+        Gets or sets a value indicating whether MvcPager should be hidden if there's only one page of data.
+      </summary>
+        </member>
+        <member name="P:Webdiyer.AspNetCore.PagerOptions.PageIndexOutOfRangeErrorMessage">
+            <summary>
+        Gets or sets the error message to be displayed when page index is oute of range (less than 1 or larger than total pages count).
+      </summary>
+        </member>
+        <member name="P:Webdiyer.AspNetCore.PagerOptions.InvalidPageIndexErrorMessage">
+            <summary>
+        Gets or sets the error message to be displayed when page index is invalid (not a valid integer).
+      </summary>
+        </member>
+        <member name="P:Webdiyer.AspNetCore.PagerOptions.PageIndexParameterName">
+            <summary>
+        Gets or sets the page index parameter name in the current route.
+      </summary>
+        </member>
+        <member name="P:Webdiyer.AspNetCore.PagerOptions.PageIndexBoxId">
+            <summary>
+        Gets or sets the ID of the page index box (must be textbox or dropdownlist).
+      </summary>
+        </member>
+        <member name="P:Webdiyer.AspNetCore.PagerOptions.GoToButtonId">
+            <summary>
+        Gets or sets the id value of the go to button for the page index box, if this property value is not set, pagechanged event will be fired after value of the pager index box is changed(fired by javascript onchange event).
+      </summary>
+        </member>
+        <member name="P:Webdiyer.AspNetCore.PagerOptions.MaximumPageIndexItems">
+            <summary>
+Gets or sets the maximum number of page indices to be displayed within page index dropdownlist, this property value has no effect if page index box is a textbox,
+      </summary>
+        </member>
+        <member name="P:Webdiyer.AspNetCore.PagerOptions.PageNumberFormatString">
+            <summary>
+Gets or sets the format string for all numeric pager items.
+      </summary>
+        </member>
+        <member name="P:Webdiyer.AspNetCore.PagerOptions.CurrentPageNumberFormatString">
+            <summary>
+Gets or sets the format string for the current page number.
+      </summary>
+        </member>
+        <member name="P:Webdiyer.AspNetCore.PagerOptions.TagName">
+            <summary>
+        Gets or sets the HTML tag name for the container element of the pager.
+      </summary>
+        </member>
+        <member name="P:Webdiyer.AspNetCore.PagerOptions.PagerItemTemplate">
+            <summary>
+Gets or sets the html template to be applied to all pager items.
+      </summary>
+        </member>
+        <member name="P:Webdiyer.AspNetCore.PagerOptions.NumericPagerItemTemplate">
+            <summary>
+Gets or sets the html template for the numeric pager items.
+      </summary>
+        </member>
+        <member name="P:Webdiyer.AspNetCore.PagerOptions.CurrentPagerItemTemplate">
+            <summary>
+Gets or sets the html template to be applied to the current page pager item.
+      </summary>
+        </member>
+        <member name="P:Webdiyer.AspNetCore.PagerOptions.NavigationPagerItemTemplate">
+            <summary>
+Gets or sets the html template to be applied to the first, previous, next and last page pager items.
+      </summary>
+        </member>
+        <member name="P:Webdiyer.AspNetCore.PagerOptions.MorePagerItemTemplate">
+            <summary>
+Gets or sets the html template to be applied to the more pager items.
+      </summary>
+        </member>
+        <member name="P:Webdiyer.AspNetCore.PagerOptions.DisabledPagerItemTemplate">
+            <summary>
+Gets or sets the html template to be applied to the disabled pager items.
+      </summary>
+        </member>
+        <member name="P:Webdiyer.AspNetCore.PagerOptions.AlwaysShowFirstLastPageNumber">
+            <summary>
+        Gets or sets a value indicating whether the first and the last numeric pager items should be displayed.
+      </summary>
+        </member>
+        <member name="P:Webdiyer.AspNetCore.PagerOptions.NumericPagerItemCount">
+            <summary>
+Gets or sets the maximum number of the numeric pager items to be displayed.
+      </summary>
+        </member>
+        <member name="P:Webdiyer.AspNetCore.PagerOptions.ShowPrevNext">
+            <Property name="ShowPrevNext">
+      <summary>
+        Gets or sets a value indicating whether the previous page and the next page pager items should be displayed.
+      </summary>
+    </Property>
+        </member>
+        <member name="P:Webdiyer.AspNetCore.PagerOptions.PrevPageText">
+            <summary>
+Gets or sets the text displayed for the previous page pager item.
+      </summary>
+        </member>
+        <member name="P:Webdiyer.AspNetCore.PagerOptions.NextPageText">
+            <summary>
+Gets or sets the text displayed for the next page pager item.
+      </summary>
+        </member>
+        <member name="P:Webdiyer.AspNetCore.PagerOptions.ShowNumericPagerItems">
+            <Property name="ShowNumericPagerItems">
+      <summary>
+Gets or sets a value indicating whether the numeric pager items should be displayed.
+      </summary>
+    </Property>
+        </member>
+        <member name="P:Webdiyer.AspNetCore.PagerOptions.ShowFirstLast">
+            <Property name="ShowFirstLast">
+      <summary>
+        Gets or sets a value indicating whether the first and last paging buttons are displayed.
+      </summary>
+    </Property><Property name="ShowFirstLast">
+      <summary>
+        Gets or sets a value indicating whether the first page and the last page pager items should be displayed.
+      </summary>
+    </Property>
+        </member>
+        <member name="P:Webdiyer.AspNetCore.PagerOptions.FirstPageText">
+            <summary>
+        Gets or sets the text displayed for the first page button.
+      </summary>
+        </member>
+        <member name="P:Webdiyer.AspNetCore.PagerOptions.LastPageText">
+            <summary>
+Gets or sets the text displayed for the last page pager item.
+      </summary>
+        </member>
+        <member name="P:Webdiyer.AspNetCore.PagerOptions.ShowMorePagerItems">
+            <summary>
+       Gets or sets a value indicating whether the more pager items should be displayed.
+      </summary>
+        </member>
+        <member name="P:Webdiyer.AspNetCore.PagerOptions.MorePageText">
+            <summary>
+Gets or sets the text displayed for the more pager items.
+      </summary>
+        </member>
+        <member name="P:Webdiyer.AspNetCore.PagerOptions.Id">
+            <summary>
+Gets or sets the ID of the top DOM element that is the container of all pager items.
+      </summary>
+        </member>
+        <member name="P:Webdiyer.AspNetCore.PagerOptions.HorizontalAlign">
+            <summary>
+Gets or sets the horizontal alignment of a MvcPager on the page.
+      </summary>
+        </member>
+        <member name="P:Webdiyer.AspNetCore.PagerOptions.CssClass">
+            <summary>
+Gets or sets the css class to be applied to container element of the pager.
+      </summary>
+        </member>
+        <member name="P:Webdiyer.AspNetCore.PagerOptions.ShowDisabledPagerItems">
+            <summary>
+Gets or sets a value indicating whether the disabled pager items should be displayed.
+      </summary>
+        </member>
+        <member name="P:Webdiyer.AspNetCore.PagerOptions.MaximumPageNumber">
+            <summary>
+Gets or sets the maximum page number limitation, default value is 0, which means maximum page number is calculated from the data to be paged.
+      </summary>
+        </member>
+        <member name="P:Webdiyer.AspNetCore.PagerOptions.HidePagerItems">
+            <summary>
+        Gets or sets a value indicating whether MvcPager should be hidden (in case you need to create your own pager UI).
+      </summary>
+        </member>
+        <member name="P:Webdiyer.AspNetCore.PagerOptions.NavigationPagerItemsPosition">
+            <summary>
+        Gets or sets the position of the first, previous, next and last pager items.
+      </summary>
+        </member>
+        <member name="P:Webdiyer.AspNetCore.PagerOptions.OnPageIndexError">
+            <summary>
+        Gets or sets the Javascript function to call when page index errors occured.
+      </summary>
+        </member>
+        <member name="T:Webdiyer.AspNetCore.PagerOptionsBuilder">
+            <summary>
+      Represents a PagerOptions builder that is used to create the PagerOptions object.
+    </summary>
+        </member>
+        <member name="M:Webdiyer.AspNetCore.PagerOptionsBuilder.#ctor(Webdiyer.AspNetCore.PagerOptions)">
+            <summary>
+      Initializes a new instance of the PagerOptionsBuilder class with a PagerOptions instance.
+    </summary><param name="pagerOptions">
+      An PagerOptions instance contains option settings for the MvcPager control.
+    </param>
+        </member>
+        <member name="M:Webdiyer.AspNetCore.PagerOptionsBuilder.SetAction(System.String)">
+            <summary>
+      Sets the Action property of PagerOptions with a given value.
+    </summary><param name="actionName">
+      The name of the action method.
+    </param>
+        </member>
+        <member name="M:Webdiyer.AspNetCore.PagerOptionsBuilder.SetController(System.String)">
+            <summary>
+      Sets the Controller property of PagerOptions with a given value
+    </summary><param name="controllerName">
+      The name of the controller class.
+    </param>
+        </member>
+        <member name="M:Webdiyer.AspNetCore.PagerOptionsBuilder.SetArea(System.String)">
+            <summary>
+        Sets the Area property of PagerOptions with a given value.
+      </summary><param name="areaName">
+        The name of the area.
+      </param>
+        </member>
+        <member name="M:Webdiyer.AspNetCore.PagerOptionsBuilder.AddHtmlAttribute(System.String,System.Object)">
+            <summary>
+      Adds an item to HtmlAttributes property of PagerOptions
+    </summary><param name="key">The name of the html attribute to add.
+    </param><param name="value">The value of the html attribute to add.
+    </param>
+        </member>
+        <member name="M:Webdiyer.AspNetCore.PagerOptionsBuilder.SetOnPageIndexError(System.String)">
+            <summary>
+      Sets the OnPageIndexError property of PagerOptions with a given value.
+    </summary><param name="handler">
+    </param>
+        </member>
+        <member name="M:Webdiyer.AspNetCore.PagerOptionsBuilder.AddRouteValue(System.String,System.Object)">
+            <summary>
+      Adds an item to RouteValues property of PagerOptions.
+    </summary><param name="key">
+      The key of the element to add.
+    </param><param name="value">
+      The value of the element to add.
+    </param>
+        </member>
+        <member name="M:Webdiyer.AspNetCore.PagerOptionsBuilder.SetRoute(System.String)">
+            <summary>
+      Sets the Route property of PagerOptions with a given value.
+    </summary><param name="routeName">
+      The name of the route that is used to generate paging urls.
+    </param>
+        </member>
+        <member name="M:Webdiyer.AspNetCore.PagerOptionsBuilder.SetFirstPageRoute(System.String)">
+            <summary>
+      Sets the FirstPageRoute property of PagerOptions with a given value.
+    </summary><param name="routeName">
+      The route name for the generation of the first page url.
+    </param>
+        </member>
+        <member name="M:Webdiyer.AspNetCore.PagerOptionsBuilder.DisableAutoHide">
+            <summary>
+      Sets the AutoHide property of PagerOptions value to false.
+    </summary>
+        </member>
+        <member name="M:Webdiyer.AspNetCore.PagerOptionsBuilder.SetPageIndexOutOfRangeErrorMessage(System.String)">
+            <summary>
+      Sets the PageIndexOutOfRangeErrorMessage property of PagerOptions with a given value.
+    </summary><param name="msg">
+    </param>
+        </member>
+        <member name="M:Webdiyer.AspNetCore.PagerOptionsBuilder.SetHorizontalAlign(System.String)">
+            <summary>
+      Sets the HorizontalAlign property of PagerOptions with a given value.
+    </summary><param name="alignment">
+    </param>
+        </member>
+        <member name="M:Webdiyer.AspNetCore.PagerOptionsBuilder.SetInvalidPageIndexErrorMessage(System.String)">
+            <summary>
+      Sets the InvalidPageIndexErrorMessage property of PagerOptions with a given value.
+    </summary><param name="msg">
+    </param>
+        </member>
+        <member name="M:Webdiyer.AspNetCore.PagerOptionsBuilder.SetPageIndexParameterName(System.String)">
+            <summary>
+      Sets the PageIndexParameterName property of PagerOptions with a given value.
+    </summary><param name="prmName">
+    </param>
+        </member>
+        <member name="M:Webdiyer.AspNetCore.PagerOptionsBuilder.SetPageIndexBoxId(System.String)">
+            <summary>
+      Sets the PageIndexBoxId property of PagerOptions with a given value.
+    </summary><param name="id">
+    </param>
+        </member>
+        <member name="M:Webdiyer.AspNetCore.PagerOptionsBuilder.SetMaximumPageIndexItems(System.Int32)">
+            <summary>
+      Sets the MaximumPageIndexItems property of PagerOptions with a given value.
+    </summary><param name="itmes">
+    </param>
+        </member>
+        <member name="M:Webdiyer.AspNetCore.PagerOptionsBuilder.SetGoToButtonId(System.String)">
+            <summary>
+      Sets the GoToButtonId property of PagerOptions with a given value.
+    </summary><param name="id">
+      The ID of the go-to-page button.
+    </param>
+        </member>
+        <member name="M:Webdiyer.AspNetCore.PagerOptionsBuilder.SetPageNumberFormatString(System.String)">
+            <summary>
+      Sets the PageNumberFormatString property of PagerOptions with a given value.
+    </summary><param name="format">
+    </param>
+        </member>
+        <member name="M:Webdiyer.AspNetCore.PagerOptionsBuilder.SetCurrentPageNumberFormatString(System.String)">
+            <summary>
+      Sets the CurrentPageNumberFormatString property of PagerOptions with a given value.
+    </summary><param name="format">
+      The format string for the current page number.
+    </param>
+        </member>
+        <member name="M:Webdiyer.AspNetCore.PagerOptionsBuilder.SetTagName(System.String)">
+            <summary>
+      Sets the TagName property of PagerOptions with a given value
+    </summary><param name="tagName">Html tag name.
+    </param>
+        </member>
+        <member name="M:Webdiyer.AspNetCore.PagerOptionsBuilder.SetPagerItemTemplate(System.String)">
+            <summary>
+      Sets the PagerItemTemplate property of PagerOptions with a given value.
+    </summary><param name="template">
+    </param>
+        </member>
+        <member name="M:Webdiyer.AspNetCore.PagerOptionsBuilder.SetNumericPagerItemTemplate(System.String)">
+            <summary>
+      Sets the NumericPagerItemTemplate property of PagerOptions with a given value.
+    </summary><param name="template">
+    </param>
+        </member>
+        <member name="M:Webdiyer.AspNetCore.PagerOptionsBuilder.SetCurrentPagerItemTemplate(System.String)">
+            <summary>
+      Sets the CurrentPagerItemTemplate property of PagerOptions with a given value.
+    </summary><param name="template">
+      The html template to be applied to the current page pager item.
+    </param>
+        </member>
+        <member name="M:Webdiyer.AspNetCore.PagerOptionsBuilder.SetNavigationPagerItemTemplate(System.String)">
+            <summary>
+      Sets the NavigationPagerItemTemplate property of PagerOptions with a given value.
+    </summary><param name="template">
+    </param>
+        </member>
+        <member name="M:Webdiyer.AspNetCore.PagerOptionsBuilder.SetMorePagerItemTemplate(System.String)">
+            <summary>
+      Sets the MorePagerItemTemplate property of PagerOptions with a given value.
+    </summary><param name="template">
+    </param>
+        </member>
+        <member name="M:Webdiyer.AspNetCore.PagerOptionsBuilder.SetDisabledPagerItemTemplate(System.String)">
+            <summary>
+      Sets the DisabledPagerItemTemplate property of PagerOptions with a given value.
+    </summary><param name="template">
+      The html template to be applied to the disabled pager item.
+    </param>
+        </member>
+        <member name="M:Webdiyer.AspNetCore.PagerOptionsBuilder.AlwaysShowFirstLastPageNumber">
+            <summary>
+      Sets the AlwaysShowFirstLastPageNumber property of PagerOptions value to true.
+    </summary>
+        </member>
+        <member name="M:Webdiyer.AspNetCore.PagerOptionsBuilder.SetNumericPagerItemCount(System.Int32)">
+            <summary>
+      Sets the NumericPagerItemCount property of PagerOptions with a given value.
+    </summary><param name="itemCount">
+    </param>
+        </member>
+        <member name="M:Webdiyer.AspNetCore.PagerOptionsBuilder.HidePrevNext">
+            <summary>
+      Sets the ShowPrevNext property of PagerOptions value to false.
+    </summary>
+        </member>
+        <member name="M:Webdiyer.AspNetCore.PagerOptionsBuilder.SetPrevPageText(System.String)">
+            <summary>
+      Sets the PrevPageText property of PagerOptions with a given value.
+    </summary><param name="text">
+    </param>
+        </member>
+        <member name="M:Webdiyer.AspNetCore.PagerOptionsBuilder.SetNextPageText(System.String)">
+            <summary>
+      Sets the NextPageText property of PagerOptions with a given value.
+    </summary><param name="text">
+    </param>
+        </member>
+        <member name="M:Webdiyer.AspNetCore.PagerOptionsBuilder.HideNumericPagerItems">
+            <summary>
+      Sets the ShowNumericPagerItems property of PagerOptions value to false.
+    </summary>
+        </member>
+        <member name="M:Webdiyer.AspNetCore.PagerOptionsBuilder.HideFirstLast">
+            <summary>
+      Sets the ShowFirstLast property of PagerOptions value to false.
+    </summary>
+        </member>
+        <member name="M:Webdiyer.AspNetCore.PagerOptionsBuilder.SetFirstPageText(System.String)">
+            <summary>
+      Sets the FirstPageText property of PagerOptions with a given value.
+    </summary><param name="text">
+      The text displayed for the first page button.
+    </param>
+        </member>
+        <member name="M:Webdiyer.AspNetCore.PagerOptionsBuilder.SetLastPageText(System.String)">
+            <summary>
+      Sets the LastPageText property of PagerOptions with a given value.
+    </summary><param name="text">
+    </param>
+        </member>
+        <member name="M:Webdiyer.AspNetCore.PagerOptionsBuilder.HideMorePagerItems">
+            <summary>
+      Sets the ShowMorePagerItems property of PagerOptions value to false.
+    </summary>
+        </member>
+        <member name="M:Webdiyer.AspNetCore.PagerOptionsBuilder.SetMorePageText(System.String)">
+            <summary>
+      Sets the MorePageText property of PagerOptions with a given value.
+    </summary><param name="text">
+    </param>
+        </member>
+        <member name="M:Webdiyer.AspNetCore.PagerOptionsBuilder.SetId(System.String)">
+            <summary>
+      Sets the Id property of PagerOptions with a given value.
+    </summary><param name="id">
+    </param>
+        </member>
+        <member name="M:Webdiyer.AspNetCore.PagerOptionsBuilder.SetCssClass(System.String)">
+            <summary>
+      Sets the CssClass property of PagerOptions with a given value.
+    </summary><param name="cssClass">Css class name.
+    </param>
+        </member>
+        <member name="M:Webdiyer.AspNetCore.PagerOptionsBuilder.HideDisabledPagerItems">
+            <summary>
+      Sets the ShowDisabledPagerItems property of PagerOptions value to false.
+    </summary>
+        </member>
+        <member name="M:Webdiyer.AspNetCore.PagerOptionsBuilder.SetMaximumPageNumber(System.Int32)">
+            <summary>
+      Sets the MaximumPageNumber property of PagerOptions with a given value.
+    </summary><param name="number">
+    </param>
+        </member>
+        <member name="M:Webdiyer.AspNetCore.PagerOptionsBuilder.HidePagerItems">
+            <summary>
+      Sets the ShowPagerItems property of PagerOptions value to false.
+    </summary>
+        </member>
+        <member name="M:Webdiyer.AspNetCore.PagerOptionsBuilder.SetNavigationPagerItemsPosition(Webdiyer.AspNetCore.PagerItemsPosition)">
+            <summary>
+      Sets the NavigationPagerItemsPosition property of PagerOptions with a given value.
+    </summary><param name="position">
+    </param>
+        </member>
+        <member name="M:Webdiyer.AspNetCore.PagerOptionsBuilder.SetRouteValues(Microsoft.AspNetCore.Routing.RouteValueDictionary)">
+            <summary>
+      Sets the RouteValues property of <see cref="T:Webdiyer.AspNetCore.PagerOptions" /> with a given value.
+    </summary><param name="values">
+    </param>
+        </member>
+        <member name="M:Webdiyer.AspNetCore.PagerOptionsBuilder.SetHtmlAttributes(System.Collections.Generic.IDictionary{System.String,System.Object})">
+            <summary>
+      Sets the HtmlAttributes property of PagerOptions with a given value.
+    </summary><param name="attributes">
+    </param>
+        </member>
+    </members>
+</doc>

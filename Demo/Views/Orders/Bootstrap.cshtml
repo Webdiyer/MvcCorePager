@@ -1,0 +1,73 @@
+@model PagedList<Order>
+    @{
+        ViewBag.Title = "Bootstrap style";
+    }
+
+    <table class="table table=bordered table-striped">
+        <tr>
+            <th class="nowrap">
+                @Html.DisplayNameFor(model => model.OrderId)
+            </th>
+            <th class="nowrap">
+                @Html.DisplayNameFor(model => model.CustomerId)
+            </th>
+            <th class="nowrap">
+                @Html.DisplayNameFor(model => model.CompanyName)
+            </th>
+            <th class="nowrap">
+                @Html.DisplayNameFor(model => model.EmployeeName)
+            </th>
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.OrderId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CustomerId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CompanyName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EmployeeName)
+                </td>
+            </tr>
+        }
+    </table>
+    <h3>Html extension method syntax:</h3>
+    <code>
+        <pre style="font-family:Consolas;font-size:16px;color:gainsboro;background:#1e1e1e;"><span style="color:black;background:#ffffb3;">@@</span>Html<span style="color:#b4b4b4;">.</span>Pager(Model,&nbsp;<span style="color:#569cd6;">new</span>&nbsp;<span style="color:#4ec9b0;">PagerOptions</span>
+{
+&nbsp;&nbsp;&nbsp;&nbsp;PageIndexParameterName&nbsp;<span style="color:#b4b4b4;">=</span>&nbsp;<span style="color:#d69d85;">&quot;id&quot;</span>,
+&nbsp;&nbsp;&nbsp;&nbsp;TagName&nbsp;<span style="color:#b4b4b4;">=</span>&nbsp;<span style="color:#d69d85;">&quot;ul&quot;</span>,
+&nbsp;&nbsp;&nbsp;&nbsp;CssClass&nbsp;<span style="color:#b4b4b4;">=</span>&nbsp;<span style="color:#d69d85;">&quot;pagination&quot;</span>,
+&nbsp;&nbsp;&nbsp;&nbsp;CurrentPagerItemTemplate&nbsp;<span style="color:#b4b4b4;">=</span>&nbsp;<span style="color:#d69d85;">&quot;&lt;li&nbsp;class=\&quot;active\&quot;&gt;&lt;a&nbsp;href=\&quot;javascript:void(0);\&quot;&gt;{0}&lt;/a&gt;&lt;/li&gt;&quot;</span>,
+&nbsp;&nbsp;&nbsp;&nbsp;DisabledPagerItemTemplate&nbsp;<span style="color:#b4b4b4;">=</span>&nbsp;<span style="color:#d69d85;">&quot;&lt;li&nbsp;class=\&quot;disabled\&quot;&gt;&lt;a&gt;{0}&lt;/a&gt;&lt;/li&gt;&quot;</span>,
+&nbsp;&nbsp;&nbsp;&nbsp;PagerItemTemplate&nbsp;<span style="color:#b4b4b4;">=</span>&nbsp;<span style="color:#d69d85;">&quot;&lt;li&gt;{0}&lt;/li&gt;&quot;</span>,
+&nbsp;&nbsp;&nbsp;&nbsp;Id&nbsp;<span style="color:#b4b4b4;">=</span>&nbsp;<span style="color:#d69d85;">&quot;bootstrappager&quot;</span>
+})</pre>
+    </code>
+    @Html.Pager(Model, new PagerOptions
+{
+    PageIndexParameterName = "id",
+    TagName = "ul",
+    CssClass = "pagination",
+    CurrentPagerItemTemplate = "<li class=\"active\"><a href=\"javascript:void(0);\">{0}</a></li>",
+    DisabledPagerItemTemplate = "<li class=\"disabled\"><a>{0}</a></li>",
+    PagerItemTemplate = "<li>{0}</li>",
+    Id = "bootstrappager"
+})
+
+    <h3>TagHelper syntax:</h3>
+    <code>
+        <pre style="font-family:Consolas;font-size:16px;color:gainsboro;background:#1e1e1e;"><span style="color:gray;">&lt;</span><span style="font-weight:bold;color:teal;">mvcpager</span>&nbsp;<span style="font-weight:bold;color:teal;">asp-model</span><span style="color:#b4b4b4;">=</span><span style="color:#c8c8c8;">&quot;</span><span style="color:black;background:#ffffb3;">@@</span>Model<span style="color:#c8c8c8;">&quot;</span>&nbsp;<span style="font-weight:bold;color:teal;">page-index-parameter-name</span><span style="color:#b4b4b4;">=</span><span style="color:#c8c8c8;">&quot;id&quot;</span>&nbsp;<span style="font-weight:bold;color:teal;">tag-name</span><span style="color:#b4b4b4;">=</span><span style="color:#c8c8c8;">&quot;ul&quot;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="font-weight:bold;color:teal;">class</span><span style="color:#b4b4b4;">=</span><span style="color:#c8c8c8;">&quot;pagination&quot;</span>&nbsp;<span style="font-weight:bold;color:teal;">current-pager-item-template</span><span style="color:#b4b4b4;">=</span><span style="color:#c8c8c8;">&#39;&lt;li&nbsp;class=&quot;active&quot;&gt;&lt;a&nbsp;href=&quot;javascript:void(0);&quot;&gt;{0}&lt;/a&gt;&lt;/li&gt;&#39;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="font-weight:bold;color:teal;">disabled-pager-item-template</span><span style="color:#b4b4b4;">=</span><span style="color:#c8c8c8;">&#39;&lt;li&nbsp;class=\&quot;disabled\&quot;&gt;&lt;a&gt;{0}&lt;/a&gt;&lt;/li&gt;&#39;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="font-weight:bold;color:teal;">pager-item-template</span><span style="color:#b4b4b4;">=</span><span style="color:#c8c8c8;">&quot;&lt;li&gt;{0}&lt;/li&gt;&quot;</span>&nbsp;<span style="font-weight:bold;color:teal;">id</span><span style="color:#b4b4b4;">=</span><span style="color:#c8c8c8;">&quot;bootstrappager2&quot;</span><span style="color:gray;">&gt;&lt;/</span><span style="font-weight:bold;color:teal;">mvcpager</span><span style="color:gray;">&gt;</span></pre>
+    </code>
+<mvcpager asp-model="@Model" page-index-parameter-name="id" tag-name="ul" 
+          class="pagination" current-pager-item-template='<li class="active"><a href="javascript:void(0);">{0}</a></li>'
+          disabled-pager-item-template='<li class=\"disabled\"><a>{0}</a></li>' 
+          pager-item-template="<li>{0}</li>" id="bootstrappager2"></mvcpager>

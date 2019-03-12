@@ -1,0 +1,11 @@
+@model PagedList<Order>
+    @{
+    ViewData["Title"] = "Ajax paging";
+    }
+
+                    <div id="orders">
+                        @Html.Partial("_OrderList",Model)
+                    </div>
+    @section Scripts{
+                    <script src="~/js/MvcPager.js"></script>
+        }

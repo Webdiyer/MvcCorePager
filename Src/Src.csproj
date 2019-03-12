@@ -1,0 +1,72 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.2</TargetFramework>
+    <RootNamespace>Webdiyer.AspNetCore</RootNamespace>
+    <AssemblyName>Webdiyer.AspNetCore.MvcCorePager</AssemblyName>
+    <PackageId>Webdiyer.MvcPagerCore</PackageId>
+    <Authors>Webdiyer</Authors>
+    <Company />
+    <Product>MvcPagerCore</Product>
+    <Description>Pagination compoment for ASP.NET Core Mvc 2.0+</Description>
+    <Copyright>2017-2018 Webdiyer</Copyright>
+    <PackageProjectUrl>http://www.webdiyer.com/</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/Webdiyer/MvcPagerCore</RepositoryUrl>
+    <PackageTags>MvcPager MvcPagerCore</PackageTags>
+    <SignAssembly>true</SignAssembly>
+    <AssemblyOriginatorKeyFile>MvcCorePager.pfx</AssemblyOriginatorKeyFile>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <AssemblyVersion>1.0.1.0</AssemblyVersion>
+    <FileVersion>1.0.1.0</FileVersion>
+    <Version>1.0.1</Version>
+    <PackageLicenseUrl>https://github.com/Webdiyer/MvcPagerCore/blob/master/LICENSE</PackageLicenseUrl>
+    <DelaySign>false</DelaySign>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <DocumentationFile>bin\Release\netcoreapp2.0\Webdiyer.WebControls.MvcPager.xml</DocumentationFile>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DocumentationFile>E:\GitHub\MvcCorePager\Src\Webdiyer.AspNetCore.MvcCorePager.xml</DocumentationFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="wwwroot\MvcPager.js" />
+    <None Remove="wwwroot\MvcPager.min.js" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="wwwroot\lib\MvcPagerCore\MvcPager.js" />
+    <Content Include="wwwroot\lib\MvcPagerCore\MvcPager.min.js" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore" Version="2.2.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Core" Version="2.2.2" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Razor" Version="2.2.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.ViewFeatures" Version="2.2.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="MvcCorePagerResources.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>MvcCorePagerResources.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="MvcCorePagerResources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>MvcCorePagerResources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Update="MvcCorePagerResources.zh-Hans.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="MvcCorePagerResources.zh-Hant.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+
+</Project>

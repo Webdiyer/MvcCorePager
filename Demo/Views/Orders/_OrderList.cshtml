@@ -1,0 +1,49 @@
+
+@model PagedList<Order>
+
+    <table class="table table=bordered table-striped">
+        <tr>
+            <th class="nowrap">
+                @Html.DisplayNameFor(model => model.OrderId)
+            </th>
+            <th class="nowrap">
+                @Html.DisplayNameFor(model => model.CustomerId)
+            </th>
+            <th class="nowrap">
+                @Html.DisplayNameFor(model => model.CompanyName)
+            </th>
+            <th class="nowrap">
+                @Html.DisplayNameFor(model => model.EmployeeName)
+            </th>
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.OrderId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CustomerId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CompanyName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EmployeeName)
+                </td>
+            </tr>
+        }
+    </table>
+<h3>Html extension method syntax:</h3>
+<code>
+    <pre style="font-family:Consolas;font-size:16px;color:gainsboro;background:#1e1e1e;"><span style="color:black;background:#ffffb3;">@@</span>Html<span style="color:#b4b4b4;">.</span>AjaxPager(Model,<span style="color:#569cd6;">null</span>,&nbsp;<span style="color:#569cd6;">new</span>&nbsp;<span style="color:#4ec9b0;">MvcAjaxOptions</span>&nbsp;{&nbsp;UpdateTargetId<span style="color:#b4b4b4;">=</span><span style="color:#d69d85;">&quot;orders&quot;</span>})
+</pre>
+</code>
+@Html.AjaxPager(Model,null, new MvcAjaxOptions { UpdateTargetId="orders"})
+
+<h3>TagHelper syntax:</h3>
+<code>
+    <pre style="font-family:Consolas;font-size:16px;color:gainsboro;background:#1e1e1e;"><span style="color:gray;">&lt;</span><span style="font-weight:bold;color:teal;">mvcpager</span>&nbsp;<span style="font-weight:bold;color:teal;">asp-model</span><span style="color:#b4b4b4;">=</span><span style="color:#c8c8c8;">&quot;</span><span style="color:black;background:#ffffb3;">@@</span>Model<span style="color:#c8c8c8;">&quot;</span>&nbsp;<span style="font-weight:bold;color:teal;">ajax-enabled</span><span style="color:#b4b4b4;">=</span><span style="color:#c8c8c8;">&quot;</span><span style="color:#569cd6;">true</span><span style="color:#c8c8c8;">&quot;</span>&nbsp;<span style="font-weight:bold;color:teal;">ajax-update-target</span><span style="color:#b4b4b4;">=</span><span style="color:#c8c8c8;">&quot;orders&quot;</span><span style="color:gray;">&gt;&lt;/</span><span style="font-weight:bold;color:teal;">mvcpager</span><span style="color:gray;">&gt;</span>
+</pre>
+</code>
+<mvcpager asp-model="@Model" ajax-enabled="true" ajax-update-target="orders"></mvcpager>
