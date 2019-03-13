@@ -1,0 +1,8 @@
+[
+  {
+    "outputFileName": "wwwroot/lib/MvcCorePager/MvcCorePager.min.js",
+    "inputFiles": [
+      "wwwroot/lib/MvcCorePager/MvcCorePager.js"
+    ]
+  }
+]
