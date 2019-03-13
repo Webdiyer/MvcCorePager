@@ -23,6 +23,7 @@ namespace Webdiyer.AspNetCore
         {
             _urlHelperFactory = urlHelperFactory;
         }
+
         public override void Process(TagHelperContext context, TagHelperOutput output)
         {
             if (context == null)

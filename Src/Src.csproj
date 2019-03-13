@@ -32,12 +32,15 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="wwwroot\js\MvcCorePager\MvcCorePager.js" />
+    <None Remove="wwwroot\js\MvcCorePager\MvcCorePager.min.js" />
     <None Remove="wwwroot\MvcPager.js" />
     <None Remove="wwwroot\MvcPager.min.js" />
   </ItemGroup>
 
   <ItemGroup>
-    <Content Include="wwwroot\lib\MvcCorePager\MvcCorePager.js" />
+    <EmbeddedResource Include="wwwroot\js\MvcCorePager\MvcCorePager.js" />
+    <EmbeddedResource Include="wwwroot\js\MvcCorePager\MvcCorePager.min.js" />
   </ItemGroup>
 
   <ItemGroup>

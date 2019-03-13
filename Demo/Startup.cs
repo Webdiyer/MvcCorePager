@@ -27,7 +27,6 @@ namespace Webdiyer.MvcCorePagerDemo
         {
             // Add framework services.
             services.AddMvc();
-            services.AddDbContext<DemoDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DbConn")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
