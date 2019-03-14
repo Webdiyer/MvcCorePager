@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Webdiyer.AspNetCore {
+namespace Webdiyer.AspNetCore.resources {
     using System;
     
     
@@ -39,7 +39,7 @@ namespace Webdiyer.AspNetCore {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Webdiyer.AspNetCore.MvcCorePagerResources", typeof(MvcCorePagerResources).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Webdiyer.AspNetCore.resources.MvcCorePagerResources", typeof(MvcCorePagerResources).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -57,15 +57,6 @@ namespace Webdiyer.AspNetCore {
             }
             set {
                 resourceCulture = value;
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to &lt;!--MvcPagerCore v1.0 for ASP.NET Core MVC 1.1+ © 2017 Webdiyer (http://en.webdiyer.com)--&gt;.
-        /// </summary>
-        internal static string CopyrightText {
-            get {
-                return ResourceManager.GetString("CopyrightText", resourceCulture);
             }
         }
         

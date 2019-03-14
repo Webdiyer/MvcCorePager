@@ -31,12 +31,6 @@
     <DocumentationFile>E:\GitHub\MvcCorePager\Src\Webdiyer.AspNetCore.MvcCorePager.xml</DocumentationFile>
   </PropertyGroup>
 
-  <ItemGroup>
-    <None Remove="wwwroot\js\MvcCorePager\MvcCorePager.js" />
-    <None Remove="wwwroot\js\MvcCorePager\MvcCorePager.min.js" />
-    <None Remove="wwwroot\MvcPager.js" />
-    <None Remove="wwwroot\MvcPager.min.js" />
-  </ItemGroup>
 
   <ItemGroup>
     <EmbeddedResource Include="wwwroot\js\MvcCorePager\MvcCorePager.js" />
@@ -48,10 +42,12 @@
     <PackageReference Include="Microsoft.AspNetCore.Mvc.Core" Version="2.2.2" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc.Razor" Version="2.2.0" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc.ViewFeatures" Version="2.2.0" />
+    <PackageReference Include="Microsoft.AspNetCore.StaticFiles" Version="2.2.0" />
+    <PackageReference Include="Microsoft.Extensions.FileProviders.Embedded" Version="2.2.0" />
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Update="MvcCorePagerResources.Designer.cs">
+    <Compile Update="resources\MvcCorePagerResources.Designer.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
       <DependentUpon>MvcCorePagerResources.resx</DependentUpon>
@@ -59,14 +55,14 @@
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Update="MvcCorePagerResources.resx">
+    <EmbeddedResource Update="resources\MvcCorePagerResources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>MvcCorePagerResources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Update="MvcCorePagerResources.zh-Hans.resx">
+    <EmbeddedResource Update="resources\MvcCorePagerResources.zh-Hans.resx">
       <Generator>ResXFileCodeGenerator</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="MvcCorePagerResources.zh-Hant.resx">
+    <EmbeddedResource Update="resources\MvcCorePagerResources.zh-Hant.resx">
       <Generator>ResXFileCodeGenerator</Generator>
     </EmbeddedResource>
   </ItemGroup>

@@ -7,7 +7,7 @@ using System.Text.Encodings.Web;
 
 namespace Webdiyer.AspNetCore
 {
-    ///<include file='MvcCorePagerDocs.xml' path='MvcCorePagerDocs/Classes/Class[@name="HtmlPager"]/*'/>
+    ///<include file='docs/MvcCorePagerDocs.xml' path='MvcCorePagerDocs/Classes/Class[@name="HtmlPager"]/*'/>
     public class HtmlPager:IHtmlContent
     {
         private readonly IHtmlHelper _htmlHelper;
@@ -16,7 +16,7 @@ namespace Webdiyer.AspNetCore
         private readonly int _totalItemCount;
         private PagerOptions _pagerOptions;
 
-        ///<include file='MvcCorePagerDocs.xml' path='MvcCorePagerDocs/HtmlPager/Constructor[@name="HtmlPager1"]/*'/>
+        ///<include file='docs/MvcCorePagerDocs.xml' path='MvcCorePagerDocs/HtmlPager/Constructor[@name="HtmlPager1"]/*'/>
         public HtmlPager(IHtmlHelper html, int totalItemCount, int pageSize, int pageIndex,PagerOptions pagerOptions)
         {
             _htmlHelper = html;
@@ -26,17 +26,17 @@ namespace Webdiyer.AspNetCore
             _pagerOptions = pagerOptions;
         }
 
-        ///<include file='MvcCorePagerDocs.xml' path='MvcCorePagerDocs/HtmlPager/Constructor[@name="HtmlPager2"]/*'/>
+        ///<include file='docs/MvcCorePagerDocs.xml' path='MvcCorePagerDocs/HtmlPager/Constructor[@name="HtmlPager2"]/*'/>
         public HtmlPager(IHtmlHelper html, int totalItemCount, int pageSize, int pageIndex):this(html,totalItemCount,pageSize,pageIndex,null){}
 
-        ///<include file='MvcCorePagerDocs.xml' path='MvcCorePagerDocs/HtmlPager/Constructor[@name="HtmlPager3"]/*'/>
+        ///<include file='docs/MvcCorePagerDocs.xml' path='MvcCorePagerDocs/HtmlPager/Constructor[@name="HtmlPager3"]/*'/>
         public HtmlPager(IHtmlHelper html, IPagedList pagedList,PagerOptions pagerOptions) : this(html, pagedList.TotalItemCount, pagedList.PageSize, pagedList.CurrentPageIndex,pagerOptions) { }
 
-        ///<include file='MvcCorePagerDocs.xml' path='MvcCorePagerDocs/HtmlPager/Constructor[@name="HtmlPager4"]/*'/>
+        ///<include file='docs/MvcCorePagerDocs.xml' path='MvcCorePagerDocs/HtmlPager/Constructor[@name="HtmlPager4"]/*'/>
         public HtmlPager(IHtmlHelper html, IPagedList pagedList):this(html, pagedList.TotalItemCount, pagedList.PageSize, pagedList.CurrentPageIndex){}
 
 
-        ///<include file='MvcCorePagerDocs.xml' path='MvcCorePagerDocs/HtmlPager/Method[@name="Options"]/*'/>
+        ///<include file='docs/MvcCorePagerDocs.xml' path='MvcCorePagerDocs/HtmlPager/Method[@name="Options"]/*'/>
         public HtmlPager Options(Action<PagerOptionsBuilder> builder)
         {
             if (_pagerOptions == null)

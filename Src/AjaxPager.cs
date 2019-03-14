@@ -7,7 +7,7 @@ using System.Text.Encodings.Web;
 
 namespace Webdiyer.AspNetCore
 {
-    ///<include file='MvcCorePagerDocs.xml' path='MvcCorePagerDocs/Classes/Class[@name="AjaxPager"]/*'/>
+    ///<include file='docs/MvcCorePagerDocs.xml' path='MvcCorePagerDocs/Classes/Class[@name="AjaxPager"]/*'/>
     public class AjaxPager : IHtmlContent
     {
         private readonly IHtmlHelper _htmlHelper;
@@ -17,7 +17,7 @@ namespace Webdiyer.AspNetCore
         private PagerOptions _pagerOptions;
         private MvcAjaxOptions _ajaxOptions;
 
-        ///<include file='MvcCorePagerDocs.xml' path='MvcCorePagerDocs/AjaxPager/Constructor[@name="AjaxPager1"]/*'/>
+        ///<include file='docs/MvcCorePagerDocs.xml' path='MvcCorePagerDocs/AjaxPager/Constructor[@name="AjaxPager1"]/*'/>
         public AjaxPager(IHtmlHelper html, int totalItemCount, int pageSize, int pageIndex,PagerOptions pagerOptions, MvcAjaxOptions ajaxOptions)
         {
             _htmlHelper = html;
@@ -28,11 +28,11 @@ namespace Webdiyer.AspNetCore
             _ajaxOptions = ajaxOptions;
         }
 
-        ///<include file='MvcCorePagerDocs.xml' path='MvcCorePagerDocs/AjaxPager/Constructor[@name="AjaxPager2"]/*'/>
+        ///<include file='docs/MvcCorePagerDocs.xml' path='MvcCorePagerDocs/AjaxPager/Constructor[@name="AjaxPager2"]/*'/>
         public AjaxPager(IHtmlHelper ajax, IPagedList pagedList,PagerOptions pagerOptions, MvcAjaxOptions ajaxOptions)
             : this(ajax, pagedList.TotalItemCount, pagedList.PageSize, pagedList.CurrentPageIndex,pagerOptions, ajaxOptions) { }
 
-        ///<include file='MvcCorePagerDocs.xml' path='MvcCorePagerDocs/AjaxPager/Method[@name="Options"]/*'/>
+        ///<include file='docs/MvcCorePagerDocs.xml' path='MvcCorePagerDocs/AjaxPager/Method[@name="Options"]/*'/>
         public AjaxPager Options(Action<PagerOptionsBuilder> builder)
         {
             if (_pagerOptions == null)
@@ -43,7 +43,7 @@ namespace Webdiyer.AspNetCore
             return this;
         }
 
-        ///<include file='MvcCorePagerDocs.xml' path='MvcCorePagerDocs/AjaxPager/Method[@name="AjaxOptions"]/*'/>
+        ///<include file='docs/MvcCorePagerDocs.xml' path='MvcCorePagerDocs/AjaxPager/Method[@name="AjaxOptions"]/*'/>
         public AjaxPager AjaxOptions(Action<MvcAjaxOptionsBuilder> builder)
         {
             if (_ajaxOptions == null)

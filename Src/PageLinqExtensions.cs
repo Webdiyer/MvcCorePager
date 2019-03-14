@@ -4,10 +4,10 @@ using System.Threading.Tasks;
 
 namespace Webdiyer.AspNetCore
 {
-    ///<include file='MvcCorePagerDocs.xml' path='MvcCorePagerDocs/Classes/Class[@name="PageLinqExtensions"]/*'/>
+    ///<include file='docs/MvcCorePagerDocs.xml' path='MvcCorePagerDocs/Classes/Class[@name="PageLinqExtensions"]/*'/>
     public static class PageLinqExtensions
     {
-        ///<include file='MvcCorePagerDocs.xml' path='MvcCorePagerDocs/PageLinqExtensions/Method[@name="ToPagedList1"]/*'/>
+        ///<include file='docs/MvcCorePagerDocs.xml' path='MvcCorePagerDocs/PageLinqExtensions/Method[@name="ToPagedList1"]/*'/>
         public static PagedList<T> ToPagedList<T>
             (
                 this IQueryable<T> allItems,
@@ -27,13 +27,13 @@ namespace Webdiyer.AspNetCore
             return new PagedList<T>(pageOfItems, pageIndex, pageSize, totalItemCount);
         }
 
-        ///<include file='MvcCorePagerDocs.xml' path='MvcCorePagerDocs/PageLinqExtensions/Method[@name="ToPagedList2"]/*'/>
+        ///<include file='docs/MvcCorePagerDocs.xml' path='MvcCorePagerDocs/PageLinqExtensions/Method[@name="ToPagedList2"]/*'/>
         public static PagedList<T> ToPagedList<T>(this IEnumerable<T> allItems, int pageIndex, int pageSize)
         {
             return allItems.AsQueryable().ToPagedList(pageIndex, pageSize);
         }
 
-        ///<include file='MvcCorePagerDocs.xml' path='MvcCorePagerDocs/PageLinqExtensions/Method[@name="ToPagedListAsync1"]/*'/>
+        ///<include file='docs/MvcCorePagerDocs.xml' path='MvcCorePagerDocs/PageLinqExtensions/Method[@name="ToPagedListAsync1"]/*'/>
         public static async Task<PagedList<T>> ToPagedListAsync<T>
         (
             this IQueryable<T> allItems,
@@ -54,7 +54,7 @@ namespace Webdiyer.AspNetCore
             return new PagedList<T>(pageOfItems, pageIndex, pageSize, totalItemCount);
         }
 
-        ///<include file='MvcCorePagerDocs.xml' path='MvcCorePagerDocs/PageLinqExtensions/Method[@name="ToPagedListAsync2"]/*'/>
+        ///<include file='docs/MvcCorePagerDocs.xml' path='MvcCorePagerDocs/PageLinqExtensions/Method[@name="ToPagedListAsync2"]/*'/>
         public static Task<PagedList<T>> ToPagedListAsync<T>(this IEnumerable<T> allItems, int pageIndex, int pageSize)
         {
             return allItems.AsQueryable().ToPagedListAsync(pageIndex, pageSize);

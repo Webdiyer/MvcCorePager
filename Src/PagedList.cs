@@ -4,10 +4,10 @@ using System.Linq;
 
 namespace Webdiyer.AspNetCore
 {
-    ///<include file='MvcCorePagerDocs.xml' path='MvcCorePagerDocs/Classes/Class[@name="PagedList"]/*'/>
+    ///<include file='docs/MvcCorePagerDocs.xml' path='MvcCorePagerDocs/Classes/Class[@name="PagedList"]/*'/>
     public class PagedList<T> : List<T>,IPagedList<T>
     {
-        ///<include file='MvcCorePagerDocs.xml' path='MvcCorePagerDocs/PagedList/Constructor[@name="PagedList1"]/*'/>
+        ///<include file='docs/MvcCorePagerDocs.xml' path='MvcCorePagerDocs/PagedList/Constructor[@name="PagedList1"]/*'/>
         public PagedList(IEnumerable<T> allItems, int pageIndex, int pageSize)
         {
             PageSize = pageSize;
@@ -17,7 +17,7 @@ namespace Webdiyer.AspNetCore
             AddRange(items.Skip(StartItemIndex - 1).Take(pageSize));
         }
 
-        ///<include file='MvcCorePagerDocs.xml' path='MvcCorePagerDocs/PagedList/Constructor[@name="PagedList2"]/*'/>
+        ///<include file='docs/MvcCorePagerDocs.xml' path='MvcCorePagerDocs/PagedList/Constructor[@name="PagedList2"]/*'/>
         public PagedList(IEnumerable<T> currentPageItems, int pageIndex, int pageSize, int totalItemCount)
         {
             AddRange(currentPageItems);
@@ -26,7 +26,7 @@ namespace Webdiyer.AspNetCore
             PageSize = pageSize;
         }
 
-        ///<include file='MvcCorePagerDocs.xml' path='MvcCorePagerDocs/PagedList/Constructor[@name="PagedList3"]/*'/>
+        ///<include file='docs/MvcCorePagerDocs.xml' path='MvcCorePagerDocs/PagedList/Constructor[@name="PagedList3"]/*'/>
         public PagedList(IQueryable<T> allItems, int pageIndex, int pageSize)
         {
             int startIndex = (pageIndex - 1)*pageSize;
@@ -36,7 +36,7 @@ namespace Webdiyer.AspNetCore
             PageSize = pageSize;
         }
 
-        ///<include file='MvcCorePagerDocs.xml' path='MvcCorePagerDocs/PagedList/Constructor[@name="PagedList4"]/*'/>
+        ///<include file='docs/MvcCorePagerDocs.xml' path='MvcCorePagerDocs/PagedList/Constructor[@name="PagedList4"]/*'/>
         public PagedList(IQueryable<T> currentPageItems, int pageIndex, int pageSize, int totalItemCount)
         {
             AddRange(currentPageItems);
@@ -45,22 +45,22 @@ namespace Webdiyer.AspNetCore
             PageSize = pageSize;
         }
 
-        ///<include file='MvcCorePagerDocs.xml' path='MvcCorePagerDocs/PagedList/Property[@name="CurrentPageIndex"]/*'/>
+        ///<include file='docs/MvcCorePagerDocs.xml' path='MvcCorePagerDocs/PagedList/Property[@name="CurrentPageIndex"]/*'/>
         public int CurrentPageIndex { get; set; }
 
-        ///<include file='MvcCorePagerDocs.xml' path='MvcCorePagerDocs/PagedList/Property[@name="PageSize"]/*'/>
+        ///<include file='docs/MvcCorePagerDocs.xml' path='MvcCorePagerDocs/PagedList/Property[@name="PageSize"]/*'/>
         public int PageSize { get; set; }
 
-        ///<include file='MvcCorePagerDocs.xml' path='MvcCorePagerDocs/PagedList/Property[@name="TotalItemCount"]/*'/>
+        ///<include file='docs/MvcCorePagerDocs.xml' path='MvcCorePagerDocs/PagedList/Property[@name="TotalItemCount"]/*'/>
         public int TotalItemCount { get; set; }
 
-        ///<include file='MvcCorePagerDocs.xml' path='MvcCorePagerDocs/PagedList/Property[@name="TotalPageCount"]/*'/>
+        ///<include file='docs/MvcCorePagerDocs.xml' path='MvcCorePagerDocs/PagedList/Property[@name="TotalPageCount"]/*'/>
         public int TotalPageCount { get { return (int)Math.Ceiling(TotalItemCount / (double)PageSize); } }
 
-        ///<include file='MvcCorePagerDocs.xml' path='MvcCorePagerDocs/PagedList/Property[@name="StartItemIndex"]/*'/>
+        ///<include file='docs/MvcCorePagerDocs.xml' path='MvcCorePagerDocs/PagedList/Property[@name="StartItemIndex"]/*'/>
         public int StartItemIndex { get { return (CurrentPageIndex - 1) * PageSize + 1; } }
 
-        ///<include file='MvcCorePagerDocs.xml' path='MvcCorePagerDocs/PagedList/Property[@name="EndItemIndex"]/*'/>
+        ///<include file='docs/MvcCorePagerDocs.xml' path='MvcCorePagerDocs/PagedList/Property[@name="EndItemIndex"]/*'/>
         public int EndItemIndex { get { return TotalItemCount > CurrentPageIndex * PageSize ? CurrentPageIndex * PageSize : TotalItemCount; } }
     }
 }

@@ -3,8 +3,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
-using Webdiyer.MvcCorePagerDemo.Models;
-using Microsoft.EntityFrameworkCore;
+using Webdiyer.AspNetCore;
 
 namespace Webdiyer.MvcCorePagerDemo
 {
@@ -27,6 +26,7 @@ namespace Webdiyer.MvcCorePagerDemo
         {
             // Add framework services.
             services.AddMvc();
+            services.UseMvcCorePagerScripts();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

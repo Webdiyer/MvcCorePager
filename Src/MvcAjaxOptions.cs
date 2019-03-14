@@ -3,20 +3,20 @@ using System.Collections.Generic;
 
 namespace Webdiyer.AspNetCore
 {
-    ///<include file='MvcCorePagerDocs.xml' path='MvcCorePagerDocs/Classes/Class[@name="MvcAjaxOptions"]/*'/>
+    ///<include file='docs/MvcCorePagerDocs.xml' path='MvcCorePagerDocs/Classes/Class[@name="MvcAjaxOptions"]/*'/>
     public class MvcAjaxOptions
     {
-        ///<include file='MvcCorePagerDocs.xml' path='MvcCorePagerDocs/MvcAjaxOptions/Property[@name="EnablePartialLoading"]/*'/>
+        ///<include file='docs/MvcCorePagerDocs.xml' path='MvcCorePagerDocs/MvcAjaxOptions/Property[@name="EnablePartialLoading"]/*'/>
         public bool EnablePartialLoading { get; set; }
 
-        ///<include file='MvcCorePagerDocs.xml' path='MvcCorePagerDocs/MvcAjaxOptions/Property[@name="DataFormId"]/*'/>
+        ///<include file='docs/MvcCorePagerDocs.xml' path='MvcCorePagerDocs/MvcAjaxOptions/Property[@name="DataFormId"]/*'/>
         public string DataFormId { get; set; }
 
-        ///<include file='MvcCorePagerDocs.xml' path='MvcCorePagerDocs/MvcAjaxOptions/Property[@name="AllowCache"]/*'/>
+        ///<include file='docs/MvcCorePagerDocs.xml' path='MvcCorePagerDocs/MvcAjaxOptions/Property[@name="AllowCache"]/*'/>
         public bool AllowCache { get; set; } = true;
 
 
-        ///<include file='MvcCorePagerDocs.xml' path='MvcCorePagerDocs/MvcAjaxOptions/Property[@name="EnableHistorySupport"]/*'/>
+        ///<include file='docs/MvcCorePagerDocs.xml' path='MvcCorePagerDocs/MvcAjaxOptions/Property[@name="EnableHistorySupport"]/*'/>
         public bool EnableHistorySupport { get; set; } = true;
 
         public string Confirm { get; set; }
