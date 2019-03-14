@@ -3,7 +3,7 @@ using System.Linq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Webdiyer.AspNetCore;
 
-namespace MvcCorePager.Tests
+namespace Webdiyer.MvcCorePagerTest
 {
     [TestClass]
     public class PagedListTest

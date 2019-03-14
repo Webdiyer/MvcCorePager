@@ -2,8 +2,8 @@
 
   <PropertyGroup>    
     <TargetFramework>netcoreapp2.2</TargetFramework>    
-    <AssemblyName>Webdiyer.WebControls.MvcPager.Test</AssemblyName>    
-    <RootNamespace>Webdiyer.WebControls.AspNetCore.Test</RootNamespace>
+    <AssemblyName>MvcCorePagerTest</AssemblyName>    
+    <RootNamespace>Webdiyer.MvcCorePagerTest</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>

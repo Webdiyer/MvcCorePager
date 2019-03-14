@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using Microsoft.AspNetCore.Routing;
-using Webdiyer.AspNetCore.resources;
 
 namespace Webdiyer.AspNetCore
 {
@@ -15,19 +14,19 @@ namespace Webdiyer.AspNetCore
             NumericPagerItemCount = 10;
             AlwaysShowFirstLastPageNumber = false;
             ShowPrevNext = true;
-            PrevPageText = MvcCorePagerResources.PrevPageText;
-            NextPageText = MvcCorePagerResources.NextPageText;
+            PrevPageText = "<"; 
+            NextPageText = ">";
             ShowNumericPagerItems = true;
             ShowFirstLast = true;
-            FirstPageText = MvcCorePagerResources.FirstPageText;
-            LastPageText = MvcCorePagerResources.LastPageText;
+            FirstPageText = "<<";
+            LastPageText = ">>";
             ShowMorePagerItems = true;
             MorePageText = "...";
             ShowDisabledPagerItems = true;
             MaximumPageIndexItems = 20;
             TagName = "div";
-            InvalidPageIndexErrorMessage = MvcCorePagerResources.InvalidPageIndexErrorMessage;
-            PageIndexOutOfRangeErrorMessage = MvcCorePagerResources.PageIndexOutOfRangeErrorMessage;
+            InvalidPageIndexErrorMessage = "Invalid page index";// MvcCorePagerResources.InvalidPageIndexErrorMessage;
+            PageIndexOutOfRangeErrorMessage = "Page index out of range"; //MvcCorePagerResources.PageIndexOutOfRangeErrorMessage;
             MaximumPageNumber = 0;
             FirstPageRoute = null;
         }
@@ -100,7 +99,7 @@ namespace Webdiyer.AspNetCore
             set
             {
                 if (string.IsNullOrEmpty(value))
-                    throw new System.ArgumentException(MvcCorePagerResources.TagNameCannotBeNull);
+                    throw new System.ArgumentNullException(nameof(TagName));// MvcCorePagerResources.TagNameCannotBeNull);
                 _tagName = value;
             }
         }
