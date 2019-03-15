@@ -199,5 +199,7 @@ namespace Webdiyer.AspNetCore
 
         /// <include file='docs/MvcCorePagerDocs.xml' path='MvcCorePagerDocs/PagerOptions/Property[@name="OnPageIndexError"]/*'/>
         public string OnPageIndexError { get; set; }
+
+        public string PagerItemCssClass { get; set; }
     }
 }

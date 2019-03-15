@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Html;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.AspNetCore.Mvc.Routing;
+using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.IO;
 using System.Text.Encodings.Web;
@@ -56,8 +57,14 @@ namespace Webdiyer.AspNetCore
         
         public void WriteTo(TextWriter writer, HtmlEncoder encoder)
         {
+            if (writer == null)
+            {
+                throw new ArgumentNullException(nameof(writer));
+            }
             var totalPageCount = (int)Math.Ceiling(_totalItemCount / (double)_pageSize);
-            writer.Write(new PagerBuilder(_htmlHelper.ViewContext,new UrlHelper(_htmlHelper.ViewContext), totalPageCount, _currentPageIndex, _pagerOptions,_ajaxOptions).GenerateHtml());
+            var urlHelperFactory = _htmlHelper.ViewContext.HttpContext.RequestServices.GetRequiredService<IUrlHelperFactory>();
+            var urlHelper = urlHelperFactory.GetUrlHelper(_htmlHelper.ViewContext);
+            writer.Write(new PagerBuilder(_htmlHelper.ViewContext, urlHelper,totalPageCount, _currentPageIndex, _pagerOptions,_ajaxOptions).GenerateHtml());
         }
     }
 }

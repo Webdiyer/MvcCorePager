@@ -22,7 +22,6 @@ namespace Webdiyer.AspNetCore
         private readonly int _endPageIndex = 1;
         private readonly bool _ajaxPagingEnabled;
         private readonly MvcAjaxOptions _ajaxOptions;
-        private readonly string _copyrightText = string.Empty; //"\r\n" + MvcPagerResources.CopyrightText + "\r\n";
         private IUrlHelper _urlHelper;
 
         //html pager builder
@@ -234,7 +233,25 @@ namespace Webdiyer.AspNetCore
                     routeValues[_pagerOptions.PageIndexParameterName] = pageIndex;
                 }
             }
-            string url = string.IsNullOrWhiteSpace(_pagerOptions.Route) ? _urlHelper.Action(_pagerOptions.Action, _pagerOptions.Controller, routeValues) : _urlHelper.RouteUrl(_pagerOptions.Route, routeValues);
+
+            string url;
+            if (!string.IsNullOrWhiteSpace(_pagerOptions.Route))
+            {
+                url = _urlHelper.RouteUrl(_pagerOptions.Route, routeValues);
+            }
+            else
+            {
+                if (!string.IsNullOrWhiteSpace(_pagerOptions.Controller))
+                {
+                    routeValues["controller"] = _pagerOptions.Controller;
+                }
+                var actionName = _pagerOptions.Action;
+                if (string.IsNullOrWhiteSpace(actionName))
+                {
+                    actionName = (string)routeValues["action"];
+                }
+                url = _urlHelper.Action(actionName, routeValues);
+            }
 
             if (pageValue != null)
                 _viewContext.RouteData.Values[_pagerOptions.PageIndexParameterName] = pageValue;
@@ -255,12 +272,10 @@ namespace Webdiyer.AspNetCore
             {
                 if (_ajaxPagingEnabled)
                 {
-                    return string.Format("{0}<div data-ajax=\"true\" data-ajax-update=\"{1}\" data-invalidpageerrmsg=\"{2}\" data-outrangeerrmsg=\"{3}\" data-pagerid=\"Webdiyer.MvcPager\" style=\"color:red;font-weight:bold\">{3}</div>{0}",
-                                             _copyrightText, EscapeIdSelector(_ajaxOptions.UpdateTargetId), _pagerOptions.InvalidPageIndexErrorMessage, _pagerOptions.PageIndexOutOfRangeErrorMessage);
+                    return $"<div data-ajax=\"true\" data-ajax-update=\"{EscapeIdSelector(_ajaxOptions.UpdateTargetId)}\" data-invalidpageerrmsg=\"{_pagerOptions.InvalidPageIndexErrorMessage}\" data-outrangeerrmsg=\"{_pagerOptions.PageIndexOutOfRangeErrorMessage}\" data-pagerid=\"Webdiyer.MvcPager\" style=\"color:red;font-weight:bold\">{_pagerOptions.PageIndexOutOfRangeErrorMessage}</div>";
 
                 }
-                return string.Format("{0}<div data-invalidpageerrmsg=\"{1}\" data-outrangeerrmsg=\"{2}\" data-pagerid=\"Webdiyer.MvcPager\" style=\"color:red;font-weight:bold\">{2}</div>{0}",
-                                         _copyrightText, _pagerOptions.InvalidPageIndexErrorMessage, _pagerOptions.PageIndexOutOfRangeErrorMessage);
+                return $"<div data-invalidpageerrmsg=\"{_pagerOptions.InvalidPageIndexErrorMessage}\" data-outrangeerrmsg=\"{_pagerOptions.PageIndexOutOfRangeErrorMessage}\" data-pagerid=\"Webdiyer.MvcPager\" style=\"color:red;font-weight:bold\">{_pagerOptions.PageIndexOutOfRangeErrorMessage}</div>";
             }
 
             var tb = new TagBuilder(_pagerOptions.TagName);
@@ -385,7 +400,7 @@ namespace Webdiyer.AspNetCore
             using (var sw = new StringWriter())
             {
                 tb.WriteTo(sw, HtmlEncoder.Default);
-                return _copyrightText + sw.ToString() + _copyrightText;
+                return sw.ToString();
             }
         }
 
@@ -473,10 +488,26 @@ namespace Webdiyer.AspNetCore
             string url = GenerateUrl(item.PageIndex);
             if (item.Disabled) //first,last,next or previous page
                 return CreateWrappedPagerElement(item, item.Text);
+            var link = HtmlEncoder.Default.Encode(item.Text);
+            if (string.IsNullOrEmpty(url))
+            {
+                link = HtmlEncoder.Default.Encode(item.Text);
+            }
+            else
+            {
+                if (!string.IsNullOrWhiteSpace(_pagerOptions.PagerItemCssClass))
+                {
+                    link = $"<a class=\"{_pagerOptions.PagerItemCssClass}\" href=\"{url}\">{item.Text}</a>";
+                }
+                else
+                {
+                    link = $"<a href=\"{url}\">{item.Text}</a>";
+                }
+            }
             return CreateWrappedPagerElement(item,
                 string.IsNullOrEmpty(url)
                     ? HtmlEncoder.Default.Encode(item.Text)
-                    : String.Format("<a href=\"{0}\">{1}</a>", url, item.Text));
+                    :link);
         }
 
         private string GenerateAjaxPagerElement(PagerItem item)
