@@ -1,8 +1,9 @@
 ﻿# MvcCorePager | [English](README.md)
 
-MvcCorePager是一个免费开源的 ASP.NET Core MVC 分页组件,是原MvcPager的.net core升级版，支持TagHelper 和 Html扩展方法两种语法：
+![MvcCorePager](/Demo/wwwroot/images/MvcCorePager.gif)
+MvcCorePager是一个免费开源的 ASP.NET Core MVC 分页组件,是原MvcPager的.net core升级版，支持使用 TagHelper 和 Html扩展方法两种语法。
 
-### Html扩展方法语法：
+### Html扩展方法示例：
 ```csharp
 @Html.Pager(Model, new PagerOptions
 {
@@ -17,7 +18,7 @@ MvcCorePager是一个免费开源的 ASP.NET Core MVC 分页组件,是原MvcPage
 })
 ```
 
-### TagHelper 语法：
+### TagHelper 示例：
 ```csharp
 <mvcpager asp-model="@Model" page-index-parameter-name="id" tag-name="ul"
               class="pagination" 
