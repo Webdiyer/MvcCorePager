@@ -65,7 +65,7 @@ namespace Webdiyer.AspNetCore
         public int NumericPagerItemCount { get { return Options.NumericPagerItemCount; } set { Options.NumericPagerItemCount = value; } }
 
 
-        /// <include file='docs/MvcCorePagerDocs.xml' path='MvcCorePagerDocs/PagerOptions/Property[@name="ShowPrevNext"]'/>
+        /// <include file='docs/MvcCorePagerDocs.xml' path='MvcCorePagerDocs/PagerOptions/Property[@name="ShowPrevNext"]/*'/>
         public bool ShowPrevNext { get { return Options.ShowPrevNext; } set { Options.ShowPrevNext = value; } }
 
 
@@ -77,10 +77,10 @@ namespace Webdiyer.AspNetCore
         public string NextPageText { get { return Options.NextPageText; } set { Options.NextPageText = value; } }
 
 
-        /// <include file='docs/MvcCorePagerDocs.xml' path='MvcCorePagerDocs/PagerOptions/Property[@name="ShowNumericPagerItems"]'/>
+        /// <include file='docs/MvcCorePagerDocs.xml' path='MvcCorePagerDocs/PagerOptions/Property[@name="ShowNumericPagerItems"]/*'/>
         public bool ShowNumericPagerItems { get { return Options.ShowNumericPagerItems; } set { Options.ShowNumericPagerItems = value; } }
 
-        /// <include file='docs/MvcCorePagerDocs.xml' path='MvcCorePagerDocs/PagerOptions/Property[@name="ShowFirstLast"]'/>
+        /// <include file='docs/MvcCorePagerDocs.xml' path='MvcCorePagerDocs/PagerOptions/Property[@name="ShowFirstLast"]/*'/>
         public bool ShowFirstLast { get { return Options.ShowFirstLast; } set { Options.ShowFirstLast = value; } }
 
 
@@ -133,42 +133,42 @@ namespace Webdiyer.AspNetCore
         /// <include file='docs/MvcCorePagerDocs.xml' path='MvcCorePagerDocs/PagerOptions/Property[@name="OnPageIndexError"]/*'/>
         public string OnPageIndexError { get { return Options.OnPageIndexError; } set { Options.OnPageIndexError = value; } }
 
+
+        /// <include file='docs/MvcCorePagerDocs.xml' path='MvcCorePagerDocs/PagerOptions/Property[@name="PagerItemCssClass"]/*'/>
+        public string PagerItemCssClass { get { return Options.PagerItemCssClass; } set { Options.PagerItemCssClass = value; } }
+
         [HtmlAttributeNotBound]
         [ViewContext]
         public ViewContext ViewContext { get; set; }
-        
-        /// <summary>
-        /// The name of the action method.
-        /// </summary>
+
+        /// <include file='docs/MvcCorePagerDocs.xml' path='MvcCorePagerDocs/PagerOptions/Property[@name="Action"]/*'/>
         [HtmlAttributeName(ActionAttributeName)]
         public string Action { get { return Options.Action; } set { Options.Action = value; } }
 
-        /// <summary>
-        /// The name of the controller.
-        /// </summary>
+        /// <include file='docs/MvcCorePagerDocs.xml' path='MvcCorePagerDocs/PagerOptions/Property[@name="Controller"]/*'/>
         [HtmlAttributeName(ControllerAttributeName)]
         public string Controller { get { return Options.Controller; } set { Options.Controller = value; } }
 
-        /// <summary>
-        /// The name of the area.
-        /// </summary>
+        /// <include file='docs/MvcCorePagerDocs.xml' path='MvcCorePagerDocs/PagerOptions/Property[@name="Area"]/*'/>
         [HtmlAttributeName(AreaAttributeName)]
         public string Area { get { return Options.Area; } set { Options.Area = value; } }
 
+        /// <include file='docs/MvcCorePagerDocs.xml' path='MvcCorePagerDocs/PagerOptions/Property[@name="Route"]/*'/>
         [HtmlAttributeName(RouteAttributeName)]
         public string Route { get { return Options.Route; } set { Options.Route = value; } }
 
-        /// <summary>
-        /// The HTTP method to use.
-        /// </summary>
-        /// <remarks>Passed through to the generated HTML in all cases.</remarks>
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public string Method { get; set; }
+        ///// <summary>
+        ///// The HTTP method to use.
+        ///// </summary>
+        ///// <remarks>Passed through to the generated HTML in all cases.</remarks>
+        //[EditorBrowsable(EditorBrowsableState.Never)]
+        //public string Method { get; set; }
 
         /// <include file='docs/MvcCorePagerDocs.xml' path='MvcCorePagerDocs/PagerOptions/Property[@name="RouteValues"]/*'/>
         /// <summary>
         /// Additional parameters for the route.
         /// </summary>
+        /// <include file='docs/MvcCorePagerDocs.xml' path='MvcCorePagerDocs/PagerOptions/Property[@name="RouteValues"]/*'/>
         [HtmlAttributeName(RouteValuesDictionaryName, DictionaryAttributePrefix = RouteValuesPrefix)]
         public IDictionary<string, string> RouteValues
         {

@@ -136,7 +136,7 @@ namespace Webdiyer.AspNetCore
         public int NumericPagerItemCount { get; set; }
 
 
-        /// <include file='docs/MvcCorePagerDocs.xml' path='MvcCorePagerDocs/PagerOptions/Property[@name="ShowPrevNext"]'/>
+        /// <include file='docs/MvcCorePagerDocs.xml' path='MvcCorePagerDocs/PagerOptions/Property[@name="ShowPrevNext"]/*'/>
         public bool ShowPrevNext { get; set; }
 
 
@@ -148,10 +148,10 @@ namespace Webdiyer.AspNetCore
         public string NextPageText { get; set; }
 
 
-        /// <include file='docs/MvcCorePagerDocs.xml' path='MvcCorePagerDocs/PagerOptions/Property[@name="ShowNumericPagerItems"]'/>
+        /// <include file='docs/MvcCorePagerDocs.xml' path='MvcCorePagerDocs/PagerOptions/Property[@name="ShowNumericPagerItems"]/*'/>
         public bool ShowNumericPagerItems { get; set; } = true;
 
-        /// <include file='docs/MvcCorePagerDocs.xml' path='MvcCorePagerDocs/PagerOptions/Property[@name="ShowFirstLast"]'/>
+        /// <include file='docs/MvcCorePagerDocs.xml' path='MvcCorePagerDocs/PagerOptions/Property[@name="ShowFirstLast"]/*'/>
         public bool ShowFirstLast { get; set; } = true;
 
 
@@ -200,6 +200,9 @@ namespace Webdiyer.AspNetCore
         /// <include file='docs/MvcCorePagerDocs.xml' path='MvcCorePagerDocs/PagerOptions/Property[@name="OnPageIndexError"]/*'/>
         public string OnPageIndexError { get; set; }
 
+        /// <include file='docs/MvcCorePagerDocs.xml' path='MvcCorePagerDocs/PagerOptions/Property[@name="PagerItemCssClass"]/*'/>
         public string PagerItemCssClass { get; set; }
+
+
     }
 }

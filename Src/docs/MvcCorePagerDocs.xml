@@ -326,7 +326,7 @@ Gets or sets a value indicating whether the numeric pager items should be displa
     </Property>
     <Property name="FirstPageText">
       <summary>
-        Gets or sets the text displayed for the first page button.
+        Gets or sets the text displayed for the first page pager item.
       </summary>
     </Property>
     <Property name="LastPageText">
@@ -377,6 +377,11 @@ Gets or sets the maximum page number limitation, default value is 0, which means
     <Property name="NavigationPagerItemsPosition">
       <summary>
         Gets or sets the position of the first, previous, next and last pager items.
+      </summary>
+    </Property>
+    <Property name="PagerItemCssClass">
+      <summary>
+        Gets or sets the css class to be applied to the pager item (a tag).
       </summary>
     </Property>
   </PagerOptions>

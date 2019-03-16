@@ -378,6 +378,11 @@
         首页、下页、下页和尾页四个导航按钮的位置
       </summary>
     </Property>
+    <Property name="PagerItemCssClass">
+      <summary>
+        获取或设置分页元素（a标签）的css样式类名。
+      </summary>
+    </Property>
   </PagerOptions>
   <MvcAjaxOptions>
     <Property name="EnablePartialLoading">

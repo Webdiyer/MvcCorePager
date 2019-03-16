@@ -24,6 +24,10 @@
     <DelaySign>false</DelaySign>
   </PropertyGroup>
 
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DocumentationFile></DocumentationFile>
+  </PropertyGroup>
+
   <ItemGroup>
     <None Remove="wwwroot\js\MvcCorePager\MvcCorePager.js" />
     <None Remove="wwwroot\js\MvcCorePager\MvcCorePager.min.js" />
