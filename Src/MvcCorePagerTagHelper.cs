@@ -60,12 +60,6 @@ namespace Webdiyer.AspNetCore
             var content=pb.GenerateHtml();
             output.TagName = string.Empty;
             output.Content = new DefaultTagHelperContent().SetHtmlContent(content);
-
-            //output.PreElement.SetHtmlContent(_copyrightText);
-            //output.TagName = TagName;
-            //_content = new DefaultTagHelperContent();
-            //output.Content = _content.SetHtmlContent(buildPager(output));
-            //output.PostElement.SetHtmlContent(_copyrightText);
         }
         
     }

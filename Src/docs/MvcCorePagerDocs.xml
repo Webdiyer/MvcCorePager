@@ -931,8 +931,17 @@ Gets or sets the maximum page number limitation, default value is 0, which means
       Sets the RouteValues property of <see cref="PagerOptions"/> with a given value.
     </summary>
     <param name="values">
+      A RouteValueDictionary object that contains route values.
     </param>
   </Method>
+    <Method name="SetPagerItemCssClass">
+      <summary>
+        Sets the PagerItemCssClass property of <see cref="PagerOptions"/> with a given value.
+      </summary>
+      <param name="cssClass">
+        The css class to be applied to the PagerItemCssClass property.
+      </param>
+    </Method>
 </PagerOptionsBuilder>
 
   <MvcAjaxOptionsBuilder>

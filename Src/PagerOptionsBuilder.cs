@@ -317,6 +317,13 @@ namespace Webdiyer.AspNetCore
             return this;
         }
 
+        ///<include file='docs/MvcCorePagerDocs.xml' path='MvcCorePagerDocs/PagerOptionsBuilder/Method[@name="PagerOptionsBuilder"]/*'/>
+        public PagerOptionsBuilder SetPagerItemCssClass(string cssClass)
+        {
+            _pagerOptions.PagerItemCssClass = cssClass;
+            return this;
+        }
+
         ///<include file='docs/MvcCorePagerDocs.xml' path='MvcCorePagerDocs/PagerOptionsBuilder/Method[@name="SetRouteValues"]/*'/>
         public PagerOptionsBuilder SetRouteValues(RouteValueDictionary values)
         {

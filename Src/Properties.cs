@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.ComponentModel;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.AspNetCore.Mvc.ViewFeatures;
 using Microsoft.AspNetCore.Razor.TagHelpers;
@@ -103,7 +102,7 @@ namespace Webdiyer.AspNetCore
         /// <include file='docs/MvcCorePagerDocs.xml' path='MvcCorePagerDocs/PagerOptions/Property[@name="Id"]/*'/>
         public string Id { get { return Options.Id; } set { Options.Id = value; } }
 
-        /// <include file='docs/MvcCorePagerDocs.xml' path='MvcCorePagerDocs/PagerOptions/Property[@name="HorizontalAlign"]/*'/>
+        ///// <include file='docs/MvcCorePagerDocs.xml' path='MvcCorePagerDocs/PagerOptions/Property[@name="HorizontalAlign"]/*'/>
         //public string HorizontalAlign { get; set; }
 
 
@@ -121,10 +120,13 @@ namespace Webdiyer.AspNetCore
         /// <include file='docs/MvcCorePagerDocs.xml' path='MvcCorePagerDocs/PagerOptions/Property[@name="HidePagerItems"]/*'/>
         public bool HidePagerItems { get { return Options.HidePagerItems; } set { Options.HidePagerItems = value; } }
 
+        /// <include file='docs/MvcCorePagerDocs.xml' path='MvcCorePagerDocs/PagerOptions/Property[@name="PageIndexBoxId"]/*'/>
         public string PageIndexBoxId { get { return Options.PageIndexBoxId; } set { Options.PageIndexBoxId = value; } }
 
+        /// <include file='docs/MvcCorePagerDocs.xml' path='MvcCorePagerDocs/PagerOptions/Property[@name="GoToButtonId"]/*'/>
         public string GoToButtonId { get { return Options.GoToButtonId; } set { Options.GoToButtonId = value; } }
 
+        /// <include file='docs/MvcCorePagerDocs.xml' path='MvcCorePagerDocs/PagerOptions/Property[@name="MaximumPageIndexItems"]/*'/>
         public int MaximumPageIndexItems { get { return Options.MaximumPageIndexItems; } set { Options.MaximumPageIndexItems = value; } }
 
         /// <include file='docs/MvcCorePagerDocs.xml' path='MvcCorePagerDocs/PagerOptions/Property[@name="NavigationPagerItemsPosition"]/*'/>

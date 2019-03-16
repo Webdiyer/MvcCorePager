@@ -862,14 +862,24 @@
 <summary>设置 PagerOptions 的 Route 属性
 </summary>
 <param name="routeName">
+  路由名称
 </param>
 </Method>
 <Method name="SetRouteValues">
 <summary>设置 PagerOptions 的 RouteValues 属性
 </summary>
 <param name="values">
+  一个包含路由值的 RouteValueDictionary 对象
 </param>
 </Method>
+    <Method name="SetPagerItemCssClass">
+      <summary>
+        设置 PagerOptions 的 PagerItemCssClass 属性
+      </summary>
+      <param name="cssClass">
+        要应用的css类名
+      </param>
+    </Method>
   </PagerOptionsBuilder>
   <MvcAjaxOptionsBuilder>
   <Constructor name="MvcAjaxOptionsBuilder">
