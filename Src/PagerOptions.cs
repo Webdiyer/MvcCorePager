@@ -202,7 +202,5 @@ namespace Webdiyer.AspNetCore
 
         /// <include file='docs/MvcCorePagerDocs.xml' path='MvcCorePagerDocs/PagerOptions/Property[@name="PagerItemCssClass"]/*'/>
         public string PagerItemCssClass { get; set; }
-
-
     }
 }
