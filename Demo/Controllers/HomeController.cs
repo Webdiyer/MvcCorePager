@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 
-namespace Webdiyer.MvcCorePagerDemo.Controllers
+namespace Demo.Controllers
 {
     public class HomeController : Controller
     {

@@ -1,6 +1,6 @@
 using System.Linq;
 using Microsoft.AspNetCore.Mvc;
-using Webdiyer.MvcCorePagerDemo.Models;
+using Demo.Models;
 using Webdiyer.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
 using System.IO;

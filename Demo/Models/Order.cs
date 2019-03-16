@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Webdiyer.MvcCorePagerDemo.Models
+namespace Demo.Models
 {
     public partial class Order
     {

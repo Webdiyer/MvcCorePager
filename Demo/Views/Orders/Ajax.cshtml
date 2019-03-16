@@ -1,11 +1,11 @@
 @model PagedList<Order>
     @{
-    ViewData["Title"] = "Ajax paging";
+    ViewData["Title"] = "Ajax pagination";
     }
 
                     <div id="orders">
-                        @Html.Partial("_OrderList",Model)
+                        <partial name="_OrderList" model="@Model" />
                     </div>
     @section Scripts{
-                    <script src="~/js/MvcCorePager/MvcCorePager.min.js"></script>
+                    <script src="~/js/MvcCorePager/MvcCorePager.js" asp-append-version="true"></script>
         }
