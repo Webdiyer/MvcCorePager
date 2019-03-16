@@ -17,7 +17,7 @@ namespace Demo.Controllers
             Env = env;
         }
 
-        public IActionResult Default(int pageIndex = 1)
+        public IActionResult Index(int pageIndex = 1)
         {
             var model = GetPagedOrders(pageIndex, pageSize);
             return View(model);
@@ -40,7 +40,14 @@ namespace Demo.Controllers
             return View(model);
         }
 
-        IPagedList<Order> GetPagedOrders(int pageIndex, int pageSize)
+        public IActionResult PageIndexBox(int id = 1)
+        {
+            var model = GetPagedOrders(id, pageSize);
+            return View(model);
+        }
+
+        [NonAction]
+        private  IPagedList<Order> GetPagedOrders(int pageIndex, int pageSize)
         {
             var path = Path.Combine(Env.WebRootPath, "orders.json");
             var ods = Newtonsoft.Json.JsonConvert.DeserializeObject<Order[]>(System.IO.File.ReadAllText(path));

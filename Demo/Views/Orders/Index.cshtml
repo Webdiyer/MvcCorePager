@@ -1,34 +1,29 @@
-@model IEnumerable<Order>
-
+﻿@model PagedList<Order>
 @{
-    ViewData["Title"] = "Index";
+    ViewBag.Title = "Default settings";
 }
 
-<h2>Index</h2>
-
-<table class="table">
-    <thead>
-        <tr>
-                <th>
-                    @Html.DisplayNameFor(model => model.OrderDate)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.CustomerId)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.CompanyName)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.EmployeeName)
-                </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
+    <h1 class="pb-2 mt-4 mb-2 border-bottom">MvcCorePager demo: Default settings</h1>
+<table class="table table=bordered table-striped">
+    <tr>
+        <th class="nowrap">
+            @Html.DisplayNameFor(model => model.OrderId)
+        </th>
+        <th class="nowrap">
+            @Html.DisplayNameFor(model => model.CustomerId)
+        </th>
+        <th class="nowrap">
+            @Html.DisplayNameFor(model => model.CompanyName)
+        </th>
+        <th class="nowrap">
+            @Html.DisplayNameFor(model => model.EmployeeName)
+        </th>
+    </tr>
+    @foreach (var item in Model)
+    {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.OrderDate)
+                @Html.DisplayFor(modelItem => item.OrderId)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.CustomerId)
@@ -39,12 +34,19 @@
             <td>
                 @Html.DisplayFor(modelItem => item.EmployeeName)
             </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.OrderId">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.OrderId">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.OrderId">Delete</a>
-            </td>
         </tr>
-}
-    </tbody>
+    }
 </table>
+<h3>Html extension method syntax:</h3>
+<code>
+    <pre style="font-family:Consolas;font-size:16px;color:gainsboro;background:#1e1e1e;"><span style="color:black;background:#ffffb3;">@@</span>Html<span style="color:#b4b4b4;">.</span>Pager(Model)
+</pre>
+</code>
+@Html.Pager(Model)
+
+<h3>TagHelper syntax:</h3>
+<code>
+    <pre style="font-family:Consolas;font-size:16px;color:gainsboro;background:#1e1e1e;"><span style="color:gray;">&lt;</span><span style="font-weight:bold;color:teal;">mvcpager</span>&nbsp;<span style="font-weight:bold;color:teal;">asp-model</span><span style="color:#b4b4b4;">=</span><span style="color:#c8c8c8;">&quot;</span><span style="color:black;background:#ffffb3;">@@</span>Model<span style="color:#c8c8c8;">&quot;</span><span style="color:gray;">&gt;&lt;/</span><span style="font-weight:bold;color:teal;">mvcpager</span><span style="color:gray;">&gt;</span>
+</pre>
+</code>
+<mvcpager asp-model="@Model"></mvcpager>
