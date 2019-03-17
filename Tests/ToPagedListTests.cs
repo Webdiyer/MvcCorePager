@@ -3,7 +3,7 @@ using System.Threading.Tasks;
 using Webdiyer.AspNetCore;
 using Xunit;
 
-namespace Webdiyer.MvcCorePagerTest
+namespace Webdiyer.MvcCorePagerTests
 {
     public class ToPagedListTests
     {

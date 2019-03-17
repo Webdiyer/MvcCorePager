@@ -2,7 +2,7 @@ using System.Linq;
 using Webdiyer.AspNetCore;
 using Xunit;
 
-namespace Webdiyer.MvcCorePagerTest
+namespace Webdiyer.MvcCorePagerTests
 {
     public class PagedListTests
     {
