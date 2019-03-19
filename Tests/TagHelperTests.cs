@@ -18,8 +18,85 @@ namespace Webdiyer.MvcCorePagerTests
 {
     public class TagHelperTests
     {
-    [Fact]
+        [Fact]
         public void DefaultSettings_ShouldOutputCorrectContent()
+        {
+            var pagedList = Enumerable.Range(1, 88).ToPagedList(1, 5);
+
+            var httpContext = new DefaultHttpContext();
+            httpContext.Request.QueryString = new QueryString();
+            var viewContext = GetViewContext(httpContext, new RouteValueDictionary(new { action = "test", controller = "Home" }));
+
+            var tagHelper = new MvcCorePagerTagHelper(GetUrlHelperFactory())
+            {
+                DataSource = pagedList,
+                ViewContext = viewContext
+            };
+
+            var tagHelperContext = GetTagHelperContext();
+            var tagHelperOutput = GetTagHelperOutput("div");
+            tagHelper.Process(tagHelperContext, tagHelperOutput);
+            string expectedResult = "<div data-invalid-page-error=\"Invalid page index\" data-out-range-error=\"Page index out of range\" data-page-count=\"18\" data-page-parameter=\"pageindex\" data-pager-type=\"Webdiyer.MvcPager\" data-url-format=\"/Home/test?pageindex=__pageindex__\"><<<1<a href=\"/Home/test?pageindex=2\">2</a><a href=\"/Home/test?pageindex=3\">3</a><a href=\"/Home/test?pageindex=4\">4</a><a href=\"/Home/test?pageindex=5\">5</a><a href=\"/Home/test?pageindex=6\">6</a><a href=\"/Home/test?pageindex=7\">7</a><a href=\"/Home/test?pageindex=8\">8</a><a href=\"/Home/test?pageindex=9\">9</a><a href=\"/Home/test?pageindex=10\">10</a><a href=\"/Home/test?pageindex=11\">...</a><a href=\"/Home/test?pageindex=2\">></a><a href=\"/Home/test?pageindex=18\">>></a></div>";
+            Assert.Equal(expectedResult, tagHelperOutput.Content.GetContent());
+        }
+
+
+        [Fact]
+        public void NavigationPagerItem_ShouldOutputCorrectText()
+        {
+            var pagedList = Enumerable.Range(1, 88).ToPagedList(1, 5);
+
+            var httpContext = new DefaultHttpContext();
+            httpContext.Request.QueryString = new QueryString();
+            var viewContext = GetViewContext(httpContext, new RouteValueDictionary(new { action = "test", controller = "Home" }));
+
+            var tagHelper = new MvcCorePagerTagHelper(GetUrlHelperFactory())
+            {
+                DataSource = pagedList,
+                ViewContext = viewContext,
+                FirstPageText="first",
+                NextPageText="next",
+                PrevPageText="previous",
+                LastPageText="last"
+            };
+
+            var tagHelperContext = GetTagHelperContext();
+            var tagHelperOutput = GetTagHelperOutput("div");
+            tagHelper.Process(tagHelperContext, tagHelperOutput);
+            string expectedResult = "<div data-invalid-page-error=\"Invalid page index\" data-out-range-error=\"Page index out of range\" data-page-count=\"18\" data-page-parameter=\"pageindex\" data-pager-type=\"Webdiyer.MvcPager\" data-url-format=\"/Home/test?pageindex=__pageindex__\">firstprevious1<a href=\"/Home/test?pageindex=2\">2</a><a href=\"/Home/test?pageindex=3\">3</a><a href=\"/Home/test?pageindex=4\">4</a><a href=\"/Home/test?pageindex=5\">5</a><a href=\"/Home/test?pageindex=6\">6</a><a href=\"/Home/test?pageindex=7\">7</a><a href=\"/Home/test?pageindex=8\">8</a><a href=\"/Home/test?pageindex=9\">9</a><a href=\"/Home/test?pageindex=10\">10</a><a href=\"/Home/test?pageindex=11\">...</a><a href=\"/Home/test?pageindex=2\">next</a><a href=\"/Home/test?pageindex=18\">last</a></div>";
+            Assert.Equal(expectedResult, tagHelperOutput.Content.GetContent());
+        }
+
+        ViewContext GetViewContext(HttpContext httpContext, RouteValueDictionary routeValues)
+        {
+            return new ViewContext()
+            {
+                RouteData = new RouteData(routeValues),
+                HttpContext = httpContext
+            };
+        }
+
+        TagHelperContext GetTagHelperContext()
+        {
+            return new TagHelperContext(
+                new TagHelperAttributeList(),
+                new Dictionary<object, object>(),
+                Guid.NewGuid().ToString("N"));
+        }
+
+        TagHelperOutput GetTagHelperOutput(string tagName)
+        {
+            var tagHelperOutput = new TagHelperOutput(tagName,
+                new TagHelperAttributeList(), (result, encoder) =>
+                {
+                    var tagHelperContent = new DefaultTagHelperContent();
+                    tagHelperContent.SetHtmlContent(string.Empty);
+                    return Task.FromResult<TagHelperContent>(tagHelperContent);
+                });
+            return tagHelperOutput;
+        }
+
+        private IUrlHelperFactory GetUrlHelperFactory()
         {
             var urlHelper = new Mock<IUrlHelper>();
             urlHelper.Setup(x => x.Action(It.IsAny<UrlActionContext>()))
@@ -40,36 +117,7 @@ namespace Webdiyer.MvcCorePagerTests
             urlHelperFactory.Setup(f =>
                     f.GetUrlHelper(It.IsAny<ActionContext>()))
                         .Returns(urlHelper.Object);
-            var pagedList = Enumerable.Range(1, 88).ToPagedList(1, 5);
-
-            var httpContext = new DefaultHttpContext();
-            httpContext.Request.QueryString = new QueryString();
-            var viewContext = new ViewContext()
-            {
-                RouteData = new RouteData(
-                new RouteValueDictionary(new { action = "test", controller = "Home" })),                
-                HttpContext=httpContext
-            };
-            
-            var tagHelper = new MvcCorePagerTagHelper(urlHelperFactory.Object)
-            {
-                DataSource=pagedList,ViewContext=viewContext
-            };
-
-
-            var tagHelperContext = new TagHelperContext(
-                new TagHelperAttributeList(), 
-                new Dictionary<object, object>(), 
-                Guid.NewGuid().ToString("N"));
-            var tagHelperOutput = new TagHelperOutput("div", 
-                new TagHelperAttributeList(),(result, encoder) =>{
-                    var tagHelperContent = new DefaultTagHelperContent();
-                    tagHelperContent.SetHtmlContent(string.Empty);
-                    return Task.FromResult<TagHelperContent>(tagHelperContent);
-                });
-            tagHelper.Process(tagHelperContext, tagHelperOutput);
-            string expectedResult = "<div data-invalid-page-error=\"Invalid page index\" data-out-range-error=\"Page index out of range\" data-page-count=\"18\" data-page-parameter=\"pageindex\" data-pager-type=\"Webdiyer.MvcPager\" data-url-format=\"/Home/test?pageindex=__pageindex__\"><<<1<a href=\"/Home/test?pageindex=2\">2</a><a href=\"/Home/test?pageindex=3\">3</a><a href=\"/Home/test?pageindex=4\">4</a><a href=\"/Home/test?pageindex=5\">5</a><a href=\"/Home/test?pageindex=6\">6</a><a href=\"/Home/test?pageindex=7\">7</a><a href=\"/Home/test?pageindex=8\">8</a><a href=\"/Home/test?pageindex=9\">9</a><a href=\"/Home/test?pageindex=10\">10</a><a href=\"/Home/test?pageindex=11\">...</a><a href=\"/Home/test?pageindex=2\">></a><a href=\"/Home/test?pageindex=18\">>></a></div>";
-            Assert.Equal(expectedResult, tagHelperOutput.Content.GetContent());
+            return urlHelperFactory.Object;
         }
     }
 }
