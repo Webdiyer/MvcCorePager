@@ -369,11 +369,6 @@ Gets or sets a value indicating whether the disabled pager items should be displ
 Gets or sets the maximum page number limitation, default value is 0, which means maximum page number is calculated from the data to be paged.
       </summary>
     </Property>
-    <Property name="HidePagerItems">
-      <summary>
-        Gets or sets a value indicating whether MvcPager should be hidden (in case you need to create your own pager UI).
-      </summary>
-    </Property>
     <Property name="NavigationPagerItemsPosition">
       <summary>
         Gets or sets the position of the first, previous, next and last pager items.

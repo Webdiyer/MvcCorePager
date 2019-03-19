@@ -286,10 +286,6 @@ namespace Webdiyer.AspNetCore
                 string strAlign = "text-align:" + _pagerOptions.HorizontalAlign.ToLower();
                 MergeStyleAttribute(ref htmlAttributes, strAlign);
             }
-            if (_pagerOptions.HidePagerItems)
-            {
-                MergeStyleAttribute(ref htmlAttributes, "display:none");
-            }
             tb.MergeAttributes(htmlAttributes, true);
             if (!string.IsNullOrEmpty(_pagerOptions.CssClass))
                 tb.AddCssClass(_pagerOptions.CssClass);
@@ -308,7 +304,7 @@ namespace Webdiyer.AspNetCore
             }            
             AddDataAttributes(attrs);
             tb.MergeAttributes(attrs, true);
-            if ((_totalPageCount > 1 || (!_pagerOptions.AutoHide)) && !_pagerOptions.HidePagerItems)
+            if (_totalPageCount > 1 ||!_pagerOptions.AutoHide)
             {
                 var pagerItems = new List<PagerItem>();
                 if (_pagerOptions.NavigationPagerItemsPosition == PagerItemsPosition.Left ||

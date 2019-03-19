@@ -302,14 +302,7 @@ namespace Webdiyer.AspNetCore
             _pagerOptions.MaximumPageNumber = number;
             return this;
         }
-
-        ///<include file='docs/MvcCorePagerDocs.xml' path='MvcCorePagerDocs/PagerOptionsBuilder/Method[@name="HidePagerItems"]/*'/>
-        public PagerOptionsBuilder HidePagerItems()
-        {
-            _pagerOptions.HidePagerItems = true;
-            return this;
-        }
-
+        
         ///<include file='docs/MvcCorePagerDocs.xml' path='MvcCorePagerDocs/PagerOptionsBuilder/Method[@name="SetNavigationPagerItemsPosition"]/*'/>
         public PagerOptionsBuilder SetNavigationPagerItemsPosition(PagerItemsPosition position)
         {

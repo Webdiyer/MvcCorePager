@@ -189,13 +189,9 @@ namespace Webdiyer.AspNetCore
         /// <include file='docs/MvcCorePagerDocs.xml' path='MvcCorePagerDocs/PagerOptions/Property[@name="MaximumPageNumber"]/*'/>
         public int MaximumPageNumber { get; set; }
 
-        /// <include file='docs/MvcCorePagerDocs.xml' path='MvcCorePagerDocs/PagerOptions/Property[@name="HidePagerItems"]/*'/>
-        public bool HidePagerItems { get; set; }
-
-        private PagerItemsPosition _navPagerItemsPosition = PagerItemsPosition.BothSide;
 
         /// <include file='docs/MvcCorePagerDocs.xml' path='MvcCorePagerDocs/PagerOptions/Property[@name="NavigationPagerItemsPosition"]/*'/>
-        public PagerItemsPosition NavigationPagerItemsPosition { get { return _navPagerItemsPosition; } set{_navPagerItemsPosition = value;} }
+        public PagerItemsPosition NavigationPagerItemsPosition { get; set; } = PagerItemsPosition.BothSide;
 
         /// <include file='docs/MvcCorePagerDocs.xml' path='MvcCorePagerDocs/PagerOptions/Property[@name="OnPageIndexError"]/*'/>
         public string OnPageIndexError { get; set; }

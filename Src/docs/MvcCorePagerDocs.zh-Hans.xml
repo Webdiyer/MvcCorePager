@@ -368,11 +368,6 @@
         限制显示的最大页数，默认值为0，即根据总记录数算出的总页数
       </summary>
     </Property>
-    <Property name="HidePagerItems">
-      <summary>
-        是否隐藏分页元素。如该值设为true，MvcPager将被隐藏而不显示任何分页元素，您可以通过客户端Javascript API来创建自己的分页用户界面
-      </summary>
-    </Property>
     <Property name="NavigationPagerItemsPosition">
       <summary>
         首页、下页、下页和尾页四个导航按钮的位置

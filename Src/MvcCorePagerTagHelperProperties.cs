@@ -117,9 +117,6 @@ namespace Webdiyer.AspNetCore
         /// <include file='docs/MvcCorePagerDocs.xml' path='MvcCorePagerDocs/PagerOptions/Property[@name="MaximumPageNumber"]/*'/>
         public int MaximumPageNumber { get { return Options.MaximumPageNumber; } set { Options.MaximumPageNumber = value; } }
 
-        /// <include file='docs/MvcCorePagerDocs.xml' path='MvcCorePagerDocs/PagerOptions/Property[@name="HidePagerItems"]/*'/>
-        public bool HidePagerItems { get { return Options.HidePagerItems; } set { Options.HidePagerItems = value; } }
-
         /// <include file='docs/MvcCorePagerDocs.xml' path='MvcCorePagerDocs/PagerOptions/Property[@name="PageIndexBoxId"]/*'/>
         public string PageIndexBoxId { get { return Options.PageIndexBoxId; } set { Options.PageIndexBoxId = value; } }
 
