@@ -10,6 +10,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.Encodings.Web;
 using System.Threading.Tasks;
 using Webdiyer.AspNetCore;
 using Xunit;
@@ -35,7 +36,7 @@ namespace Webdiyer.MvcCorePagerTests
             var tagHelperContext = GetTagHelperContext();
             var tagHelperOutput = GetTagHelperOutput("div");
             tagHelper.Process(tagHelperContext, tagHelperOutput);
-            string numLinks = GenerateNumericPageLinks(1, 10, 1, "/Home/test?pageindex={0}");
+            string numLinks = CreateNumericPageLinks(1, 10, 1, "/Home/test?pageindex={0}");
             string expectedResult = $"<div data-invalid-page-error=\"Invalid page index\" data-out-range-error=\"Page index out of range\" data-page-count=\"18\" data-page-parameter=\"pageindex\" data-pager-type=\"Webdiyer.MvcPager\" data-url-format=\"/Home/test?pageindex=__pageindex__\"><<<{numLinks}<a href=\"/Home/test?pageindex=11\">...</a><a href=\"/Home/test?pageindex=2\">></a><a href=\"/Home/test?pageindex=18\">>></a></div>";
             Assert.Equal(expectedResult, tagHelperOutput.Content.GetContent());
         }
@@ -63,7 +64,7 @@ namespace Webdiyer.MvcCorePagerTests
             var tagHelperContext = GetTagHelperContext();
             var tagHelperOutput = GetTagHelperOutput("div");
             tagHelper.Process(tagHelperContext, tagHelperOutput);
-            string numLinks = GenerateNumericPageLinks(1, 10, 1, "/Home/test?pageindex={0}");
+            string numLinks = CreateNumericPageLinks(1, 10, 1, "/Home/test?pageindex={0}");
             string expectedResult = $"<div data-invalid-page-error=\"Invalid page index\" data-out-range-error=\"Page index out of range\" data-page-count=\"18\" data-page-parameter=\"pageindex\" data-pager-type=\"Webdiyer.MvcPager\" data-url-format=\"/Home/test?pageindex=__pageindex__\">{first}{prev}{numLinks}<a href=\"/Home/test?pageindex=11\">...</a><a href=\"/Home/test?pageindex=2\">{next}</a><a href=\"/Home/test?pageindex=18\">{last}</a></div>";
             Assert.Equal(expectedResult, tagHelperOutput.Content.GetContent());
         }
@@ -86,7 +87,7 @@ namespace Webdiyer.MvcCorePagerTests
             var tagHelperContext = GetTagHelperContext();
             var tagHelperOutput = GetTagHelperOutput("div");
             tagHelper.Process(tagHelperContext, tagHelperOutput);
-            string numLinks = GenerateNumericPageLinks(1, 10, 1, "/Home/test?pageindex={0}");
+            string numLinks = CreateNumericPageLinks(1, 10, 1, "/Home/test?pageindex={0}");
             string expectedResult = $"<div data-invalid-page-error=\"Invalid page index\" data-out-range-error=\"Page index out of range\" data-page-count=\"18\" data-page-parameter=\"pageindex\" data-pager-type=\"Webdiyer.MvcPager\" data-url-format=\"/Home/test?pageindex=__pageindex__\"><{numLinks}<a href=\"/Home/test?pageindex=11\">...</a><a href=\"/Home/test?pageindex=2\">></a></div>";
             Assert.Equal(expectedResult, tagHelperOutput.Content.GetContent());
         }
@@ -110,8 +111,30 @@ namespace Webdiyer.MvcCorePagerTests
             var tagHelperContext = GetTagHelperContext();
             var tagHelperOutput = GetTagHelperOutput("div");
             tagHelper.Process(tagHelperContext, tagHelperOutput);
-            string numLinks = GenerateNumericPageLinks(1, 10, 1, "/Home/test?pageindex={0}");
+            string numLinks = CreateNumericPageLinks(1, 10, 1, "/Home/test?pageindex={0}");
             string expectedResult = $"<div data-invalid-page-error=\"Invalid page index\" data-out-range-error=\"Page index out of range\" data-page-count=\"18\" data-page-parameter=\"pageindex\" data-pager-type=\"Webdiyer.MvcPager\" data-url-format=\"/Home/test?pageindex=__pageindex__\">{numLinks}</div>";
+            Assert.Equal(expectedResult, tagHelperOutput.Content.GetContent());
+        }
+
+
+        [Fact]
+        public void ShowNumericPagerItemsIsFalse_ShouldOutputCorrectContent()
+        {
+            var pagedList = Enumerable.Range(1, 88).ToPagedList(1, 5);
+            var httpContext = new DefaultHttpContext();
+            httpContext.Request.QueryString = new QueryString();
+            var viewContext = GetViewContext(httpContext, new RouteValueDictionary(new { action = "test", controller = "Home" }));
+
+            var tagHelper = new MvcCorePagerTagHelper(GetUrlHelperFactory())
+            {
+                DataSource = pagedList,
+                ViewContext = viewContext,
+                ShowNumericPagerItems=false
+            };
+            var tagHelperContext = GetTagHelperContext();
+            var tagHelperOutput = GetTagHelperOutput("div");
+            tagHelper.Process(tagHelperContext, tagHelperOutput);
+            string expectedResult = $"<div data-invalid-page-error=\"Invalid page index\" data-out-range-error=\"Page index out of range\" data-page-count=\"18\" data-page-parameter=\"pageindex\" data-pager-type=\"Webdiyer.MvcPager\" data-url-format=\"/Home/test?pageindex=__pageindex__\"><<<<a href=\"/Home/test?pageindex=2\">></a><a href=\"/Home/test?pageindex=18\">>></a></div>";
             Assert.Equal(expectedResult, tagHelperOutput.Content.GetContent());
         }
 
@@ -154,16 +177,82 @@ namespace Webdiyer.MvcCorePagerTests
             var tagHelperContext = GetTagHelperContext();
             var tagHelperOutput = GetTagHelperOutput("div");
             tagHelper.Process(tagHelperContext, tagHelperOutput);
-            string numLinks = GenerateNumericPageLinks(1, 10, 3, "/Home/test?pageindex={0}");
+            string numLinks = CreateNumericPageLinks(1, 10, 3, "/Home/test?pageindex={0}");
             string expectedResult = $"<div data-current-page=\"3\" data-first-page=\"/Home/test?pageindex=1\" data-invalid-page-error=\"Invalid page index\" data-out-range-error=\"Page index out of range\" data-page-count=\"18\" data-page-parameter=\"pageindex\" data-pager-type=\"Webdiyer.MvcPager\" data-url-format=\"/Home/test?pageindex=__pageindex__\"><a href=\"/Home/test?pageindex=1\"><<</a><a href=\"/Home/test?pageindex=2\"><</a>{numLinks}<a href=\"/Home/test?pageindex=11\">...</a><a href=\"/Home/test?pageindex=4\">></a><a href=\"/Home/test?pageindex=18\">>></a></div>";
             Assert.Equal(expectedResult, tagHelperOutput.Content.GetContent());
         }
 
-        string GenerateNumericPageLinks(int startIndex,int endIndex,int currentIndex,string urlFormat,string cssClass=null,string numberFormat="{0}",string currentPageFormat="{0}")
+        [Theory]
+        [InlineData("[{0}]", null)]
+        [InlineData("[{0}]", "[{0}]")]
+        [InlineData("【{0}】", null)]
+        [InlineData("-{0}-", "［{0}］")]
+        [InlineData("【{0}】", "-{0}-")]
+        public void FormatingPageNumber_ShouldOutputCorrectContent(string numberFormat,string currentPageNumberFormat)
         {
-            var sb = new StringBuilder();
+            var pagedList = Enumerable.Range(1, 88).ToPagedList(1, 5);
+            var httpContext = new DefaultHttpContext();
+            httpContext.Request.QueryString = new QueryString();
+            var viewContext = GetViewContext(httpContext, new RouteValueDictionary(new { action = "test", controller = "Home" }));
+
+            var tagHelper = new MvcCorePagerTagHelper(GetUrlHelperFactory())
+            {
+                DataSource = pagedList,
+                ViewContext = viewContext,
+                CurrentPageNumberFormatString= currentPageNumberFormat,
+                PageNumberFormatString= numberFormat
+            };
+
+            var tagHelperContext = GetTagHelperContext();
+            var tagHelperOutput = GetTagHelperOutput("div");
+            tagHelper.Process(tagHelperContext, tagHelperOutput);
+            string numLinks = CreateNumericPageLinks(1, 10, 1, "/Home/test?pageindex={0}",numberFormat: numberFormat,currentPageFormat: string.IsNullOrWhiteSpace(currentPageNumberFormat)?numberFormat:currentPageNumberFormat);
+            string expectedResult = $"<div data-invalid-page-error=\"Invalid page index\" data-out-range-error=\"Page index out of range\" data-page-count=\"18\" data-page-parameter=\"pageindex\" data-pager-type=\"Webdiyer.MvcPager\" data-url-format=\"/Home/test?pageindex=__pageindex__\"><<<{numLinks}<a href=\"/Home/test?pageindex=11\">...</a><a href=\"/Home/test?pageindex=2\">></a><a href=\"/Home/test?pageindex=18\">>></a></div>";
+            Assert.Equal(expectedResult, tagHelperOutput.Content.GetContent());
+        }
+
+
+        [Fact]
+        public void PagerItemTemplates_ShouldOutputCorrectContent()
+        {
+            var pagedList = Enumerable.Range(1, 88).ToPagedList(1, 5);
+            var httpContext = new DefaultHttpContext();
+            httpContext.Request.QueryString = new QueryString();
+            var viewContext = GetViewContext(httpContext, new RouteValueDictionary(new { action = "test", controller = "Home" }));
+            string template = "<span>{0}</span>";
+            var tagHelper = new MvcCorePagerTagHelper(GetUrlHelperFactory())
+            {
+                DataSource = pagedList,
+                ViewContext = viewContext,
+                PagerItemTemplate= template
+            };
+
+            var tagHelperContext = GetTagHelperContext();
+            var tagHelperOutput = GetTagHelperOutput("div");
+            tagHelper.Process(tagHelperContext, tagHelperOutput);
+            string numLinks = CreateNumericPageLinks(1, 10, 1, "/Home/test?pageindex={0}", template:template);
+            string expectedResult = $"{CreateStartTag(18)}<span><<</span><span><</span>{numLinks}<span><a href=\"/Home/test?pageindex=11\">...</a></span><span><a href=\"/Home/test?pageindex=2\">></a></span><span><a href=\"/Home/test?pageindex=18\">>></a></span></div>";
+            Assert.Equal(expectedResult, tagHelperOutput.Content.GetContent());
+        }
+
+        string CreateStartTag(int pageCount, int currentPage = 1,string piparam= "pageindex",string firstPageUrl="/Home/test?pageindex=1", string urlFormat= "/Home/test?pageindex=__pageindex__",string ivperror= "Invalid page index",string orerror= "Page index out of range")
+        {
+            if (currentPage == 1)
+            {
+                return $"<div data-invalid-page-error=\"{ivperror}\" data-out-range-error=\"{orerror}\" data-page-count=\"{pageCount}\" data-page-parameter=\"{piparam}\" data-pager-type=\"Webdiyer.MvcPager\" data-url-format=\"{urlFormat}\">";
+            }
+            else
+            {
+                return $"<div data-current-page=\"{currentPage}\" data-first-page=\"{firstPageUrl}\" data-invalid-page-error=\"{ivperror}\" data-out-range-error=\"{orerror}\" data-page-count=\"{pageCount}\" data-page-parameter=\"{piparam}\" data-pager-type=\"Webdiyer.MvcPager\" data-url-format=\"{urlFormat}\">";
+            }
+        }
+
+        string CreateNumericPageLinks(int startIndex,int endIndex,int currentIndex,string urlFormat,string cssClass=null,string numberFormat="{0}",string currentPageFormat="{0}",string template="{0}")
+        {
+            var sbuilder = new StringBuilder();
             for(var i = startIndex; i <= endIndex; i++)
             {
+                var sb = new StringBuilder();
                 if (i == currentIndex)
                 {
                     sb.AppendFormat(currentPageFormat, i);
@@ -179,8 +268,16 @@ namespace Webdiyer.MvcCorePagerTests
                     sb.Append(string.Format(urlFormat, i));
                     sb.Append("\">").AppendFormat(numberFormat,i).Append("</a>");
                 }
+                if (!string.IsNullOrWhiteSpace(template))
+                {
+                    sbuilder.AppendFormat(template, sb);
+                }
+                else
+                {
+                    sbuilder.Append(sb);
+                }
             }
-            return sb.ToString();
+            return sbuilder.ToString();
         }
 
         ViewContext GetViewContext(HttpContext httpContext, RouteValueDictionary routeValues)

@@ -482,12 +482,13 @@ namespace Webdiyer.AspNetCore
         {
             //pager item link
             string url = GenerateUrl(item.PageIndex);
-            if (item.Disabled) //first,last,next or previous page
+            if (item.Disabled) //first,last,next or previous pager items, don't encode content
                 return CreateWrappedPagerElement(item, item.Text);
-            var link = HtmlEncoder.Default.Encode(item.Text);
+            //var link = HtmlEncoder.Default.Encode(item.Text);
+            string link;
             if (string.IsNullOrEmpty(url))
             {
-                link = HtmlEncoder.Default.Encode(item.Text);
+                link = item.Text;
             }
             else
             {
@@ -500,10 +501,7 @@ namespace Webdiyer.AspNetCore
                     link = $"<a href=\"{url}\">{item.Text}</a>";
                 }
             }
-            return CreateWrappedPagerElement(item,
-                string.IsNullOrEmpty(url)
-                    ? HtmlEncoder.Default.Encode(item.Text)
-                    :link);
+            return CreateWrappedPagerElement(item,link);
         }
 
         private string GenerateAjaxPagerElement(PagerItem item)
