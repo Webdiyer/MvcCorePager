@@ -46,14 +46,35 @@ namespace Demo.Controllers
             return View(model);
         }
 
+        public IActionResult Search(string companyName,int id = 1)
+        {
+            var model = GetPagedOrders(id, pageSize, companyName);
+            return View(model);
+        }
+
+        public IActionResult AjaxSearch(string companyName,int id = 1)
+        {
+            var model = GetPagedOrders(id, pageSize, companyName);
+            if(Request.Headers["X-Requested-With"] == "XMLHttpRequest")
+            {
+                return PartialView("_PagedData", model);
+            }
+            return View(model);
+        }
+
         [NonAction]
-        private  IPagedList<Order> GetPagedOrders(int pageIndex, int pageSize)
+        private  IPagedList<Order> GetPagedOrders(int pageIndex, int pageSize,string companyName=null)
         {
             var path = Path.Combine(Env.WebRootPath, "orders.json");
             var ods = Newtonsoft.Json.JsonConvert.DeserializeObject<Order[]>(System.IO.File.ReadAllText(path));
-            var model = ods.OrderBy(o => o.OrderId).ToPagedList(pageIndex, pageSize);
-            return model;
+            if (!string.IsNullOrWhiteSpace(companyName))
+            {
+                return ods.Where(o=>o.CompanyName.Contains(companyName)).OrderBy(o => o.OrderId).ToPagedList(pageIndex, pageSize);
+            }
+            return ods.OrderBy(o => o.OrderId).ToPagedList(pageIndex, pageSize);
         }
+
+
         
     }
 }

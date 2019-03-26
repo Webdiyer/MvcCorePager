@@ -1,9 +1,4 @@
 ﻿@model PagedList<Order>
-@{
-    ViewBag.Title = "Using page index box";
-}
-
-    <h1 class="pb-2 mt-4 mb-2 border-bottom">Using page index box</h1>
 <table class="table table=bordered table-striped">
     <tr>
         <th class="nowrap">
@@ -37,22 +32,20 @@
         </tr>
     }
 </table>
+
 <nav aria-label="Page navigation">
     <div class="container">
         <div class="row justify-content-center">
-            @Html.Pager(Model, new PagerOptions
-        {
-            PageIndexParameterName = "id",
-            TagName = "ul",
-            CssClass = "pagination pagination-sm",
-            CurrentPagerItemTemplate = "<li class=\"page-item active\"><a  class=\"page-link\" href=\"javascript:void(0);\">{0}</a></li>",
-            DisabledPagerItemTemplate = "<li class=\"page-item disabled\"><a class=\"page-link\">{0}</a></li>",
-            PagerItemTemplate = "<li class=\"page-item\">{0}</li>",
-            PagerItemCssClass = "page-link",
-            PageIndexBoxId = "inputPageIndex",
-                GoToButtonId = "btnGoto",
-            Id = "bootstrappager"
-        })<div class="col-2">
+            <mvcpager asp-model="@Model" ajax-enabled="true" ajax-update-target="table-container"
+                      page-index-parameter-name="id" tag-name="ul"
+                      class="pagination pagination-sm"                       
+                      ajax-search-form="searchForm"
+                      current-pager-item-template='<li class="page-item active"><a class="page-link" href="javascript:void(0);">{0}</a></li>'
+                      disabled-pager-item-template='<li class="page-item disabled"><a class="page-link">{0}</a></li>'
+                      pager-item-template='<li class="page-item">{0}</li>' pager-item-css-class="page-link"
+                      page-index-box-id="inputPageIndex"
+                      go-to-button-id="btnGoto"></mvcpager>
+            <div class="col-2">
                 <div class="input-group input-group-sm mb-3 pr-3">
                     <input type="number" id="inputPageIndex" class="form-control" placeholder="Enter page index" aria-label="Page index" aria-describedby="basic-addon2" />
                     <div class="input-group-append">
@@ -63,7 +56,3 @@
         </div>
     </div>
 </nav>
-
-@section Scripts{
-    <script src="~/js/MvcCorePager/MvcCorePager.js" asp-append-version="true"></script>
-}

@@ -1,0 +1,22 @@
+﻿@model PagedList<Order>
+@{
+    ViewBag.Title = "Ajax Search result pagination";
+}
+
+<h1 class="pb-2 mt-4 mb-2 border-bottom">Ajax Search result pagination</h1>
+<form id="searchForm">
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <input class="form-control" type="text" name="companyName" id="companyName" placeholder="Enter company name to search, e.g. Ernst" />
+        </div><div class="form-group col-md-1">
+            <input type="submit" class="btn btn-default" value="Search" />
+        </div>
+    </div>
+</form>
+<div id="table-container">
+    <partial name="_PagedData" model="@Model" />
+</div>
+
+@section Scripts{
+    <script src="~/js/MvcCorePager/MvcCorePager.js" asp-append-version="true"></script>
+}

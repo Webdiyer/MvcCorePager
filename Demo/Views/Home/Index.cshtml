@@ -1,10 +1,28 @@
 ﻿@{
     ViewData["Title"] = "MvcCorePager demos";
 }
+<p class="lead">MvcCorePager is a free and open source pagination component for ASP.NET Core MVC application, it supports both tag helper and Html extension method syntax.</p>
+<h3>Html extension method syntax:</h3>
+<pre style="font-family:Courier New;font-size:21px;color:gainsboro;background:#1e1e1e;"><span style="color:black;background:#ffffb3;">@@</span>Html<span style="color:#b4b4b4;">.</span>Pager(Model,&nbsp;<span style="color:#569cd6;">new</span>&nbsp;<span style="color:#4ec9b0;">PagerOptions</span>
+{
+&nbsp;&nbsp;&nbsp;&nbsp;PageIndexParameterName&nbsp;<span style="color:#b4b4b4;">=</span>&nbsp;<span style="color:#d69d85;">&quot;id&quot;</span>,
+&nbsp;&nbsp;&nbsp;&nbsp;TagName&nbsp;<span style="color:#b4b4b4;">=</span>&nbsp;<span style="color:#d69d85;">&quot;ul&quot;</span>,
+&nbsp;&nbsp;&nbsp;&nbsp;CssClass&nbsp;<span style="color:#b4b4b4;">=</span>&nbsp;<span style="color:#d69d85;">&quot;pagination&quot;</span>,
+&nbsp;&nbsp;&nbsp;&nbsp;CurrentPagerItemTemplate&nbsp;<span style="color:#b4b4b4;">=</span>&nbsp;<span style="color:#d69d85;">&quot;&lt;li&nbsp;class=</span><span style="color:#ffd68f;">\&quot;</span><span style="color:#d69d85;">page-item&nbsp;active</span><span style="color:#ffd68f;">\&quot;</span><span style="color:#d69d85;">&gt;&lt;a&nbsp;&nbsp;class=</span><span style="color:#ffd68f;">\&quot;</span><span style="color:#d69d85;">page-link</span><span style="color:#ffd68f;">\&quot;</span><span style="color:#d69d85;">&nbsp;href=</span><span style="color:#ffd68f;">\&quot;</span><span style="color:#d69d85;">javascript:void(0);</span><span style="color:#ffd68f;">\&quot;</span><span style="color:#d69d85;">&gt;{0}&lt;/a&gt;&lt;/li&gt;&quot;</span>,
+&nbsp;&nbsp;&nbsp;&nbsp;DisabledPagerItemTemplate&nbsp;<span style="color:#b4b4b4;">=</span>&nbsp;<span style="color:#d69d85;">&quot;&lt;li&nbsp;class=</span><span style="color:#ffd68f;">\&quot;</span><span style="color:#d69d85;">page-item&nbsp;disabled</span><span style="color:#ffd68f;">\&quot;</span><span style="color:#d69d85;">&gt;&lt;a&nbsp;class=</span><span style="color:#ffd68f;">\&quot;</span><span style="color:#d69d85;">page-link</span><span style="color:#ffd68f;">\&quot;</span><span style="color:#d69d85;">&gt;{0}&lt;/a&gt;&lt;/li&gt;&quot;</span>,
+&nbsp;&nbsp;&nbsp;&nbsp;PagerItemTemplate&nbsp;<span style="color:#b4b4b4;">=</span>&nbsp;<span style="color:#d69d85;">&quot;&lt;li&nbsp;class=</span><span style="color:#ffd68f;">\&quot;</span><span style="color:#d69d85;">page-item</span><span style="color:#ffd68f;">\&quot;</span><span style="color:#d69d85;">&gt;{0}&lt;/li&gt;&quot;</span>,
+&nbsp;&nbsp;&nbsp;&nbsp;PagerItemCssClass&nbsp;<span style="color:#b4b4b4;">=</span>&nbsp;<span style="color:#d69d85;">&quot;page-link&quot;</span>,
+&nbsp;&nbsp;&nbsp;&nbsp;Id&nbsp;<span style="color:#b4b4b4;">=</span>&nbsp;<span style="color:#d69d85;">&quot;bootstrappager&quot;</span>
+})</pre>
+<h3>TagHelper syntax:</h3>
 
-    <ul>
-        <li><a asp-action="Index" asp-controller="Orders">Default setting</a></li>
-        <li><a asp-action="Ajax" asp-controller="Orders">Ajax paging</a></li>
-        <li><a asp-action="Bootstrap" asp-controller="Orders">Bootstrap style</a></li>
-        <li><a asp-action="PageIndexBox" asp-controller="Orders">Input page index</a></li>
-    </ul>
+<pre style="font-family:Courier New;font-size:21px;color:gainsboro;background:#1e1e1e;"><span style="color:gray;">&lt;</span><span style="font-weight:bold;color:teal;">mvcpager</span>&nbsp;<span style="font-weight:bold;color:teal;">asp-model</span><span style="color:#b4b4b4;">=</span><span style="color:#c8c8c8;">&quot;</span>@@Model<span style="color:#c8c8c8;">&quot;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="font-weight:bold;color:teal;">page-index-parameter-name</span><span style="color:#b4b4b4;">=</span><span style="color:#c8c8c8;">&quot;id&quot;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="font-weight:bold;color:teal;">tag-name</span><span style="color:#b4b4b4;">=</span><span style="color:#c8c8c8;">&quot;ul&quot;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="font-weight:bold;color:teal;">class</span><span style="color:#b4b4b4;">=</span><span style="color:#c8c8c8;">&quot;pagination&quot;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="font-weight:bold;color:teal;">current-pager-item-template</span><span style="color:#b4b4b4;">=</span><span style="color:#c8c8c8;">&#39;&lt;li&nbsp;class=&quot;page-item&nbsp;active&quot;&gt;&lt;a&nbsp;class=&quot;page-link&quot;&nbsp;href=&quot;javascript:void(0);&quot;&gt;{0}&lt;/a&gt;&lt;/li&gt;&#39;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="font-weight:bold;color:teal;">disabled-pager-item-template</span><span style="color:#b4b4b4;">=</span><span style="color:#c8c8c8;">&#39;&lt;li&nbsp;class=&quot;page-item&nbsp;disabled&quot;&gt;&lt;a&nbsp;class=&quot;page-link&quot;&gt;{0}&lt;/a&gt;&lt;/li&gt;&#39;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="font-weight:bold;color:teal;">pager-item-template</span><span style="color:#b4b4b4;">=</span><span style="color:#c8c8c8;">&#39;&lt;li&nbsp;class=&quot;page-item&quot;&gt;{0}&lt;/li&gt;&#39;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="font-weight:bold;color:teal;">pager-item-css-class</span><span style="color:#b4b4b4;">=</span><span style="color:#c8c8c8;">&quot;page-link&quot;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="font-weight:bold;color:teal;">id</span><span style="color:#b4b4b4;">=</span><span style="color:#c8c8c8;">&quot;bootstrappager2&quot;</span><span style="color:gray;">&gt;</span>
+<span style="color:gray;">&lt;/</span><span style="font-weight:bold;color:teal;">mvcpager</span><span style="color:gray;">&gt;</span></pre>

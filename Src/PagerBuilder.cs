@@ -469,6 +469,10 @@ namespace Webdiyer.AspNetCore
                 return HtmlEncoder.Default.Encode(item.Text);
             var tag = new TagBuilder("a");
             tag.InnerHtml.AppendHtml(item.Text);
+            if (!string.IsNullOrWhiteSpace(_pagerOptions.PagerItemCssClass))
+            {
+                tag.MergeAttribute("class", _pagerOptions.PagerItemCssClass);
+            }
             tag.MergeAttribute("href", url);
             tag.MergeAttribute("data-page-index", item.PageIndex.ToString(CultureInfo.InvariantCulture));
             using (var writer = new StringWriter())

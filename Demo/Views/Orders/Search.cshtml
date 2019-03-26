@@ -1,9 +1,18 @@
 ﻿@model PagedList<Order>
 @{
-    ViewBag.Title = "Using page index box";
+    ViewBag.Title = "Search result pagination";
 }
 
-    <h1 class="pb-2 mt-4 mb-2 border-bottom">Using page index box</h1>
+<h1 class="pb-2 mt-4 mb-2 border-bottom">Search result pagination</h1>
+<form method="get">
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <input class="form-control" type="text" name="companyName" id="companyName" placeholder="Enter company name to search, e.g. Ernst" />
+        </div><div class="form-group col-md-1">
+            <input type="submit" class="btn btn-default" value="Search" />
+        </div>
+    </div>
+</form>
 <table class="table table=bordered table-striped">
     <tr>
         <th class="nowrap">
