@@ -21,7 +21,7 @@
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
             <div class="container">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">MvcCorePager</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -31,15 +31,38 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Orders" asp-action="Index">Demos</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" href="https://github.com/Webdiyer/MvcCorePager" target="_blank">Source</a>
+                        </li>
                     </ul>
                 </div>
             </div>
         </nav>
     </header>
     <div class="container">
-        <main role="main" class="pb-3">
-            @RenderBody()
-        </main>
+        <div class="row">
+            <div class="col-3">
+                <div class="list-group">
+                    <a href="#" class="list-group-item list-group-item-action active">
+                        MvcCorePager Demos
+                    </a>
+                    <a class="list-group-item list-group-item-action" asp-action="Index" asp-controller="Orders">Default settings</a>
+                    <a class="list-group-item list-group-item-action" asp-action="Ajax" asp-controller="Orders">Ajax pagination</a>
+                    <a class="list-group-item list-group-item-action" asp-action="Bootstrap" asp-controller="Orders">Bootstrap style</a>
+                    <a class="list-group-item list-group-item-action" asp-action="PageIndexBox" asp-controller="Orders">Page index box</a>
+                    <a class="list-group-item list-group-item-action" asp-action="Search" asp-controller="Orders">Search result pagination</a>
+                    <a class="list-group-item list-group-item-action"  asp-action="AjaxSearch" asp-controller="Orders">Ajax Search</a>
+                </div>
+            </div>
+            <div class="col-9">
+                <main role="main" class="pb-3">
+                    @RenderBody()
+                </main>
+            </div>
+        </div>
     </div>
 
     <footer class="border-top footer text-muted">
