@@ -4,35 +4,13 @@
 }
 
 <h1 class="pb-2 mt-4 mb-2 border-bottom">MvcCorePager demo: Ajax Search result pagination</h1>
-<form data-ajax="true" data-ajax-method="get" data-ajax-update="">
+<form id="searchForm">
     <input type="text" name="companyName" id="companyName" />
     <input type="submit" value="Search" />
 </form>
 <div id="table-container">
     <partial name="_PagedData" model="@Model" />
 </div>
-<nav aria-label="Page navigation">
-    <div class="container">
-        <div class="row justify-content-center">
-            <mvcpager ajax-enabled="true" ajax-update-target="table-container" 
-                      page-index-parameter-name="id" tag-name="ul"
-                      class="pagination pagination-sm"
-                      current-pager-item-template="<li class='page-item active'><a class='page-link' href='javascript:void(0);'>{0}</a></li>"
-            disabled-pager-item-template="<li class='page-item disabled'><a class='page-link'>{0}</a></li>"
-                      pager-item-css-class="page-link"
-                      page-index-box-id="inputPageIndex"
-                      go-to-button-id="btnGoto"></mvcpager>                      
-<div class="col-2">
-                <div class="input-group input-group-sm mb-3 pr-3">
-                    <input type="number" id="inputPageIndex" class="form-control" placeholder="Enter page index" aria-label="Page index" aria-describedby="basic-addon2" />
-                    <div class="input-group-append">
-                        <button class="btn btn-outline-secondary" type="button" id="btnGoto">Go</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</nav>
 
 @section Scripts{
     <script src="~/js/MvcCorePager/MvcCorePager.js" asp-append-version="true"></script>

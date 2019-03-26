@@ -32,3 +32,27 @@
         </tr>
     }
 </table>
+
+<nav aria-label="Page navigation">
+    <div class="container">
+        <div class="row justify-content-center">
+            <mvcpager asp-model="@Model" ajax-enabled="true" ajax-update-target="table-container"
+                      page-index-parameter-name="id" tag-name="ul"
+                      class="pagination pagination-sm"                       
+                      ajax-search-form="searchForm"
+                      current-pager-item-template='<li class="page-item active"><a class="page-link" href="javascript:void(0);">{0}</a></li>'
+                      disabled-pager-item-template='<li class="page-item disabled"><a class="page-link">{0}</a></li>'
+                      pager-item-template='<li class="page-item">{0}</li>' pager-item-css-class="page-link"
+                      page-index-box-id="inputPageIndex"
+                      go-to-button-id="btnGoto"></mvcpager>
+            <div class="col-2">
+                <div class="input-group input-group-sm mb-3 pr-3">
+                    <input type="number" id="inputPageIndex" class="form-control" placeholder="Enter page index" aria-label="Page index" aria-describedby="basic-addon2" />
+                    <div class="input-group-append">
+                        <button class="btn btn-outline-secondary" type="button" id="btnGoto">Go</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
