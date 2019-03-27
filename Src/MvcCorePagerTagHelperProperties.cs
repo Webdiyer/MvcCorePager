@@ -179,7 +179,7 @@ namespace Webdiyer.AspNetCore
         }
 
         [HtmlAttributeName("asp-model")]
-        public IPagedList DataSource { get; set; }
+        public IPagedList Model { get; set; }
 
         #region Ajax settings
 

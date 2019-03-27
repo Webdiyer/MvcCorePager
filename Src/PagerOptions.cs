@@ -14,12 +14,12 @@ namespace Webdiyer.AspNetCore
             NumericPagerItemCount = 10;
             AlwaysShowFirstLastPageNumber = false;
             ShowPrevNext = true;
-            PrevPageText = "<"; 
-            NextPageText = ">";
+            PrevPageText = "&lt;"; 
+            NextPageText = "&gt;";
             ShowNumericPagerItems = true;
             ShowFirstLast = true;
-            FirstPageText = "<<";
-            LastPageText = ">>";
+            FirstPageText = "&lt;&lt;";
+            LastPageText = "&gt;&gt;";
             ShowMorePagerItems = true;
             MorePageText = "...";
             ShowDisabledPagerItems = true;

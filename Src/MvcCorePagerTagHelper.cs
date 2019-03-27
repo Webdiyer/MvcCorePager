@@ -39,10 +39,10 @@ namespace Webdiyer.AspNetCore
             //    _pageIndex = 1;
             //}
                         
-            if(DataSource==null)
-                throw new ArgumentNullException(nameof(DataSource));
-            int actualPageCount = (int) Math.Ceiling(DataSource.TotalItemCount/(double) DataSource.PageSize);
-            _pageIndex = DataSource.CurrentPageIndex;
+            if(Model==null)
+                throw new ArgumentNullException(nameof(Model));
+            int actualPageCount = (int) Math.Ceiling(Model.TotalItemCount/(double) Model.PageSize);
+            _pageIndex = Model.CurrentPageIndex;
             if (MaximumPageNumber == 0 || MaximumPageNumber >actualPageCount)
                 _totalPageCount = actualPageCount;
             else

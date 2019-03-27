@@ -18,7 +18,7 @@ namespace Webdiyer.MvcCorePagerTests
 
             var tagHelper = new MvcCorePagerTagHelper(TestUtils.GetUrlHelperFactory())
             {
-                DataSource = pagedList,
+                Model = pagedList,
                 ViewContext = viewContext
             };
 
@@ -43,7 +43,7 @@ namespace Webdiyer.MvcCorePagerTests
             var viewContext = TestUtils.GetViewContext(httpContext, new RouteValueDictionary(new { action = "test", controller = "Home" }));
             var tagHelper = new MvcCorePagerTagHelper(TestUtils.GetUrlHelperFactory())
             {
-                DataSource = pagedList,
+                Model = pagedList,
                 ViewContext = viewContext,
                 FirstPageText= first,
                 NextPageText=next,
@@ -68,7 +68,7 @@ namespace Webdiyer.MvcCorePagerTests
 
             var tagHelper = new MvcCorePagerTagHelper(TestUtils.GetUrlHelperFactory())
             {
-                DataSource = pagedList,
+                Model = pagedList,
                 ViewContext = viewContext,
                 ShowFirstLast=false                
             };
@@ -91,7 +91,7 @@ namespace Webdiyer.MvcCorePagerTests
 
             var tagHelper = new MvcCorePagerTagHelper(TestUtils.GetUrlHelperFactory())
             {
-                DataSource = pagedList,
+                Model = pagedList,
                 ViewContext = viewContext,
                 ShowPrevNext = false,
                 ShowFirstLast=false,
@@ -116,7 +116,7 @@ namespace Webdiyer.MvcCorePagerTests
 
             var tagHelper = new MvcCorePagerTagHelper(TestUtils.GetUrlHelperFactory())
             {
-                DataSource = pagedList,
+                Model = pagedList,
                 ViewContext = viewContext,
                 ShowNumericPagerItems=false
             };
@@ -138,7 +138,7 @@ namespace Webdiyer.MvcCorePagerTests
 
             var tagHelper = new MvcCorePagerTagHelper(TestUtils.GetUrlHelperFactory())
             {
-                DataSource = pagedList,
+                Model = pagedList,
                 ViewContext = viewContext
             };
             var tagHelperContext = TestUtils.GetTagHelperContext();
@@ -159,7 +159,7 @@ namespace Webdiyer.MvcCorePagerTests
 
             var tagHelper = new MvcCorePagerTagHelper(TestUtils.GetUrlHelperFactory())
             {
-                DataSource = pagedList,
+                Model = pagedList,
                 ViewContext = viewContext
             };
 
@@ -186,7 +186,7 @@ namespace Webdiyer.MvcCorePagerTests
 
             var tagHelper = new MvcCorePagerTagHelper(TestUtils.GetUrlHelperFactory())
             {
-                DataSource = pagedList,
+                Model = pagedList,
                 ViewContext = viewContext,
                 CurrentPageNumberFormatString= currentPageNumberFormat,
                 PageNumberFormatString= numberFormat
@@ -211,7 +211,7 @@ namespace Webdiyer.MvcCorePagerTests
             string template = "<span>{0}</span>";
             var tagHelper = new MvcCorePagerTagHelper(TestUtils.GetUrlHelperFactory())
             {
-                DataSource = pagedList,
+                Model = pagedList,
                 ViewContext = viewContext,
                 PagerItemTemplate= template
             };
@@ -239,7 +239,7 @@ namespace Webdiyer.MvcCorePagerTests
             string moreTemp = "<span class=\"more\">{0}</span>";
             var tagHelper = new MvcCorePagerTagHelper(TestUtils.GetUrlHelperFactory())
             {
-                DataSource = pagedList,
+                Model = pagedList,
                 ViewContext = viewContext,
                 PagerItemTemplate = template,
                 NumericPagerItemTemplate = numTemp,
@@ -268,7 +268,7 @@ namespace Webdiyer.MvcCorePagerTests
             string tagName = "ul";
             var tagHelper = new MvcCorePagerTagHelper(TestUtils.GetUrlHelperFactory())
             {
-                DataSource = pagedList,
+                Model = pagedList,
                 ViewContext = viewContext,
                 TagName= tagName,
                 PagerItemTemplate = template
@@ -297,7 +297,7 @@ namespace Webdiyer.MvcCorePagerTests
             
             var tagHelper = new MvcCorePagerTagHelper(TestUtils.GetUrlHelperFactory())
             {
-                DataSource = pagedList,
+                Model = pagedList,
                 ViewContext = viewContext,
                 NumericPagerItemCount= numericPagerItemCount
             };
