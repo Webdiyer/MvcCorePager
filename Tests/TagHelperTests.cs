@@ -26,7 +26,7 @@ namespace Webdiyer.MvcCorePagerTests
             var tagHelperOutput = TestUtils.GetTagHelperOutput("div");
             tagHelper.Process(tagHelperContext, tagHelperOutput);
             string numLinks = TestUtils.CreateNumericPageLinks(1, 10, 1, "/Home/test?pageindex={0}");
-            string expectedResult = $"{TestUtils.CreateStartTag(18)}<<<{numLinks}<a href=\"/Home/test?pageindex=11\">...</a><a href=\"/Home/test?pageindex=2\">></a><a href=\"/Home/test?pageindex=18\">>></a></div>";
+            string expectedResult = $"{TestUtils.CreateStartTag(18)}&lt;&lt;&lt;{numLinks}<a href=\"/Home/test?pageindex=11\">...</a><a href=\"/Home/test?pageindex=2\">&gt;</a><a href=\"/Home/test?pageindex=18\">&gt;&gt;</a></div>";
             Assert.Equal(expectedResult, tagHelperOutput.Content.GetContent());
         }
 
@@ -77,7 +77,7 @@ namespace Webdiyer.MvcCorePagerTests
             var tagHelperOutput = TestUtils.GetTagHelperOutput("div");
             tagHelper.Process(tagHelperContext, tagHelperOutput);
             string numLinks = TestUtils.CreateNumericPageLinks(1, 10, 1, "/Home/test?pageindex={0}");
-            string expectedResult = $"{TestUtils.CreateStartTag(18)}<{numLinks}<a href=\"/Home/test?pageindex=11\">...</a><a href=\"/Home/test?pageindex=2\">></a></div>";
+            string expectedResult = $"{TestUtils.CreateStartTag(18)}&lt;{numLinks}<a href=\"/Home/test?pageindex=11\">...</a><a href=\"/Home/test?pageindex=2\">&gt;</a></div>";
             Assert.Equal(expectedResult, tagHelperOutput.Content.GetContent());
         }
 
@@ -123,7 +123,7 @@ namespace Webdiyer.MvcCorePagerTests
             var tagHelperContext = TestUtils.GetTagHelperContext();
             var tagHelperOutput = TestUtils.GetTagHelperOutput("div");
             tagHelper.Process(tagHelperContext, tagHelperOutput);
-            string expectedResult = $"{TestUtils.CreateStartTag(18)}<<<<a href=\"/Home/test?pageindex=2\">></a><a href=\"/Home/test?pageindex=18\">>></a></div>";
+            string expectedResult = $"{TestUtils.CreateStartTag(18)}&lt;&lt;&lt;<a href=\"/Home/test?pageindex=2\">&gt;</a><a href=\"/Home/test?pageindex=18\">&gt;&gt;</a></div>";
             Assert.Equal(expectedResult, tagHelperOutput.Content.GetContent());
         }
 
@@ -167,7 +167,7 @@ namespace Webdiyer.MvcCorePagerTests
             var tagHelperOutput = TestUtils.GetTagHelperOutput("div");
             tagHelper.Process(tagHelperContext, tagHelperOutput);
             string numLinks = TestUtils.CreateNumericPageLinks(1, 10, 3, "/Home/test?pageindex={0}");
-            string expectedResult = $"{TestUtils.CreateStartTag(18,currentPage:3)}<a href=\"/Home/test?pageindex=1\"><<</a><a href=\"/Home/test?pageindex=2\"><</a>{numLinks}<a href=\"/Home/test?pageindex=11\">...</a><a href=\"/Home/test?pageindex=4\">></a><a href=\"/Home/test?pageindex=18\">>></a></div>";
+            string expectedResult = $"{TestUtils.CreateStartTag(18,currentPage:3)}<a href=\"/Home/test?pageindex=1\">&lt;&lt;</a><a href=\"/Home/test?pageindex=2\">&lt;</a>{numLinks}<a href=\"/Home/test?pageindex=11\">...</a><a href=\"/Home/test?pageindex=4\">&gt;</a><a href=\"/Home/test?pageindex=18\">&gt;&gt;</a></div>";
             Assert.Equal(expectedResult, tagHelperOutput.Content.GetContent());
         }
 
@@ -196,7 +196,7 @@ namespace Webdiyer.MvcCorePagerTests
             var tagHelperOutput = TestUtils.GetTagHelperOutput("div");
             tagHelper.Process(tagHelperContext, tagHelperOutput);
             string numLinks = TestUtils.CreateNumericPageLinks(1, 10, 1, "/Home/test?pageindex={0}",numberFormat: numberFormat,currentPageFormat: string.IsNullOrWhiteSpace(currentPageNumberFormat)?numberFormat:currentPageNumberFormat);
-            string expectedResult = $"{TestUtils.CreateStartTag(18)}<<<{numLinks}<a href=\"/Home/test?pageindex=11\">...</a><a href=\"/Home/test?pageindex=2\">></a><a href=\"/Home/test?pageindex=18\">>></a></div>";
+            string expectedResult = $"{TestUtils.CreateStartTag(18)}&lt;&lt;&lt;{numLinks}<a href=\"/Home/test?pageindex=11\">...</a><a href=\"/Home/test?pageindex=2\">&gt;</a><a href=\"/Home/test?pageindex=18\">&gt;&gt;</a></div>";
             Assert.Equal(expectedResult, tagHelperOutput.Content.GetContent());
         }
 
@@ -220,7 +220,7 @@ namespace Webdiyer.MvcCorePagerTests
             var tagHelperOutput = TestUtils.GetTagHelperOutput("div");
             tagHelper.Process(tagHelperContext, tagHelperOutput);
             string numLinks = TestUtils.CreateNumericPageLinks(1, 10, 1, "/Home/test?pageindex={0}", template:template);
-            string expectedResult = $"{TestUtils.CreateStartTag(18)}<span><<</span><span><</span>{numLinks}<span><a href=\"/Home/test?pageindex=11\">...</a></span><span><a href=\"/Home/test?pageindex=2\">></a></span><span><a href=\"/Home/test?pageindex=18\">>></a></span></div>";
+            string expectedResult = $"{TestUtils.CreateStartTag(18)}<span>&lt;&lt;</span><span>&lt;</span>{numLinks}<span><a href=\"/Home/test?pageindex=11\">...</a></span><span><a href=\"/Home/test?pageindex=2\">&gt;</a></span><span><a href=\"/Home/test?pageindex=18\">&gt;&gt;</a></span></div>";
             Assert.Equal(expectedResult, tagHelperOutput.Content.GetContent());
         }
 
@@ -253,7 +253,7 @@ namespace Webdiyer.MvcCorePagerTests
             var tagHelperOutput = TestUtils.GetTagHelperOutput("div");
             tagHelper.Process(tagHelperContext, tagHelperOutput);
             string numLinks = TestUtils.CreateNumericPageLinks(1, 10, 1, "/Home/test?pageindex={0}", template: template,numTemp:numTemp,curTemp:curTemp);
-            string expectedResult = $"{TestUtils.CreateStartTag(11)}<button class=\"disabled\"><<</button><button class=\"disabled\"><</button>{numLinks}<span class=\"more\"><a href=\"/Home/test?pageindex=11\">...</a></span><div><a href=\"/Home/test?pageindex=2\">></a></div><div><a href=\"/Home/test?pageindex=11\">>></a></div></div>";
+            string expectedResult = $"{TestUtils.CreateStartTag(11)}<button class=\"disabled\">&lt;&lt;</button><button class=\"disabled\">&lt;</button>{numLinks}<span class=\"more\"><a href=\"/Home/test?pageindex=11\">...</a></span><div><a href=\"/Home/test?pageindex=2\">&gt;</a></div><div><a href=\"/Home/test?pageindex=11\">&gt;&gt;</a></div></div>";
             Assert.Equal(expectedResult, tagHelperOutput.Content.GetContent());
         }
 
@@ -278,7 +278,7 @@ namespace Webdiyer.MvcCorePagerTests
             var tagHelperOutput = TestUtils.GetTagHelperOutput(tagName);
             tagHelper.Process(tagHelperContext, tagHelperOutput);
             string numLinks = TestUtils.CreateNumericPageLinks(1, 10, 5, "/Home/test?pageindex={0}", template: template);
-            string expectedResult = $"{TestUtils.CreateStartTag(11,tagName,5)}<li><a href=\"/Home/test?pageindex=1\"><<</a></li><li><a href=\"/Home/test?pageindex=4\"><</a></li>{numLinks}<li><a href=\"/Home/test?pageindex=11\">...</a></li><li><a href=\"/Home/test?pageindex=6\">></a></li><li><a href=\"/Home/test?pageindex=11\">>></a></li></{tagName}>";
+            string expectedResult = $"{TestUtils.CreateStartTag(11,tagName,5)}<li><a href=\"/Home/test?pageindex=1\">&lt;&lt;</a></li><li><a href=\"/Home/test?pageindex=4\">&lt;</a></li>{numLinks}<li><a href=\"/Home/test?pageindex=11\">...</a></li><li><a href=\"/Home/test?pageindex=6\">&gt;</a></li><li><a href=\"/Home/test?pageindex=11\">&gt;&gt;</a></li></{tagName}>";
             Assert.Equal(expectedResult, tagHelperOutput.Content.GetContent());
         }
 
@@ -306,7 +306,7 @@ namespace Webdiyer.MvcCorePagerTests
             var tagHelperOutput = TestUtils.GetTagHelperOutput("div");
             tagHelper.Process(tagHelperContext, tagHelperOutput);
             string numLinks = TestUtils.CreateNumericPageLinks(1, numericPagerItemCount, 1, "/Home/test?pageindex={0}");
-            string expectedResult = $"{TestUtils.CreateStartTag(11)}<<<{numLinks}<a href=\"/Home/test?pageindex={numericPagerItemCount+1}\">...</a><a href=\"/Home/test?pageindex=2\">></a><a href=\"/Home/test?pageindex=11\">>></a></div>";
+            string expectedResult = $"{TestUtils.CreateStartTag(11)}&lt;&lt;&lt;{numLinks}<a href=\"/Home/test?pageindex={numericPagerItemCount+1}\">...</a><a href=\"/Home/test?pageindex=2\">&gt;</a><a href=\"/Home/test?pageindex=11\">&gt;&gt;</a></div>";
             Assert.Equal(expectedResult, tagHelperOutput.Content.GetContent());
         }
 
