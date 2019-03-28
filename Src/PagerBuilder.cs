@@ -485,7 +485,7 @@ namespace Webdiyer.AspNetCore
         private string GeneratePagerElement(PagerItem item)
         {
             //pager item link
-            string url = GenerateUrl(item.PageIndex);
+            string url = System.Net.WebUtility.HtmlEncode(GenerateUrl(item.PageIndex));
             if (item.Disabled) //first,last,next or previous pager items, don't encode content
                 return CreateWrappedPagerElement(item, item.Text);
             //var link = HtmlEncoder.Default.Encode(item.Text);

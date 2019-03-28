@@ -310,5 +310,28 @@ namespace Webdiyer.MvcCorePagerTests
             Assert.Equal(expectedResult, tagHelperOutput.Content.GetContent());
         }
 
+        [Fact]
+        public void QueryString_ShouldBeAddedToRoute()
+        {
+            var pagedList = Enumerable.Range(1, 108).ToPagedList(5, 10);
+            var httpContext = new DefaultHttpContext();
+            httpContext.Request.QueryString = new QueryString("?type=news&class=local");
+            var viewContext = TestUtils.GetViewContext(httpContext, new RouteValueDictionary(new { action = "test", controller = "Home" }));
+            
+            string tagName = "div";
+            var tagHelper = new MvcCorePagerTagHelper(TestUtils.GetUrlHelperFactory())
+            {
+                Model = pagedList,
+                ViewContext = viewContext,
+                TagName = tagName
+            };
+
+            var tagHelperContext = TestUtils.GetTagHelperContext();
+            var tagHelperOutput = TestUtils.GetTagHelperOutput(tagName);
+            tagHelper.Process(tagHelperContext, tagHelperOutput);
+            string numLinks = TestUtils.CreateNumericPageLinks(1, 10, 5, "/Home/test?type=news&amp;class=local&amp;pageindex={0}");
+            string expectedResult = $"{TestUtils.CreateStartTag(11, tagName, 5,firstPageUrl: "/Home/test?type=news&amp;class=local&amp;pageindex=1", urlFormat: "/Home/test?type=news&amp;class=local&amp;pageindex=__pageindex__")}<a href=\"/Home/test?type=news&amp;class=local&amp;pageindex=1\">&lt;&lt;</a><a href=\"/Home/test?type=news&amp;class=local&amp;pageindex=4\">&lt;</a>{numLinks}<a href=\"/Home/test?type=news&amp;class=local&amp;pageindex=11\">...</a><a href=\"/Home/test?type=news&amp;class=local&amp;pageindex=6\">&gt;</a><a href=\"/Home/test?type=news&amp;class=local&amp;pageindex=11\">&gt;&gt;</a></{tagName}>";
+            Assert.Equal(expectedResult, tagHelperOutput.Content.GetContent());
+        }
     }
 }
