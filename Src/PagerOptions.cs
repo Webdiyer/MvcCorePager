@@ -43,10 +43,7 @@ namespace Webdiyer.AspNetCore
 
         /// <include file='docs/MvcCorePagerDocs.xml' path='MvcCorePagerDocs/PagerOptions/Property[@name="Route"]/*'/>
         public string Route { get; set; }
-
-        /// <include file='docs/MvcCorePagerDocs.xml' path='MvcCorePagerDocs/PagerOptions/Property[@name="OverwriteUrlFormat"]/*'/>
-        public string OverwriteUrlFormat { get; set; }
-
+        
         /// <include file='docs/MvcCorePagerDocs.xml' path='MvcCorePagerDocs/PagerOptions/Property[@name="RouteValues"]/*'/>
         public RouteValueDictionary RouteValues { get; set; }
 

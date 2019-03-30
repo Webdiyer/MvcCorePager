@@ -341,3 +341,4 @@ ASALocalRun/
 # BeatPulse healthcheck temp database
 healthchecksdb
 /Src/Webdiyer.AspNetCore.MvcCorePager.xml
+/Src/docs/Webdiyer.AspNetCore.MvcCorePager.xml

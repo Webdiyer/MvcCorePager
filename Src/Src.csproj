@@ -29,6 +29,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="docs\Webdiyer.AspNetCore.MvcCorePager.xml" />
     <None Remove="wwwroot\js\MvcCorePager\MvcCorePager.js" />
     <None Remove="wwwroot\js\MvcCorePager\MvcCorePager.min.js" />
   </ItemGroup>

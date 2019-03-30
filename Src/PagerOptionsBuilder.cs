@@ -310,7 +310,7 @@ namespace Webdiyer.AspNetCore
             return this;
         }
 
-        ///<include file='docs/MvcCorePagerDocs.xml' path='MvcCorePagerDocs/PagerOptionsBuilder/Method[@name="PagerOptionsBuilder"]/*'/>
+        ///<include file='docs/MvcCorePagerDocs.xml' path='MvcCorePagerDocs/PagerOptionsBuilder/Method[@name="SetPagerItemCssClass"]/*'/>
         public PagerOptionsBuilder SetPagerItemCssClass(string cssClass)
         {
             _pagerOptions.PagerItemCssClass = cssClass;
