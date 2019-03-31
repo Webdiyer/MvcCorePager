@@ -272,10 +272,10 @@ namespace Webdiyer.AspNetCore
             {
                 if (_ajaxPagingEnabled)
                 {
-                    return $"<div data-ajax=\"true\" data-ajax-update=\"{EscapeIdSelector(_ajaxOptions.UpdateTargetId)}\" data-invalidpageerrmsg=\"{_pagerOptions.InvalidPageIndexErrorMessage}\" data-outrangeerrmsg=\"{_pagerOptions.PageIndexOutOfRangeErrorMessage}\" data-pagerid=\"Webdiyer.MvcPager\" style=\"color:red;font-weight:bold\">{_pagerOptions.PageIndexOutOfRangeErrorMessage}</div>";
+                    return $"<div data-ajax=\"true\" data-ajax-update=\"{EscapeIdSelector(_ajaxOptions.UpdateTargetId)}\" data-invalidpageerrmsg=\"{_pagerOptions.InvalidPageIndexErrorMessage}\" data-outrangeerrmsg=\"{_pagerOptions.PageIndexOutOfRangeErrorMessage}\" data-pagerid=\"Webdiyer.MvcCorePager\" style=\"color:red;font-weight:bold\">{_pagerOptions.PageIndexOutOfRangeErrorMessage}</div>";
 
                 }
-                return $"<div data-invalidpageerrmsg=\"{_pagerOptions.InvalidPageIndexErrorMessage}\" data-outrangeerrmsg=\"{_pagerOptions.PageIndexOutOfRangeErrorMessage}\" data-pagerid=\"Webdiyer.MvcPager\" style=\"color:red;font-weight:bold\">{_pagerOptions.PageIndexOutOfRangeErrorMessage}</div>";
+                return $"<div data-invalidpageerrmsg=\"{_pagerOptions.InvalidPageIndexErrorMessage}\" data-outrangeerrmsg=\"{_pagerOptions.PageIndexOutOfRangeErrorMessage}\" data-pagerid=\"Webdiyer.MvcCorePager\" style=\"color:red;font-weight:bold\">{_pagerOptions.PageIndexOutOfRangeErrorMessage}</div>";
             }
 
             var tb = new TagBuilder(_pagerOptions.TagName);
@@ -440,7 +440,7 @@ namespace Webdiyer.AspNetCore
                 throw new ArgumentNullException("PageIndexParameterName can not be null or empty!");
             }
             attrs.Add("data-url-format", GenerateUrl(0));
-            attrs.Add("data-pager-type", "Webdiyer.MvcPager");
+            attrs.Add("data-pager-type", "Webdiyer.MvcCorePager");
             if (_pageIndex > 1)
                 attrs.Add("data-current-page", _pageIndex);
             if (_pageIndex > 1)

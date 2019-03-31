@@ -12,12 +12,12 @@
   </Class>
   <Class name="PagerOptions">
     <summary>
-      Represents option settings for MvcPager.
+      Represents option settings for MvcCorePager.
     </summary>
   </Class>
   <Class name="MvcAjaxOptions">
     <summary>
-      Represents option settings for running Ajax scripts for the MvcPager control, this class inherits from AjaxOptions.
+      Represents option settings for running Ajax scripts for the MvcCorePager component, this class inherits from AjaxOptions.
     </summary>
   </Class>
   <Class name="PagedList">
@@ -35,11 +35,6 @@
       Represents a PagerOptions builder that is used to create the PagerOptions object.
     </summary>
   </Class>  
-  <Class name="ScriptResourceExtensions">
-    <summary>
-      This class contains two extension methods: HtmlHelper.RegisterMvcPagerScriptResource method is used to register the MvcPager jQuery plugin, and AjaxHelper.LoadMvcPagerScript method is used to dynamically load the MvcPager jQuery plugin, two methods can not be used at the same time.
-    </summary>
-  </Class>
   <Class name="PagerExtensions">
     <summary>
       Represents support for HtmlPager and AjaxPager in an application.
@@ -59,12 +54,12 @@
   <Interfaces>
     <Interface name="IPagedList">
       <summary>
-        Defines members that an object must implement in order to have paging functionality provided by the MvcPager control.
+        Defines members that an object must implement in order to have paging functionality provided by the MvcCorePager component.
       </summary>
     </Interface>
     <Interface name="IPagedList2">
       <summary>
-        Defines members that an object must implement in order to have paging functionality provided by the MvcPager control.
+        Defines members that an object must implement in order to have paging functionality provided by the MvcCorePager component.
       </summary>
     </Interface>
   </Interfaces>
@@ -186,12 +181,12 @@
       </Property>
       <Property name="RouteValues">
         <summary>
-          Gets or sets the object that contains the parameters for the route used by MvcPager.
+          Gets or sets the object that contains the parameters for the route used by MvcCorePager.
         </summary>
       </Property>
       <Property name="HtmlAttributes">
         <summary>
-          Gets or sets the object that contains the HTML attributes to set for the MvcPager.
+          Gets or sets the object that contains the HTML attributes to set for the MvcCorePager.
         </summary>
       </Property>
     <Property name="FirstPageRoute">
@@ -201,7 +196,7 @@
     </Property>
     <Property name="AutoHide">
       <summary>
-        Gets or sets a value indicating whether MvcPager should be hidden if there's only one page of data.
+        Gets or sets a value indicating whether MvcCorePager should be hidden if there's only one page of data.
       </summary>
     </Property>
     <Property name="PageIndexOutOfRangeErrorMessage">
@@ -351,7 +346,7 @@ Gets or sets the ID of the top DOM element that is the container of all pager it
     </Property>
     <Property name="HorizontalAlign">
       <summary>
-Gets or sets the horizontal alignment of a MvcPager on the page.
+Gets or sets the horizontal alignment of a MvcCorePager on the page.
       </summary>
     </Property>
     <Property name="CssClass">
@@ -388,7 +383,7 @@ Gets or sets the maximum page number limitation, default value is 0, which means
     </Property>
     <Property name="DataFormId">
       <summary>
-        Gets or sets the ID of the form element that values of fields should be passed to server by MvcPager every time page changed.
+        Gets or sets the ID of the form element that values of fields should be passed to server by MvcCorePager every time page changed.
       </summary>
     </Property>
     <Property name="AllowCache">
@@ -405,7 +400,7 @@ Gets or sets the maximum page number limitation, default value is 0, which means
   <Enums>
   <Enum name="PagerItemsPosition">
     <summary>
-      Specifies the position of the first, previous, next and last navigation buttons within MvcPager.
+      Specifies the position of the first, previous, next and last navigation buttons within MvcCorePager.
     </summary>
   </Enum>
   </Enums>
@@ -493,21 +488,6 @@ Gets or sets the maximum page number limitation, default value is 0, which means
     <returns>AjaxPager</returns>
   </Method>
   </PagerExtensions>
-
-  <ScriptResourceExtensions>
-  <Method name="LoadMvcPagerScript">
-    <summary>
-      通过Ajax动态加载并运行MvcPager客户端jQuery插件
-    </summary>
-    <param name="ajax">此方法扩展的 AjaxHelper 实例</param>
-  </Method>
-  <Method name="RegisterMvcPagerScriptResource">
-    <summary>
-      注册MvcPager客户端jQuery插件
-    </summary>
-    <param name="html">此方法扩展的 HtmlHelper 实例</param>
-  </Method>
-  </ScriptResourceExtensions>
   
   <PagedList>
   <Constructor name="PagedList1">
@@ -617,7 +597,7 @@ Gets or sets the maximum page number limitation, default value is 0, which means
       Initializes a new instance of the PagerOptionsBuilder class with a PagerOptions instance.
     </summary>
     <param name="pagerOptions">
-      An PagerOptions instance contains option settings for the MvcPager control.
+      An PagerOptions instance contains option settings for the MvcCorePager component.
     </param>
   </Constrctor>
   <Method name="AddHtmlAttribute">
@@ -945,7 +925,7 @@ Gets or sets the maximum page number limitation, default value is 0, which means
         Initializes a new instance of the MvcAjaxOptionsBuilder class with a MvcAjaxOptions instance.
       </summary>
       <param name="ajaxOptions">
-        A MvcAjaxOptions instance contains option settings for running Ajax scripts for the MvcPager control.
+        A MvcAjaxOptions instance contains option settings for running Ajax scripts for the MvcCorePager control.
       </param>
     </Constructor>
     <Method name="DisableHistorySupport">
@@ -972,7 +952,7 @@ Gets or sets the maximum page number limitation, default value is 0, which means
     </Method>
     <Method name="SetDataFormId">
       <summary>
-        Sets the ID of the form element that values of fields should be passed to server by MvcPager every time page changed, it's equivalent of setting MvcAjaxOptions.DataFormId to the given value.
+        Sets the ID of the form element that values of fields should be passed to server by MvcCorePager every time page changed, it's equivalent of setting MvcAjaxOptions.DataFormId to the given value.
       </summary>
       <param name="id">
       </param>

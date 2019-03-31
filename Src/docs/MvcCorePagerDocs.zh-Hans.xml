@@ -12,12 +12,12 @@
   </Class>
   <Class name="PagerOptions">
     <summary>
-      表示包含MvcPager分页控件相关选项和设置的对象。
+      表示包含MvcCorePager分页控件相关选项和设置的对象。
     </summary>
   </Class>
   <Class name="MvcAjaxOptions">
     <summary>
-      表示用于 MvcPager 在 Ajax 分页模式下的选项设置，该类继承自 AjaxOptions。
+      表示用于 MvcCorePager 在 Ajax 分页模式下的选项设置，该类继承自 AjaxOptions。
     </summary>
   </Class>
   <Class name="PagedList">
@@ -33,11 +33,6 @@
   <Class name="PagerOptionsBuilder">
     <summary>
       表示用于构建PagerOptions对象的辅助对象。
-    </summary>
-  </Class>
-    <Class name="ScriptResourceExtensions">
-    <summary>
-      表示包含MvcPager客户端脚本相关方法的对象。
     </summary>
   </Class>
     <Class name="PagerExtensions">
@@ -165,32 +160,32 @@
     </Constructor>
     <Property name="Action">
       <summary>
-        用于MvcPager生成分页链接的控制器的Action名称
+        用于MvcCorePager生成分页链接的控制器的Action名称
       </summary>
     </Property>
     <Property name="Controller">
       <summary>
-        用于MvcPager生成分页链接的控制器名称
+        用于MvcCorePager生成分页链接的控制器名称
       </summary>
     </Property>
     <Property name="Area">
       <summary>
-        用于MvcPager生成分页链接的区域（Area）名称
+        用于MvcCorePager生成分页链接的区域（Area）名称
       </summary>
     </Property>
     <Property name="Route">
       <summary>
-        用于MvcPager生成分页链接的路由名称
+        用于MvcCorePager生成分页链接的路由名称
       </summary>
     </Property>
     <Property name="RouteValues">
       <summary>
-        用于MvcPager生成分页链接的路由的值
+        用于MvcCorePager生成分页链接的路由的值
       </summary>
     </Property>
     <Property name="HtmlAttributes">
       <summary>
-        要应用到MvcPager的容器元素上的Html属性
+        要应用到MvcCorePager的容器元素上的Html属性
       </summary>
     </Property>
     <Property name="FirstPageRoute">
@@ -200,7 +195,7 @@
     </Property>
     <Property name="AutoHide">
       <summary>
-        指定总页数只有一页时，MvcPager是否自动隐藏
+        指定总页数只有一页时，MvcCorePager是否自动隐藏
       </summary>
     </Property>
     <Property name="PageIndexOutOfRangeErrorMessage">
@@ -449,19 +444,19 @@
     </summary>
     <param name="helper">此方法扩展的 HTMLHelper 实例</param>
     <param name="pagedList">包含要分页数据的IPagedList对象</param>
-    <param name="pagerOptions">提供 MvcPager 选项的对象</param>
+    <param name="pagerOptions">提供 MvcCorePager 选项的对象</param>
     <returns>HtmlPager对象</returns>
   </Method>
   <Method name="AjaxPager1">
     <summary>
-      根据总记录数、每页显示记录数、当前页索引、PagerOptions设置项和MvcPagerOptions设置项构建AjaxPager。
+      根据总记录数、每页显示记录数、当前页索引、PagerOptions设置项和MvcAjaxOptions设置项构建AjaxPager。
     </summary>
     <param name="ajax">此方法扩展的 AjaxHelper 实例</param>
     <param name="totalItemCount">总记录数</param>
     <param name="pageSize">每页显示记录数</param>
     <param name="pageIndex">当前页索引</param>
-    <param name="pagerOptions">提供 MvcPager 选项的对象</param>
-    <param name="ajaxOptions">提供 MvcPager 异步请求选项的对象</param>
+    <param name="pagerOptions">提供 MvcCorePager 选项的对象</param>
+    <param name="ajaxOptions">提供 MvcCorePager 异步请求选项的对象</param>
     <returns>AjaxPager</returns>
   </Method>
   <Method name="AjaxPager2">
@@ -478,7 +473,7 @@
     </summary>
     <param name="ajax">此方法扩展的 AjaxHelper 实例</param>
     <param name="pagedList">包含分页数据的IPagedList对象</param>
-    <param name="pagerOptions">提供 MvcPager 选项的对象</param>
+    <param name="pagerOptions">提供 MvcCorePager 选项的对象</param>
     <returns>AjaxPager</returns>
   </Method>
   <Method name="AjaxPager4">
@@ -487,26 +482,11 @@
     </summary>
     <param name="ajax">此方法扩展的 AjaxHelper 实例</param>
     <param name="pagedList">包含分页数据的IPagedList对象</param>
-    <param name="pagerOptions">提供 MvcPager 选项的对象</param>
-    <param name="ajaxOptions">提供 MvcPager 异步请求选项的对象</param>
+    <param name="pagerOptions">提供 MvcCorePager 选项的对象</param>
+    <param name="ajaxOptions">提供 MvcCorePager 异步请求选项的对象</param>
     <returns>AjaxPager</returns>
   </Method>
   </PagerExtensions>
-  <ScriptResourceExtensions>
-    <Method name="LoadMvcPagerScript">
-      <summary>
-        通过Ajax动态加载并运行MvcPager客户端jQuery插件
-      </summary>
-      <param name="ajax">此方法扩展的 AjaxHelper 实例</param>
-    </Method>
-    <Method name="RegisterMvcPagerScriptResource">
-      <summary>
-        注册MvcPager客户端jQuery插件
-      </summary>
-      <param name="html">此方法扩展的 HtmlHelper 实例</param>
-    </Method>
-  </ScriptResourceExtensions>
-
   <PagedList>
   <Constructor name="PagedList1">
     <summary>

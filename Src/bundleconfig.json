@@ -4,5 +4,11 @@
     "inputFiles": [
       "wwwroot/lib/MvcCorePager/MvcCorePager.js"
     ]
+  },
+  {
+    "outputFileName": "wwwroot/js/MvcCorePager/MvcCorePager.min.js",
+    "inputFiles": [
+      "wwwroot/js/MvcCorePager/MvcCorePager.js"
+    ]
   }
 ]

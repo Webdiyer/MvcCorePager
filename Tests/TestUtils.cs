@@ -18,11 +18,11 @@ namespace Webdiyer.MvcCorePagerTests
         {
             if (currentPage == 1)
             {
-                return $"<{tagName} data-invalid-page-error=\"{ivperror}\" data-out-range-error=\"{orerror}\" data-page-count=\"{pageCount}\" data-page-parameter=\"{piparam}\" data-pager-type=\"Webdiyer.MvcPager\" data-url-format=\"{urlFormat}\">";
+                return $"<{tagName} data-invalid-page-error=\"{ivperror}\" data-out-range-error=\"{orerror}\" data-page-count=\"{pageCount}\" data-page-parameter=\"{piparam}\" data-pager-type=\"Webdiyer.MvcCorePager\" data-url-format=\"{urlFormat}\">";
             }
             else
             {
-                return $"<{tagName} data-current-page=\"{currentPage}\" data-first-page=\"{firstPageUrl}\" data-invalid-page-error=\"{ivperror}\" data-out-range-error=\"{orerror}\" data-page-count=\"{pageCount}\" data-page-parameter=\"{piparam}\" data-pager-type=\"Webdiyer.MvcPager\" data-url-format=\"{urlFormat}\">";
+                return $"<{tagName} data-current-page=\"{currentPage}\" data-first-page=\"{firstPageUrl}\" data-invalid-page-error=\"{ivperror}\" data-out-range-error=\"{orerror}\" data-page-count=\"{pageCount}\" data-page-parameter=\"{piparam}\" data-pager-type=\"Webdiyer.MvcCorePager\" data-url-format=\"{urlFormat}\">";
             }
         }
 

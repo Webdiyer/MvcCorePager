@@ -1,7 +1,7 @@
 ﻿'use strict';
 var Webdiyer = Webdiyer || {};
-Webdiyer.MvcPagers = [];
-Webdiyer.MvcPagers.getById = function (id) {
+Webdiyer.MvcCorePagers = [];
+Webdiyer.MvcCorePagers.getById = function (id) {
     for (var i = 0; i <= this.length; i++) {
         if (typeof this[i] !== "undefined" && this[i].id === id) {
             return this[i];
@@ -9,13 +9,13 @@ Webdiyer.MvcPagers.getById = function (id) {
     }
     return null;
 };
-Webdiyer.__ajaxPages = {}; //Ajax page parameters, preventing multiple MvcPager with same UrlPageIndexName trigger multiple http requests
+Webdiyer.__ajaxPages = {}; //Ajax page parameters, preventing multiple MvcCorePager with same UrlPageIndexName trigger multiple http requests
 
-Webdiyer.MvcPager = function (wrapper) {
+Webdiyer.MvcCorePager = function (wrapper) {
     this.wrapper = wrapper;
 };
 
-Webdiyer.MvcPager.prototype = {
+Webdiyer.MvcCorePager.prototype = {
     wrapper: null,
     id: null,
     urlFormat: null,
@@ -82,7 +82,7 @@ Webdiyer.MvcPager.prototype = {
             this.loadingDuration = wrapper.data("ajaxLoadingDuration") || 0;
             this.partialLoading = wrapper.data("ajaxPartialLoading") || false;
             initialPageIndex = this.currentPageIndex;
-            var pagerSelector = "[data-pager-type='Webdiyer.MvcPager']";
+            var pagerSelector = "[data-pager-type='Webdiyer.MvcCorePager']";
             var hashIndex = this.__getPageIndex(this.pageIndexName);
             if (hashIndex !== this.currentPageIndex && hashIndex > 0)
             { this.__ajax(hashIndex, { type: this.httpMethod, data: [] }); }
@@ -388,10 +388,10 @@ Webdiyer.MvcPager.prototype = {
     }
 };
 (function ($) {
-    $.fn.initMvcPagers = function () {
+    $.fn.initMvcCorePagers = function () {
         return this.each(function () {
-            Webdiyer.MvcPagers.push(new Webdiyer.MvcPager(this).init());
+            Webdiyer.MvcCorePagers.push(new Webdiyer.MvcCorePager(this).init());
         });
     };
 })(jQuery);
-$(function () { $("[data-pager-type='Webdiyer.MvcPager']").initMvcPagers(); });
+$(function () { $("[data-pager-type='Webdiyer.MvcCorePager']").initMvcCorePagers(); });
