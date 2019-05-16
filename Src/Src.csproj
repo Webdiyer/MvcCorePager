@@ -5,7 +5,7 @@
     <GenerateEmbeddedFilesManifest>true</GenerateEmbeddedFilesManifest>
     <AssemblyName>Webdiyer.AspNetCore.MvcCorePager</AssemblyName>
     <RootNamespace>Webdiyer.AspNetCore</RootNamespace>
-    <PackageId>Webdiyer.MvcCorePager</PackageId>
+    <PackageId>MvcCorePager</PackageId>
     <Authors>Webdiyer</Authors>
     <Company />
     <Product>MvcCorePager</Product>
@@ -13,15 +13,17 @@
     <Copyright>2017-2019 Webdiyer</Copyright>
     <PackageProjectUrl>http://www.webdiyer.com/</PackageProjectUrl>
     <RepositoryUrl>https://github.com/Webdiyer/MvcCorePager</RepositoryUrl>
-    <PackageTags>MvcPager MvcCorePager</PackageTags>
+    <PackageTags>MvcPager,MvcPagerCore,MvcCorePager</PackageTags>
     <SignAssembly>false</SignAssembly>
     <AssemblyOriginatorKeyFile>MvcCorePager.pfx</AssemblyOriginatorKeyFile>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <AssemblyVersion>0.1.0.0</AssemblyVersion>
     <FileVersion>0.1.0.0</FileVersion>
     <Version>0.1.0.0</Version>
-    <PackageLicenseUrl>https://github.com/Webdiyer/MvcCorePager/blob/master/LICENSE</PackageLicenseUrl>
+    <PackageLicenseUrl></PackageLicenseUrl>
     <DelaySign>false</DelaySign>
+    <PackageReleaseNotes>Initial release</PackageReleaseNotes>
+    <RepositoryType>git</RepositoryType>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
