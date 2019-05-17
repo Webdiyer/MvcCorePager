@@ -1,7 +1,11 @@
 ﻿# MvcCorePager | [简体中文](README.zh-CN.md)
 
-![MvcCorePager](/Demo/wwwroot/images/MvcCorePager.gif)
 MvcCorePager is a free and open source pagination component for ASP.NET Core MVC application, it supports both tag helper and Html extension method syntax.
+
+[![License](https://img.shields.io/github/license/mashape/apistatus.svg)](https://github.com/Webdiyer/MvcCorePager/blob/master/LICENSE)
+[![NuGet](https://img.shields.io/nuget/v/MvcCorePager.svg)](https://www.nuget.org/packages/MvcCorePager/)
+
+![MvcCorePager](/Demo/wwwroot/images/MvcCorePager.gif)
 
 ### Html extension method syntax:
 ```csharp
