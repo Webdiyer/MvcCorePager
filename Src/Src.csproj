@@ -13,7 +13,7 @@
     <Copyright>2017-2019 Webdiyer</Copyright>
     <PackageProjectUrl>http://www.webdiyer.com/</PackageProjectUrl>
     <RepositoryUrl>https://github.com/Webdiyer/MvcCorePager</RepositoryUrl>
-    <PackageTags>MvcPager,MvcPagerCore,MvcCorePager</PackageTags>
+    <PackageTags>MvcCorePager Pagination MvcPager MvcPagerCore</PackageTags>
     <SignAssembly>false</SignAssembly>
     <AssemblyOriginatorKeyFile>MvcCorePager.pfx</AssemblyOriginatorKeyFile>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
@@ -24,6 +24,7 @@
     <DelaySign>false</DelaySign>
     <PackageReleaseNotes>Initial release</PackageReleaseNotes>
     <RepositoryType>git</RepositoryType>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
