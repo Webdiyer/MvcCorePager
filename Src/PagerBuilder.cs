@@ -25,7 +25,7 @@ namespace Webdiyer.AspNetCore
         private IUrlHelper _urlHelper;
 
         //html pager builder
-        internal PagerBuilder(ViewContext viewContext,IUrlHelper urlHelper, int totalPageCount, int pageIndex, PagerOptions pagerOptions)
+        internal PagerBuilder(ViewContext viewContext, IUrlHelper urlHelper, int totalPageCount, int pageIndex, PagerOptions pagerOptions)
         {
             _ajaxPagingEnabled = false;
             if (pagerOptions == null)
@@ -55,7 +55,7 @@ namespace Webdiyer.AspNetCore
         internal PagerBuilder(ViewContext viewContext, IUrlHelper urlHelper, int totalPageCount, int pageIndex, PagerOptions pagerOptions,
             MvcAjaxOptions ajaxOptions)
         {
-            _ajaxPagingEnabled =true;
+            _ajaxPagingEnabled = true;
             if (pagerOptions == null)
                 pagerOptions = new PagerOptions();
             _urlHelper = urlHelper;
@@ -147,7 +147,7 @@ namespace Webdiyer.AspNetCore
                 results.Add(item);
         }
 
-        
+
         /// <summary>
         /// Generate pagination url using page index
         /// </summary>
@@ -239,6 +239,10 @@ namespace Webdiyer.AspNetCore
             {
                 url = _urlHelper.RouteUrl(_pagerOptions.Route, routeValues);
             }
+            else if (!string.IsNullOrWhiteSpace(_pagerOptions.UrlFormat))
+            {
+                url = UrlFormatHelper.FormatUrl(_pagerOptions.UrlFormat, routeValues);
+            }
             else
             {
                 if (!string.IsNullOrWhiteSpace(_pagerOptions.Controller))
@@ -301,10 +305,10 @@ namespace Webdiyer.AspNetCore
             if (attrs == null)
             {
                 attrs = new Dictionary<string, object>();
-            }            
+            }
             AddDataAttributes(attrs);
             tb.MergeAttributes(attrs, true);
-            if (_totalPageCount > 1 ||!_pagerOptions.AutoHide)
+            if (_totalPageCount > 1 || !_pagerOptions.AutoHide)
             {
                 var pagerItems = new List<PagerItem>();
                 if (_pagerOptions.NavigationPagerItemsPosition == PagerItemsPosition.Left ||
@@ -402,7 +406,7 @@ namespace Webdiyer.AspNetCore
 
         internal static string EscapeIdSelector(string id)
         {
-            var reg=new Regex(@"[.:[\]]");
+            var reg = new Regex(@"[.:[\]]");
             return '#' + reg.Replace(id, @"\$&");
         }
 
@@ -418,7 +422,7 @@ namespace Webdiyer.AspNetCore
         {
             if (attributes == null)
             {
-                attributes = new Dictionary<string, object> {{"style", style}};
+                attributes = new Dictionary<string, object> { { "style", style } };
             }
             else
             {
@@ -505,7 +509,7 @@ namespace Webdiyer.AspNetCore
                     link = $"<a href=\"{url}\">{item.Text}</a>";
                 }
             }
-            return CreateWrappedPagerElement(item,link);
+            return CreateWrappedPagerElement(item, link);
         }
 
         private string GenerateAjaxPagerElement(PagerItem item)
