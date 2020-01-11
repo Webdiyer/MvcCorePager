@@ -1,7 +1,4 @@
 ﻿using Microsoft.AspNetCore.Routing;
-using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Text.RegularExpressions;
 
 namespace Webdiyer.AspNetCore
@@ -14,9 +11,9 @@ namespace Webdiyer.AspNetCore
             var maches = _pattern.Matches(urlFormat);
             foreach (Match item in maches)
             {
-                if (item.Success && routeValues.ContainsKey(item.Groups[1].Value))
+                if (routeValues.ContainsKey(item.Groups[1].Value))
                 {
-                    urlFormat = urlFormat.Replace(item.Value, routeValues[item.Groups[1].Value].ToString());
+                    urlFormat = urlFormat.Replace(item.Value, routeValues[item.Groups[1].Value]?.ToString());
                 }
             }
             return urlFormat;
