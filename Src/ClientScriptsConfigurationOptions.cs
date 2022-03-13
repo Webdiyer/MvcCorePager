@@ -1,20 +1,26 @@
 ﻿using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.StaticFiles;
 using Microsoft.Extensions.FileProviders;
 using Microsoft.Extensions.Options;
 using System;
 
+#if NETSTANDARD2_0
+using IWebHostEnvironment = Microsoft.AspNetCore.Hosting.IHostingEnvironment;
+#else
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.Extensions.Hosting;
+#endif
+
 namespace Webdiyer.AspNetCore
 {
     internal class ClientScriptsConfigurationOptions : IPostConfigureOptions<StaticFileOptions>
     {
-        public ClientScriptsConfigurationOptions(IHostingEnvironment environment)
+        public ClientScriptsConfigurationOptions(IWebHostEnvironment environment)
         {
             Environment = environment;
         }
 
-        public IHostingEnvironment Environment { get; }
+        public IWebHostEnvironment Environment { get; }
 
         public void PostConfigure(string name, StaticFileOptions options)
         {
